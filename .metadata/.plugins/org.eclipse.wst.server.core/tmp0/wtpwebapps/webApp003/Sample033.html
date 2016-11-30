@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습</title>
+<!-- 이벤트 등록 방법 -->
+<script type="text/javascript">
+
+	/* 이벤트 등록 방법 ② */
+	document.onload = window_onload();
+	
+	function window_onload()
+	{
+		alert("경고창");
+	}
+	
+</script>
+</head>
+
+<!-- 이벤트 등록 방법 ① -->
+<body onload="return window_onload();">
+	<h1>졸지말고 집중합시다잉</h1>
+	<!-- 이전 html032 에서 script 에서 는 경고창이 먼저 뜬 후
+	     문자가 등장 했는데 위와 같이 body 태그 안에 이벤트를 등록 후
+	     스크립트에서 이벤트를 정의하면 문자열이 먼저 등장하고, 경고창이 출력한다.
+	     onload() 이벤트는
+	 -->
+</body>
+</html>

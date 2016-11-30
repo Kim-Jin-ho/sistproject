@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습</title>
+<!-- 자바스크립트에서의 테이블 -->
+<style type="text/css">
+	*{ font-family: 맑은 고딕; font-weight: bold; }
+	#tdName{ width: 80px; }
+	#tdTel{ width: 200px; }
+	#tdAddr{ width: 180px; }
+	.txt{ border:solid 1px gray; border-radius:4px; }
+	.btn{ width: 460px; height: 40px;'}
+	div{ width:500px;}
+	
+</style>
+<script type="text/javascript">
+
+	function addMember()
+	{
+		var name = document.getElementById("txtName").value;
+		var tel = document.getElementById("txtTel").value;
+		var addr = document.getElementById("txtAddr").value;
+		
+		// ※<tbody> 엘리먼트 접근 방법
+		//	 브라우제에 따라 결과가 나올 수 있음
+		var tableNode = document.getElementById("memberTable");
+		//alert(name); alert(tel); alert(addr);
+		//alert(tableNode.nodeType);
+		
+		//<tr></tr> 엘리먼트 동적 생성
+		//<td></td> 엘리먼트 동적 생성
+		
+		// '홍길동' 이라는 이름 데이터를 <td>엘리먼트에 추가
+		// -> <td> 홍길동</td>
+		// <td> 엘리먼트를 <tr> 엘리먼트에 추가
+		// -> <tr><td>홍길동</td></tr>
+		
+		// 010-1111-1111 이라는 전화번호 데이터를 <td> 엘리먼트에 추가
+		//-> <td> 010-1111-1111</td>
+		
+		//<td> 엘리먼트를 아까 그 <tr> 엘리먼트에 추가
+		// -> <tr><td>홍길동</td><tr><td>010-1111-1111-</td></tr>
+
+		// '서울시 강남' 이라는 데이터를 <td> 엘리먼트에 추가
+		//-> <td>서울시 강남</td>
+		
+		//<td> 엘리먼트를 아까 그 <tr> 엘리먼트에 추가
+		// -> <tr><td>홍길동</td><tr><td>010-1111-1111-</td><td>서울시 강남</td></tr>
+		
+		// 여기까지 만든 <tr> 엘리먼트를 테이블에 추가
+		
+		var trNode = document.createElement("tr");
+		// <tr></tr>
+		
+		/*
+		var tdNode1 = document.createElement("td");
+		var nameNode = document.createTextNode(name);
+		var tdNode2 = document.createElement("td");
+		var telNode = document.createTextNode(tel);
+		var tdNode3 = document.createElement("td");		
+		var addrNode = document.createTextNode(addr);
+		// <td></td><td></td><td></td>
+		// 홍길동		010-1111-1111	서울시 강남구
+		
+		tdNode1.appendChild(nameNode);
+		tdNode2.appendChild(telNode);
+		tdNode3.appendChild(addrNode);
+		//<td>홍길동</td><td>010-1111-1111</td><td>서울시 강남구</td>
+		
+		trNode.appendChild(tdNode1);
+		trNode.appendChild(tdNode2);
+		trNode.appendChild(tdNode3);
+		//<tr><td>홍길동</td><td>010-1111-1111</td><td>서울시 강남구</td></tr>
+		*/
+		
+		trNode.appendChild(createTdNode(name));
+		trNode.appendChild(createTdNode(tel));
+		trNode.appendChild(createTdNode(addr));
+		
+		tableNode.appendChild(trNode);
+		//<table>//<tr><td>홍길동</td><td>010-1111-1111</td><td>서울시 강남구</td></tr></table>
+	}
+	
+	function createTdNode(val)
+	{
+		var textNode = document.createTextNode(val);
+		var tdNode = document.createElement("td");
+		
+		tdNode.appendChild(textNode);
+		return tdNode;
+	}
+	
+</script>
+
+</head>
+<body>
+
+<div>
+	<form>
+		이름 : <input type="text" class="txt" id="txtName"><br>
+		전화번호 : <input type="text" class="txt" id="txtTel"><br>
+		주소 : <input type="text" class= "txt"id="txtAddr"><br><br>
+		<button type="button" class="btn" onclick="addMember();">회원 정보 입력</button>
+	</form>
+	
+	<br>
+	<table border = "1" id ="memberTable">
+		<tr>
+			<td id="tdName">이름</td>
+			<td id="tdTel">전화번호</td>
+			<td id="tdAddr">주소</td>
+	</table>
+	
+</div>
+
+</body>
+</html>

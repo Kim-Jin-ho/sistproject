@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습</title>
+<script type="text/javascript">
+	num1 = 7;
+	num2 = 3;
+	
+	document.write("원래의 num1 : ");
+	document.write(num1);
+	
+	++num1
+	document.write("<br/> 첫 번째 ++num1 : ");
+	document.write(num1);
+	
+	++num1
+	document.write("<br/> 두 번째 ++num1 : ");
+	document.write(num1);
+	
+	document.write("<br/><br/> 원래의 num2 : ");
+	document.write(num2);
+	
+	--num2
+	document.write("<br/> 첫 번째 --num2 : ");
+	document.write(num2);
+	
+	--num2
+	document.write("<br/> 두 번째 --num2 : ");
+	document.write(num2);
+	
+	
+	//---------------------------------------------------
+	document.write("<hr>");
+	
+	num1 = 7;
+	num2 = 3;
+	
+	res = (num1 == num2);
+	document.write("<br/> num1 == num2 : ");
+	document.write(res);
+	
+	res = (num1 != num2);
+	document.write("<br/> num1 != num2 : ");
+	document.write(res);
+	
+	res = (num1 > num2);
+	document.write("<br/> num1 > num2 : ");
+	document.write(res);
+	
+	res = (num1 < num2);
+	document.write("<br/> num1 < num2 : ");
+	document.write(res);
+	
+	res = (num1 >= num2);
+	document.write("<br/> num1 >= num2 : ");
+	document.write(res);
+	
+	res = (num1 <= num2);
+	document.write("<br/> num1 <= num2 : ");
+	document.write(res);
+	
+	//---------------------------------------------------
+	document.write("<hr>");
+	
+	
+	num1 = 7;
+	num2 = 3;
+	
+	res = (num1 < 10 && num2 < 10);
+	document.write("<br/><br/>"+res);
+	//-- 둘 다 true 이므로 res 에 true 할당
+	
+	res = (num1 > 10 && num2 <10);
+	document.write("<br/>"+res);
+	//-- 둘 중 하나가 false 값을 가지고 있으므로 논리연산자를 만족하지 못하여 false 값을 담는다.
+	
+	//---------------------------------------------------
+	document.write("<hr>");
+	
+	relation = "clsrn";
+	
+	res = (relation =="연인") ? "사랑" : "우정";
+	document.write("<br/><br/> 결과 : " + res);
+	//-- 자바스크립는 자바(.equals)와 달리 문자열 끼리 비교가 가능하다.
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

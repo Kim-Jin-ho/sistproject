@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommitComments>	<CommitComment>DB서버 주소 서블릿 수정</CommitComment>
+	<CommitComment>DB서버 주소 수정</CommitComment>
+	<CommitComment>추천 신고 버튼 css 입힘</CommitComment>
+	<CommitComment>수정 삭제 버튼
+</CommitComment>
+	<CommitComment>수정 삭제 버튼</CommitComment>
+	<CommitComment>메인 화면(새로고침 할경우 마일리지 새로고침, 글작성 마일리지 적립)</CommitComment>
+	<CommitComment>버튼 색깔 바꿈</CommitComment>
+	<CommitComment>스터디룸 추가 화면 (plaseholder 추가)</CommitComment>
+	<CommitComment>스터디룸 추가 placeholder</CommitComment>
+	<CommitComment>아름이 부분 수정함 (좌표, 팝업크기)</CommitComment>
+</CommitComments>

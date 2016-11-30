@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+#go
+{
+	border: 1px solid black;
+}
+
+a.wrap:LINK, a.wrap:VISITED
+{
+	display: block;
+	width: 120px;
+	font-weight : bold;
+	color : #FFFFFF;
+	background-color: blue;
+	text-align : center;
+	padding : 4px;
+	text-decoration: none;
+	text-transform : uppercase;
+}
+
+
+a.wrap:HOVER, a.wrap:ACTIVE
+{
+	background-color: yellow;
+	
+}

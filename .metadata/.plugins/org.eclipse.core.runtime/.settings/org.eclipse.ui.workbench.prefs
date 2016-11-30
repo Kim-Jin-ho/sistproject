@@ -1,0 +1,12 @@
+//org.eclipse.ui.commands/state/org.eclipse.ui.navigator.resources.nested.changeProjectPresentation/org.eclipse.ui.commands.radioState=false
+//org.eclipse.ui.commands/state/org.eclipse.wst.xml.views.XPathView.processor.xpathprocessor/org.eclipse.ui.commands.radioState=xpath10
+ColorsAndFontsPreferencePage.expandedCategories=Torg.eclipse.ui.workbenchMisc
+ColorsAndFontsPreferencePage.selectedElement=Fterminal.views.view.font.definition
+PLUGINS_NOT_ACTIVATED_ON_STARTUP=org.eclipse.m2e.discovery;
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.editors.textfont=1|D2Coding|12.0|0|WINDOWS|1|-16|0|0|0|400|0|0|0|0|3|2|1|49|D2Coding;
+org.eclipse.jdt.ui.javadocfont=1|\uB098\uB214\uACE0\uB515\uCF54\uB529|12.0|0|WINDOWS|1|-16|0|0|0|400|0|0|0|0|3|2|1|49|\uB098\uB214\uACE0\uB515\uCF54\uB529;
+org.eclipse.jface.textfont=1|D2Coding|12.0|0|WINDOWS|1|-16|0|0|0|400|0|0|0|0|3|2|1|49|D2Coding;
+org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<org.eclipse.ui.commands>\r\n<keyBinding contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="CTRL+D"/>\r\n<keyBinding contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="CTRL+D"/>\r\n<keyBinding contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="CTRL+D"/>\r\n<keyBinding commandId\="org.eclipse.ui.edit.text.delete.line" contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="CTRL+D"/>\r\n</org.eclipse.ui.commands>
+org.eclipse.wst.jsdt.ui.editors.textfont=1|\uB098\uB214\uACE0\uB515\uCF54\uB529|12.0|0|WINDOWS|1|-16|0|0|0|400|0|0|0|0|3|2|1|49|\uB098\uB214\uACE0\uB515\uCF54\uB529;
+overridepresentation=true

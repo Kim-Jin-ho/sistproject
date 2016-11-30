@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
+<title>선택목록(select) 다루기</title>
+<script type="text/javascript">
+	
+	function testSelect()
+	{
+	/* 		
+		var userName = document.getElementById("userName").value;
+		var ssn = document.getElementById("ssn").value;
+		
+		//alert("이름 : "+ userName+", 주민번호 : " +ssn);
+		//var city = document.getElementById("city").value;
+		//alert(city);
+		//var sCity = city.options[city.selectedIndex].value;
+		//alert(sCity);
+		
+		var cityObj = document.getElementById("city");
+		
+		// 테스트
+		//alert(cityObj.selectedIndex);
+		
+		var city = cityObj.options[cityObj.selectedIndex].value;
+		
+		//alert(city);
+		
+		var jikwiObj = document.getElementById("jikwi");
+		// 테스트
+		//alert(jikwiObj);
+		//alert(jikwiObj.selectedIndex);		// 과장 -> 0 대리-> 1 사원->2
+		//alert(jikwiObj.options[0].value);		// 과장
+		//alert(jikwiObj.options[1].value);		// 대리
+		//alert(jikwiObj.options[2].value);		// 사원
+		
+		// 첫 번째 방법
+		//alert(jikwiObj.options[jikwiObj.selectedIndex].value);
+		
+		// 두 번째 방법
+		var jikwiMsg = "";
+		for (var i = 0; i < jikwiObj.length; i++)
+		{
+			if (jikwiObj[i].selected)
+			{
+				jikwiMsg = jikwiObj[i].value;
+				break;
+			}
+		}
+		alert(jikwiMsg);
+	*/
+	}
+	function addMember()
+	{
+		// 텍스트박스 값 받아낼 변수
+		var	userName = document.getElementById("userName").value;
+		var userSsn = document.getElementById("ssn").value;
+		var userPay = document.getElementById("basicpay").value;
+		
+		// select 값 받아낼 변수
+		var userCity = city.options[city.selectedIndex].value;
+		// 확인
+		//alert(userCity);
+		var userBuseo = buseo.options[buseo.selectedIndex].value;
+		// 확인
+		//alert(userBuseo);
+		var userJikwi = jikwi.options[jikwi.selectedIndex].value;
+		// 확인
+		//alert(userJikwi);
+		
+		// 테이블 노드 생성
+		var tableNode = document.getElementById("memberTable");
+		
+		// tr 값 넣기 위한 변수 선언
+		var trNode = document.createElement("tr");
+		
+		// <tr> 안에 <td>내용</td> 추가하기
+		trNode.appendChild(createTdNode(userName));
+		trNode.appendChild(createTdNode(userSsn));
+		trNode.appendChild(createTdNode(userCity));
+		trNode.appendChild(createTdNode(userBuseo));
+		trNode.appendChild(createTdNode(userJikwi));
+		trNode.appendChild(createTdNode(userPay));
+		
+		
+		// <tr><td>내용</td></tr> 값 테이블에 넣기
+		tableNode.appendChild(trNode);
+		
+		formClear();
+	}
+	function formClear()
+	{
+		document.getElementById("userName").value= "";
+		document.getElementById("ssn").value="";
+		var cityObj = document.getElementById("city");
+		cityObj.options[0].selected= true;
+		var userBuseo = document.getElementById("buseo");
+		userBuseo.options[0].selected=true;
+		var userJikwi = document.getElementById("jikwi");
+		userJikwi.options[0].selected=true;
+		
+		document.getElementById("basicpay").value="";
+	}
+	
+	// td값을 넣기 위한 함수 선언 (입력될값)
+	function createTdNode(val)
+	{
+		// 입력될 값 변수에 담기
+		var textNode= document.createTextNode(val);
+		
+		// td를 넣기 위한 변수 선언
+		var tdNode = document.createElement("td");
+		
+		// 입력받은 값 <td>값</td> 안에 넣기
+		tdNode.appendChild(textNode);
+		
+		// (<td>값</td>) 리턴
+		return tdNode;
+	}
+</script>
+</head>
+<body>
+<div>
+	<h2>선택목록(select) 다루기</h2>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<table border="1" style="width: 660px; border:solid gray">
+			<tr>
+				<th>이름</th>
+				<td><input type="text" id="userName" placeholder="ex) 홍길동"></td>
+				<td></td>
+				<th>주민번호</th>
+				<td colspan="2"><input type="text" id="ssn" placeholder="ex)890627-1234567"></td>
+			</tr>
+			
+			<tr>
+				<th>지역</th>
+				<td align="left">
+					<select id="city">
+					<option value="서울" selected="selected">서울</option>
+					<option value="경기">경기</option>
+					<option value="인천">인천</option>
+					</select> 
+				</td>				
+				<th align="left">부서</th>
+				<td>
+					<select id="buseo">
+					<option value="총무부">총무부</option>
+					<option value="개발부">개발부</option>
+					<option value="영업부">영업부</option>
+					</select>
+				</td>
+				
+				<th align="left">직위</th>
+				<td>
+					<select id="jikwi">
+					<option value="과장">과장</option>
+					<option value="대리">대리</option>
+					<option value="사원">사원</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>기본급</th>
+				<td>
+					<input type="text" id="basicpay"placeholder="ex)3000000"
+					style="width: 200px; text-align: right;">원
+				</td>
+			</tr>
+		</table>
+		<br>
+		<!-- <button type="button" style="width : 660px;" onclick="testSelect();">등록</button> -->
+		<button type="button" style="width: 660px;" onclick="addMember();">등록</button>
+		<table border="1" style="width: 660px;" id="memberTable">
+			<tr>
+				<th style="width: 100px; color:  #330033;">이름</th>
+				<th style="width: 220px; color: #330033;">주민번호</th>
+				<th style="width: 80px; color: #330033;">지역</th>
+				<th style="width: 100px; color: #330033;">부서</th>
+				<th style="width: 80px; color: #330033;">직위</th>
+				<th style="width: 80px; color: #330033;">기본급</th>
+			</tr>
+		</table>
+	</form>
+</div>
+</body>
+</html>

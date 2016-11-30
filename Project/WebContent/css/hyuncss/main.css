@@ -1,0 +1,279 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
+
+
+/*부트스트랩에 없어서 추가로 정의해주는 CSS영역 */
+/*전체 공통영역 */
+ul {
+list-style-type:none;
+}
+
+/* 푸터영역 */
+#footer {  padding-top: 30px;  padding-bottom: 30px;  color: #bdc3c7; background-color: #222;  border-color: #080808;}
+#footer a {  color: #bdc3c7;}
+#footer a:hover {  color: #d9534f;}
+#footer ul {  list-style: none;  padding: 0;  margin: 0;}
+#footer ul > li {  display: inline-block;  margin-left: 15px;}
+.social-icons a {     color: #A2A2A2;    font-size: 20px;    border: 1px solid #A2A2A2;    border-radius: 50%;    text-align: center;    padding: 6px;    width: 44px;    height: 44px;    display: inline-block;    margin: 2px;}
+
+/*전체 섹션 영역*/
+ body > section {  padding-top:100px; padding-bottom:50px;}
+//body > section {  padding-top:100px; padding-bottom:50px; border:solid red 1px;}
+section{padding-top:50px; padding-bottom:30px;}
+/*메인메뉴*/
+body > #section {  padding-top:60px; padding-bottom:10px;}
+#mainmenufontsize a {font-size:20px;}
+#maintop {position:relative;width:400px;margin:0px auto 0px auto;text-align:left;}
+
+/*회원가입*/
+.signupimage {padding-left: 100px; padding-right:100px; margin-left: 50px; padding-bottom:30px;}
+.sign_select {margin-left:200px; font-size:15px;}
+.sgincheckagree{margin-top:10px; font-size:15px;}
+#signup_submit_a{margin-left:80px;}
+
+/*로그인*/
+div.loginimage{padding-left:80px; padding-bottom:30px; padding-top:20px; }
+
+/*search쪽 팝업 패딩탑*/
+#searchpadding{padding-top:60px;}
+/*메인메뉴 슬라이드 영역 */
+
+a {
+  color: #34495e;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+}
+a:hover,
+a:focus {
+  color: #d9534f;
+  text-decoration: none;
+  outline: none;
+}
+.wet-asphalt{
+  color: #fff;
+}
+.wet-asphalt h1,
+.wet-asphalt h2,
+.wet-asphalt h3,
+.wet-asphalt h4,
+.wet-asphalt h5,
+.wet-asphalt h6,{
+  color: #fff;
+}
+.wet-asphalt small{
+  color: rgba(255, 255, 255, 0.8);
+}
+.wet-asphalt {
+  background-color: #34495e;
+}
+.wet-asphalt a:not(.btn) {
+  color: #bdc3c7;
+}
+.wet-asphalt a:not(.btn):hover {
+  color: #d9534f;
+}
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16/9 ratio */
+
+  padding-top: 30px;
+  /* IE6 workaround*/
+
+  height: 0;
+  overflow: hidden;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#services .media:hover .icon-md {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.no-margin {
+  margin: 0;
+  padding: 0;
+}
+
+#main-slider {
+  position: relative;
+}
+#main-slider .carousel h2 {
+  font-size: 36px;
+}
+#main-slider .carousel .btn {
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  border-radius: 0;
+  margin-top: 5px;
+}
+#main-slider .carousel .btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+#main-slider .carousel .boxed {
+  padding: 10px 15px;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: inline-block;
+}
+#main-slider .carousel .item {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 0 !important;
+  opacity: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  display: block !important;
+  height: 500px;
+  -webkit-transition: opacity ease-in-out 500ms;
+  -moz-transition: opacity ease-in-out 500ms;
+  -o-transition: opacity ease-in-out 500ms;
+  transition: opacity ease-in-out 500ms;
+}
+#main-slider .carousel .item:first-child {
+  top: auto;
+  position: relative;
+}
+#main-slider .carousel .item.active {
+  opacity: 1;
+  -webkit-transition: opacity ease-in-out 500ms;
+  -moz-transition: opacity ease-in-out 500ms;
+  -o-transition: opacity ease-in-out 500ms;
+  transition: opacity ease-in-out 500ms;
+  z-index: 1;
+}
+#main-slider .prev,
+#main-slider .next {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  display: inline-block;
+  margin-top: -25px;
+  font-size: 24px;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  z-index: 5;
+}
+#main-slider .prev:hover,
+#main-slider .next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+#main-slider .prev {
+  left: 10px;
+}
+#main-slider .next {
+  right: 10px;
+}
+#main-slider .active .animation.animated-item-1 {
+  -webkit-animation: fadeInUp 300ms linear 300ms both;
+  -moz-animation: fadeInUp 300ms linear 300ms both;
+  -o-animation: fadeInUp 300ms linear 300ms both;
+  -ms-animation: fadeInUp 300ms linear 300ms both;
+  animation: fadeInUp 300ms linear 300ms both;
+}
+#main-slider .active .animation.animated-item-2 {
+  -webkit-animation: fadeInUp 300ms linear 600ms both;
+  -moz-animation: fadeInUp 300ms linear 600ms both;
+  -o-animation: fadeInUp 300ms linear 600ms both;
+  -ms-animation: fadeInUp 300ms linear 600ms both;
+  animation: fadeInUp 300ms linear 600ms both;
+}
+#main-slider .active .animation.animated-item-3 {
+  -webkit-animation: fadeInUp 300ms linear 900ms both;
+  -moz-animation: fadeInUp 300ms linear 900ms both;
+  -o-animation: fadeInUp 300ms linear 900ms both;
+  -ms-animation: fadeInUp 300ms linear 900ms both;
+  animation: fadeInUp 300ms linear 900ms both;
+}
+#main-slider .active .animation.animated-item-4 {
+  -webkit-animation: fadeInUp 300ms linear 1200ms both;
+  -moz-animation: fadeInUp 300ms linear 1200ms both;
+  -o-animation: fadeInUp 300ms linear 1200ms both;
+  -ms-animation: fadeInUp 300ms linear 1200ms both;
+  animation: fadeInUp 300ms linear 1200ms both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pricing {margin-top: 30px; margin-bottom: 30px;}
+
+#pricing-table .plan {
+  border-radius: 4px;
+  list-style: none;
+  margin: 0 0 20px;
+  background: #222;
+  text-align: center;
+  padding: 30px 0;
+}
+#pricing-table .plan li {
+  padding: 5px 0;
+  height : 80px;
+  color: #fff;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+}
+#pricing-table .plan li.plan-name {
+  font-size: 24px;
+  line-height: 24px;
+  color: #fff;
+}
+#pricing-table .plan li.plan-name h3 {
+  margin: 0;
+}
+#pricing-table .plan li.plan-price {
+  margin-bottom: 10px;
+}
+#pricing-table .plan li.plan-price > div {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+}
+#pricing-table .plan li.plan-price > div sup {
+  font-size: 10px;
+  line-height: 10px;
+}
+#pricing-table .plan li.plan-price > div > small {
+  display: block;
+  font-size: 11px;
+}
+#pricing-table .plan li.plan-action {
+  margin-top: 10px;
+  border-top: 0;
+}
+#pricing-table .plan.featured {
+  background-color: #222;
+}
+
+
+

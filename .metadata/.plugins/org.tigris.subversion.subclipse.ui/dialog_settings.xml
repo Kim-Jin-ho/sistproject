@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="" key="DirectorySelectionPage.lastParent_https://dev.naver.com/svn/siststudy01"/>
+	<item value="136" key="HistoryTableProvider.HistoryDialog.Date"/>
+	<item value="760" key="HistoryDialog.location.x"/>
+	<item value="36" key="UpdateDialogWithConflictHandling.location.y"/>
+	<item value="133" key="HistoryDialog.location.y"/>
+	<item value="591" key="HistoryDialog.weights.0"/>
+	<item value="70" key="HistoryTableProvider.HistoryDialog.Author"/>
+	<item value="trunk" key="DirectorySelectionPage.lastParent_https://dev.naver.com/svn/svnprj18"/>
+	<item value="237" key="CommitDialog.location.y"/>
+	<item value="373" key="CommitDialog.location.x"/>
+	<item value="338" key="HistoryDialog.weights.2"/>
+	<item value="70" key="HistoryDialog.weights.1"/>
+	<item value="500" key="CommitDialog.weights.0"/>
+	<item value="500" key="CommitDialog.weights.1"/>
+	<item value="727" key="UpdateDialogWithConflictHandling.size.y"/>
+	<item value="35" key="HistoryTableProvider.HistoryDialog.Revision"/>
+	<item value="425" key="CommitDialog.size.y"/>
+	<item value="525" key="UpdateDialogWithConflictHandling.size.x"/>
+	<item value="1174" key="CommitDialog.size.x"/>
+	<item value="698" key="UpdateDialogWithConflictHandling.location.x"/>
+	<item value="497" key="ChooseUrlDialog.size.x"/>
+	<item value="371" key="ChooseUrlDialog.size.y"/>
+	<item value="https://dev.naver.com/svn/svnprj18" key="RepositorySelectionPage.lastRepository"/>
+	<item value="400" key="HistoryDialog.size.x"/>
+	<item value="712" key="ChooseUrlDialog.location.x"/>
+	<item value="400" key="HistoryDialog.size.y"/>
+	<item value="174" key="HistoryTableProvider.HistoryDialog.Comment"/>
+	<item value="220" key="ChooseUrlDialog.location.y"/>
+	<section name="CommitWizard">
+		<item value="500" key="VWeight2"/>
+		<item value="500" key="VWeight1"/>
+		<item value="false" key="ShowCompare"/>
+	</section>
+	<section name="NewLocationWizard">
+		<list key="ConfigurationWizardMainPage.STORE_URL_ID">
+			<item value="https://dev.naver.com/svn/svnprj18"/>
+			<item value="https://dev.naver.com/svn/siststudy01"/>
+		</list>
+	</section>
+</section>

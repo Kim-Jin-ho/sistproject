@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트(사용자 정의 객체)</title>
+<link rel="stylesheet" href="css/main.css">
+<script type="text/javascript">
+
+	function main()
+	{
+		function Blog(b, d)
+		{
+			this.body = b;
+			this.date = d;
+			
+			// 날짜 출력용 함수 정의
+			this.userLocalString = function()
+			{
+				return d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+			};
+		}
+			
+			// 객체 생성
+			var blog = new Blog("블로그 개설", "2016-03-23");
+			
+			// Sample055.html 에서와 마찬가지로
+			// 객체 여러개를 배열 구조에 저장
+			// 단, 차이점 확인!
+			// 자바스크립트 내장 객체(Date 객체) 사용
+			var arr = [ new Blog("블로그 개설", new Date("2016/03/23"))
+			           ,new Blog("웹 기초 마스터", new Date("2016/03/24"))
+					   ,new Blog("JSP&Servlet 마스터", new Date("2016/03/25"))];
+			
+			var str = "<table border='1'>";
+			
+			str += "<tr><th>제목</th><th>날짜</th></tr>";
+			
+			for (var i = 0; i < arr.length; i++)
+			{
+				str += "<tr>";
+				str += "<td>" + arr[i].body + "</td>";
+				str += "<td>" + arr[i].date + "</td>";
+				str += "</tr>";
+			}
+			str += "</table>";
+			
+			var result = document.getElementById("result");
+			result.innerHTML = str;
+		
+	}
+</script>
+
+
+</head>
+<body>
+
+<!-- 
+	○ 자바스크립트에서의 날짜 데이터
+	
+	Date 객체는 날짜와 시간 작업을 하는데 사용되는
+	기본적인 자바스크립트 내장 객체이다.
+	var now = new Date();
+	
+	now.toString();
+	now.toLocalString();
+	now.toLocalDateString();
+	now.toLocalTimeString();
+	now.getFullYear();
+	now.getMonth()+1		// 주의 -> 월단위는 자바에서처럼 0부터 시작한다.(인덱스)
+	now.getDate();
+	
+	※ 주의
+	var userDate1 = new Date("2016/03/23");			->(O)
+	var userDate2 = new Date(2016, 7, 1);			->(O)
+	var userDate3 = new Date("January", 20, 2016);	->(O)
+	
+	var userDate4 = new Date("2016-03-23");			->(Ⅹ)
+	var userDate5 = new Date("20160323");			->(Ⅹ)
+	
+ -->
+
+<div>
+	<h2>자바스크립트(사용자 정의 객체)</h2>
+	<hr>
+</div>
+
+<div>
+	<button type="button" onclick="main()">사용자 정의 객체 테스트</button>
+	<div id ="result"></div>
+</div>
+</body>
+</html>

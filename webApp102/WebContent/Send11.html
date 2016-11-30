@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/main.css">
+<script type="text/javascript">
+	
+	function formCheck()
+	{
+		var num1 = document.getElementById("num1");
+		var num2 = document.getElementById("num2");
+		
+		if( num1.value == "" || num2.value =="")
+		{
+			alert("정수를 모두 입력하세요.")
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
+<body>
+<!-- 
+	○ 문제(포워드 및 리다이렉트)
+   - 사칙 연산 수행을 위한 숫자 입력 페이지를 구성한다. (html)
+
+   - 정수1 [		] [더하기 ▼]  정수2[		]
+			     빼기
+			   곱하기
+			   나누기
+
+   < 연산 결과 > 
+   
+  - 연산 전용 페이지를 구성한다.(jsp)
+  - 결과 출력 전용 페이지를 구성한다.(jsp)
+  - 최초 요청 페이지 주소는 『http://localhost:8090/webApp102/Send11.html』로 한다
+  - 연산 처리 페이지 주소는 『http://localhost:8090/webApp102/Redirect11.jsp』로 한다.
+  - 최종 결과 페이지 주소는 『http://localhost:8090/webApp102/Receive11.jsp』로 한다.
+ 	
+Send10.html
+Forward10.jsp	-> JAVA -> Servlet
+Receive10.jsp
+-->
+<!-- 
+	※ 처리 흐름 최종 정리
+	Send11.html -> 사용자 요청 (연산 결과 버튼 클릭) -> Redirect11.jsp(연산 수행)
+	
+	Redirect11.jsp(연산 수행) -> 응답처리(새로운 요청 주소 전달)
+	
+	새로운 주소의 내용으로 새로운 요청 -> Receive11.jsp
+	
+ --> 
+<div>
+	<h2>포워딩 및 리다이렉트 실습</h2>
+	<hr>
+</div>
+
+<div>
+	<!-- 폼 설계 -->
+	<!-- <form action="Forwar10.jsp" method="post">  -->
+	<form action="Redirect11.jsp" method="get" onsubmit="return formCheck()">
+	<table>
+		<tr>
+			<!-- 사용자로부터 입력 받을 화면 설계 -->
+			<td>정수 1 : <input type="text" name="num1" id="num1"></td>		<!-- 사용자로부터 1번째 정수 입력받기 -->
+			<td> <select name="op">											<!-- 사용자로부터 연산자 선택 받기 -->
+						<option value="1">더하기</option>
+						<option value="2">빼기</option>
+						<option value="3">곱하기</option>
+						<option value="4">나누기</option>
+				</select></td>
+			<td>정수 2 : <input type="text" name="num2" id="num2"></td>		<!-- 사용자로부터 2번째 정수 입력받기 -->
+		</tr>
+		<tr>
+			<!-- 결과버튼 설계 -->
+			<td><button type="submit">결과보기</button>
+		</tr>
+	</table>
+	</form>
+</div>
+
+</body>
+</html>

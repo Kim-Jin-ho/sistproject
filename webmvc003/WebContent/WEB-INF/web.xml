@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>webmvc003</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- 
+	<servlet>
+		<servlet-name></servlet-name>
+		<servlet-class></servlet-class> 
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name></servlet-name>
+		<url-pattern></url-pattern> 
+	</servlet-mapping>
+	-->
+
+	<servlet>
+		<servlet-name>memberInsertForm</servlet-name>
+		<servlet-class>class3.com.test.MemberInsertForm</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>memberInsertForm</servlet-name>
+		<url-pattern>/memberinsertform</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>memberInsert</servlet-name>
+		<servlet-class>class3.com.test.MemberInsert</servlet-class> 
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>memberInsert</servlet-name>
+		<url-pattern>/memberinsert</url-pattern> 
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>memberList</servlet-name>
+		<servlet-class>class3.com.test.MemberList</servlet-class> 
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>memberList</servlet-name>
+		<url-pattern>/memberlist</url-pattern> 
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>scoreinsertform</servlet-name>
+		<servlet-class>class3.com.test.ScoreInsertForm</servlet-class> 
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>scoreinsertform</servlet-name>
+		<url-pattern>/scoreinsertform</url-pattern> 
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>scoreinsert</servlet-name>
+		<servlet-class>class3.com.test.ScoreInsert</servlet-class> 
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>scoreinsert</servlet-name>
+		<url-pattern>/scoreinsert</url-pattern> 
+	</servlet-mapping>
+
+</web-app>

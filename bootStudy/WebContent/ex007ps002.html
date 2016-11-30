@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css" >
+<link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.css" >
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		/* 
+		//key 다운으로 할 경우 이전 값을 얻어오는 것이다.
+		$("#inputTest").keydown(function()
+		{
+			//alert("test");
+			var temp = "";
+			temp += $(this).val();
+			//alert(temp);
+			alert(temp.length);
+		});
+		 */
+		 
+		 
+		//key 업으로 할 경우 입력되는 값을 얻어온다.
+		$("#inputTest").keyup(function()
+		{
+			var temp = "";
+			temp += $(this).val();
+			//alert(temp);
+			//alert(temp.length);
+			
+		if ( $(this).val().length > 6 )
+		{
+		   // $("#div1").attr("class", "xxx");
+		   $("#div1").addClass("has-error has-feedback");
+		   $("#div1").append("<span class='glyphicon glyphicon-remove form-control-feedback'></span>")
+		}
+		else if ( $(this).val().length == 6 )
+		{
+		   // $("#div1").attr("class", "xxx");
+		   $("#div1").addClass("has-success has-feedback");
+		   $("#div1").append("<span class='glyphicon glyphicon-ok form-control-feedback'></span>")
+		}
+		});
+	});
+	
+	
+</script>
+</head>
+<body>
+	
+	<div style="width: 300px;">
+		<div class="form-group" id="div1">
+			<label class="control-label" for="inputTest">6글자 안녕하세요</label>
+			<input type="text" class="form-control" id="inputTest" maxlength="6">
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>jqueryAjaxStudy</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  	<!-- 덧셈 연산 처리 -->
+	<servlet>
+	      <servlet-name>Test01</servlet-name>
+	      <servlet-class>ajax.Test01</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	      <servlet-name>Test01</servlet-name>
+	      <url-pattern>/Test01.do</url-pattern>        
+	</servlet-mapping>
+  
+  
+	<!-- 아이디 중복 검사 -->  
+	<servlet>
+	      <servlet-name>Test02</servlet-name>
+	      <servlet-class>ajax.Test02</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	      <servlet-name>Test02</servlet-name>
+	      <url-pattern>/Test02.do</url-pattern>        
+	</servlet-mapping>
+	
+	<!-- 연산자 처리 -->
+	<servlet>
+	      <servlet-name>Test03</servlet-name>
+	      <servlet-class>ajax.Test03</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	      <servlet-name>Test03</servlet-name>
+	      <url-pattern>/Test03.do</url-pattern>        
+	</servlet-mapping>
+	  
+</web-app>

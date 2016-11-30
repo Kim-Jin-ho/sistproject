@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#search .input_text {
+    width: 366px;
+    height: 34px;
+    margin-right: 3px;
+    border: 1;
+    border-style : solid;
+    border-color : #2db400;
+    line-height: 21px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+    background-color: transparent;
+    outline: none;
+}
+#search .sch_submit 
+{
+    width: 62px;
+    height : 50px;
+    margin: -5px 0;
+    border: 0;
+    vertical-align: top;
+    background: url(http://img.naver.net/static/www/img/btn_search.png) 
+;
+}
+</style>
+</head>
+<body>
+	<div id="search">
+
+<form id="sform" name="sform" action="https://search.naver.com/search.naver" method="get">
+
+<fieldset queryid="C1458108429318385239">
+<legend>검색</legend>
+<select id="where" name="where" title="검색 범위 선택" class="blind">
+<option value="nexearch" selected="selected">통합검색</option>
+<option value="post">블로그</option>
+<option value="cafeblog">카페</option>
+<option value="cafe">- 카페명</option>
+<option value="article">- 카페글</option>
+<option value="kin">지식iN</option>
+<option value="news">뉴스</option>
+<option value="web">사이트</option>
+<option value="category">- 카테고리</option>
+<option value="site">- 사이트</option>
+<option value="movie">영화</option>
+<option value="webkr">웹문서</option>
+<option value="dic">사전</option>
+<option value="100">- 백과사전</option>
+<option value="endic">- 영어사전</option>
+<option value="eedic">- 영영사전</option>
+<option value="krdic">- 국어사전</option>
+<option value="jpdic">- 일본어사전</option>
+<option value="hanja">- 한자사전</option>
+<option value="terms">- 용어사전</option>
+<option value="book">책</option>
+<option value="music">음악</option>
+<option value="doc">전문자료</option>
+<option value="shop">쇼핑</option>
+<option value="local">지역</option>
+<option value="video">동영상</option>
+<option value="image">이미지</option>
+<option value="mypc">내PC</option>
+<optgroup label="스마트 파인더">
+<option value="movie">영화</option>
+<option value="auto">자동차</option>
+<option value="game">게임</option>
+<option value="health">건강</option>
+<option value="people">인물</option>
+</optgroup>
+<optgroup label="네이버 랩">
+<option>긍정부정검색</option>
+</optgroup>
+</select>
+<span class="green_window" queryid="C1458107303439259877"><input id="query" name="query" type="text" title="검색어 입력" class="input_text" tabindex="1" accesskey="s" style="ime-mode:active;" autocomplete="off" onclick="document.getElementById('fbm').value=1;"></span><button id="search_btn" type="submit" title="검색" tabindex="3" class="sch_smit" onmouseover="this.className='sch_smit over'" onmousedown="this.className='sch_smit down'" onmouseout="this.className='sch_smit'" onclick="clickcr(this,'sch.action','','',event);"><span class="ir">검색</span></button>
+<input type="hidden" id="sm" name="sm" value="top_hty">
+<input type="hidden" id="fbm" name="fbm" value="1">
+<input type="hidden" id="acr" name="acr" value="" disabled="">
+<input type="hidden" id="acq" name="acq" value="" disabled="">
+<input type="hidden" id="qdt" name="qdt" value="0" disabled="">
+<input type="hidden" id="ie" name="ie" value="utf8">
+<input type="hidden" id="acir" name="acir" value="" disabled="">
+<input type="hidden" id="os" name="os" value="" disabled="">
+<input type="hidden" id="bid" name="bid" value="" disabled="">
+<input type="hidden" id="pkid" name="pkid" value="" disabled="">
+<input type="hidden" id="eid" name="eid" value="" disabled="">
+<input type="hidden" id="mra" name="mra" value="" disabled="">
+</fieldset>
+</form>
+<div id="nautocomplete" class="autocomplete">
+<span class="btn_arw top"><a href="#" onclick="return false;" tabindex="2"><img src="http://sstatic.naver.net/search/images11/btn_atcmp_down_on.gif" width="13" height="11" title="자동완성 펼치기" alt="자동완성 펼치기" class="triangleImg" queryid="C1458108390658807285"></a></span>
+</div>
+<div id="autoFrame" class="reatcmp" style="width: 368px; display: none; background-color: rgb(255, 255, 255);">
+<div class="api_atcmp_wrap _atcmp" style="display:none;" queryid="C1458107229083374032">
+<div class="words nature" queryid="C1458107229079590524" style="display: none;">
+<h3 class="tit">생각한대로 검색해 보세요 <span class="beta">Beta</span></h3>
+<ul class="_nature"></ul>
+</div>
+<div class="words _words" queryid="C1458107229079755288" style="display: none; height: 8px;">
+<div class="_atcmp_result_wrap" queryid="C145810839197411520">
+<ul class="_resultBox" queryid="C1458108391974634045" style="display: none; height: 0px;"></ul>
+<ul class="_resultBox" queryid="C1458108391974543563" style="display: none; height: 0px;"></ul>
+<ul class="_resultBox" queryid="C1458108391974376544" style="display: none; height: 0px;"></ul>
+<ul class="_resultBox" queryid="C1458108391974860460" style="display: none; height: 0px;"></ul>
+</div>
+<div class="add_group _atcmp_answer_wrap"></div>
+</div>
+<p class="func"><span class="fl"><a onclick="__atcmpCR(event, this, 'help', '','','');" href="https://help.naver.com/support/service/main.nhn?serviceNo=606&amp;categoryNo=1987" target="_blank">도움말</a> | <a onclick="__atcmpCR(event, this, 'report', '','','');" href="https://help.naver.com/support/contents/contents.nhn?serviceNo=606&amp;categoryNo=2028" target="_blank">신고</a></span><span><em><a class="hisoff" href="javascript:;">검색어저장 켜기</a> |</em><a class="funoff" href="javascript:;" onclick="smartSearch.unuse(); return false;">자동완성 끄기</a></span></p>
+<img src="http://sstatic.naver.net/search/images11/img_atcmp15.gif" alt="기능을 다시 켤 때는 펼치기 버튼을 클릭하세요" width="218" height="23" class="help _help_tooltip1" style="display:none;">
+</div>
+<div class="api_atcmp_wrap _atcmpIng" style="display: none;" queryid="C1458107229083568548">
+<div class="words"><p class="msg">현재 자동완성 기능을 사용하고 계십니다.</p></div>
+<p class="func"><span class="fl"><a onclick="__atcmpCR(event, this, 'help', '','','');" href="https://help.naver.com/support/service/main.nhn?serviceNo=606&amp;categoryNo=1987" target="_blank">도움말</a> | <a onclick="__atcmpCR(event, this, 'report', '','','');" href="https://help.naver.com/support/contents/contents.nhn?serviceNo=606&amp;categoryNo=2028" target="_blank">신고</a></span><span><em><a class="hisoff" href="javascript:;">검색어저장 켜기</a> |</em><a class="funoff" href="javascript:;" onclick="smartSearch.unuse(); return false;">자동완성 끄기</a></span></p>
+<img src="http://sstatic.naver.net/search/images11/img_atcmp15.gif" alt="기능을 다시 켤 때는 펼치기 버튼을 클릭하세요" width="218" height="23" class="help _help_tooltip2" style="display:none;">
+</div>
+<div class="api_atcmp_wrap _atcmpStart" style="display:none;" queryid="C14581072290843139">
+<div class="words"><p class="msg">자동완성 기능이 활성화되었습니다.</p></div>
+<p class="func"><span class="fl"><a onclick="__atcmpCR(event, this, 'help', '','','');" href="https://help.naver.com/support/service/main.nhn?serviceNo=606&amp;categoryNo=1987" target="_blank">도움말</a> | <a onclick="__atcmpCR(event, this, 'report', '','','');" href="https://help.naver.com/support/contents/contents.nhn?serviceNo=606&amp;categoryNo=2028" target="_blank">신고</a></span><span><em><a class="hisoff" href="javascript:;">검색어저장 켜기</a> |</em><a class="funoff" href="javascript:;" onclick="smartSearch.unuse(); return false;">자동완성 끄기</a></span></p>
+<img src="http://sstatic.naver.net/search/images11/img_atcmp15.gif" alt="기능을 다시 켤 때는 펼치기 버튼을 클릭하세요" width="218" height="23" class="help _help_tooltip3" style="display:none;">
+</div>
+<div class="api_atcmp_wrap _atcmpOff" style="display:none;" queryid="C1458107229084419987">
+<div class="words"><p class="msg">자동완성 기능이 꺼져 있습니다.</p></div>
+<p class="func"><span class="fl"><a onclick="__atcmpCR(event, this, 'help', '','','');" href="https://help.naver.com/support/service/main.nhn?serviceNo=606&amp;categoryNo=1987" target="_blank">도움말</a> | <a onclick="__atcmpCR(event, this, 'report', '','','');" href="https://help.naver.com/support/contents/contents.nhn?serviceNo=606&amp;categoryNo=2028" target="_blank">신고</a></span><span><em><a class="hisoff" href="javascript:;">검색어저장 켜기</a> |</em><a class="funoff" href="javascript:;">자동완성 켜기</a></span></p>
+</div>
+<div class="api_atcmp_wrap _keywords" style="display:none;">
+<div class="my_words">
+<div class="lst_tab">
+<ul><li class="on _recentTab"><a href="javascript:;">최근검색어</a></li><li class="_myTab"><a href="javascript:;">내 검색어</a></li></ul>
+</div>
+<div class="words _recent">
+<ul><li data-rank="@rank@"><a class="t@my@ _myBtn" title="내 검색어 등록" href="javascript:;">내 검색어 등록</a><a href="javascript:;">@txt@</a><em class="date">@date@.</em><a href="javascript:;" class="btn_del _del" title="검색어삭제">삭제</a><span style="display:none">@in_txt@</span></li></ul>
+<div class="info_words _recentNone" style="display:none">최근검색어 내역이 없습니다.</div>
+<p class="msg _offMsg" style="display:none">검색어 저장 기능이 꺼져 있습니다.</p>
+</div>
+<div class="words _my" style="display:none">
+<ul><li data-rank="@rank@"><a class="ton _myBtn" title="내 검색어 해제" href="javascript:;">내 검색어 해제</a><a href="javascript:;">@txt@</a></li></ul>
+<div class="info_words _myNone" style="display:none">설정된 내 검색어가 없습니다.<br>최근검색어에서 <span class="star">내 검색어 등록</span>를 선택하여 자주 찾는 검색어를<br>내 검색어로 저장해 보세요.</div>
+<p class="msg _offMsg" style="display:none">검색어 저장 기능이 꺼져 있습니다.</p>
+</div>
+<p class="noti _noti" style="display:none">공용 PC에서는 개인정보 보호를 위하여 반드시 로그아웃을 해 주세요.</p>
+<p class="func _recentBtnGroup"><span class="fl"><a class="_delMode" href="javascript:;">기록 삭제</a></span><span><a class="_keywordOff" href="javascript:;">검색어저장 끄기</a> | <a class="_acOff" href="javascript:;">자동완성 끄기</a></span></p>
+<p class="func _recentDelBtnGroup" style="display:none"><span class="fl"><a class="_delAll" href="javascript:;" title="최근 검색어 기록을 모두 삭제합니다.">기록 전체 삭제</a></span><span><a class="_delDone" href="javascript:;">완료</a></span></p>
+<p class="func _myBtnGroup" style="display:none"><span class="fl"><a class="_delAll" href="javascript:;" title="설정된 내 검색어를 모두 삭제합니다.">기록 전체 삭제</a></span><span><a class="_keywordOff" href="javascript:;">검색어저장 끄기</a> | <a class="_acOff" href="javascript:;">자동완성 끄기</a></span></p>
+<span class="help2 _help2" style="display:none">기능을 다시 켤 때는 펼치기 버튼을 클릭하세요</span>
+<div class="ly_noti _maxLayer" style="display:none">
+<span class="mask"></span>
+<p><span class="ico"></span>내 검색어는 최대 <em>10</em>개 까지 저장할 수 있습니다.<br>추가하시려면 기존 내 검색어를 지워주세요. <a href="javascript:;" class="btn_clse _close">닫기</a></p>
+</div>
+</div>
+</div>
+<div class="api_atcmp_wrap _alert" style="display:none;">
+<div class="api_atcmp_alert">
+<span class="ico"></span>
+<p class="dsc_txt">2015 상반기 재보궐선거 후보에 대해 4월29일 선거일까지 자동완성 기능이 제공되지 않습니다.<a href="http://naver_diary.blog.me/220323218769" target="_blank" onclick="clickcr(this,'sug.vote','','',event);">자세히보기</a></p>
+</div>
+</div>
+<iframe vspace="0" hspace="0" border="0" style="display:none;display:block\9;display:block\0/;position:absolute;left:0;top:0;width:100%;height:100%;z-index:-1;" title="빈 프레임"></iframe>
+</div>
+<script type="text/template" id="_atcmp_answer_0">
+<div class="add_opt _item" data-sm="@2@" data-keyword="@1@" data-template_id="@0@" data-acir="@rank@" data-os="@8@" data-bid="@9@" data-eid="@3@" data-pkid="@10@" data-mra="@11@" >
+<a href="#" class="opt_dsc">
+<span class="dsc_thmb" style="@style7@">@image7@</span>
+<span class="dsc_group">
+<span class="dsc_cate">@6@</span>
+<strong class="dsc_word">@1@</strong>
+<span class="dsc_sub" style="@style12@">@12@</span>
+</span>
+</a>
+</div>
+</script>
+<script type="text/template" id="_atcmp_answer_2">
+<div class="add_opt _item" data-sm="@2@" data-keyword="@1@" data-template_id="@0@" data-acir="@rank@">
+<a href="javascript:;" class="opt_localnum">
+<span class="opt_local">@5@</span>
+<span class="opt_num">@6@</span>
+</a>
+</div>
+</script>
+<script type="text/template" id="_atcmp_answer_3">
+<div class="add_opt _item" data-sm="@2@" data-keyword="@1@" data-template_id="@0@" data-acir="@rank@">
+<a href="javascript:;" class="opt_lotto">
+<span class="lotto_num_area">
+<span class="spat lotto_num lotto_num@6@">@6@</span><span class="spat lotto_num lotto_num@7@">@7@</span><span class="spat lotto_num lotto_num@8@">@8@</span><span class="spat lotto_num lotto_num@9@">@9@</span><span class="spat lotto_num lotto_num@10@">@10@</span><span class="spat lotto_num lotto_num@11@">@11@</span><span class="spat lotto_bonus">+</span><span class="spat lotto_num lotto_num@12@">@12@</span>
+</span>
+<span class="lotto_sub">@5@회차 (@13@.)</span>
+</a>
+</div>
+</script>
+<script type="text/template" id="_atcmp_answer_9">
+<div class="add_opt _item" data-sm="@2@" data-keyword="@1@" data-template_id="@0@" data-acir="@rank@">
+<a href="javascript:;" class="opt_exchange opt_exchange_@11@">
+<span class="opt_nation">
+<img src="http://sstatic.naver.net/keypage/lifesrch/exchange/ico_@12@1.gif" alt="" />
+<span class="tx_nation">@5@</span>
+</span>
+<span class="opt_amount">
+<span class="amount"><strong>@6@</strong>원</span><span class="changes">@10@ @8@ (@9@%)</span>
+</span>
+</a>
+</div>
+</script>
+<script type="text/template" id="_atcmp_answer_10">
+<div class="add_opt _item" data-sm="@2@" data-keyword="@1@" data-template_id="@0@" data-acir="@rank@">
+<a href="javascript:;" class="opt_weather">
+<span class="opt_weather_thmb">
+<img src="http://static.naver.net/m/weather/2011/im/wt170_@6@.png" width="50" height="40" alt="@7@">
+</span>
+<span class="opt_weather_group">
+<span class="opt_weather_state">@7@</span>
+<span class="opt_weather_state">기온 <em class="opt_deg">@8@</em><span class="opt_unit">℃</span></span>
+<span class="opt_weather_state">@9@ <em>@10@</em><span class="opt_unit">@11@</span></span>
+</span>
+</a>
+</div>
+</script>
+<script type="text/template" id="_atcmp_answer_11">
+<div class="add_opt _item" data-sm="@2@" data-keyword="@1@" data-template_id="@0@" data-acir="@rank@">
+<a href="javascript:;" class="opt_weather">
+<span class="opt_weather_thmb">
+<img src="http://static.naver.net/m/weather/2011/im/wt170_@6@.png" width="50" height="40" alt="@7@">
+</span>
+<span class="opt_weather_group">
+<span class="opt_weather_state">@7@</span>
+<span class="opt_weather_state">기온 <em class="opt_deg">@8@</em><span class="opt_unit">℃</span></span>
+<span class="opt_weather_state">@9@ <em>@10@</em><span class="opt_unit">@11@</span></span>
+</span>
+</a>
+</div>
+</script>
+<script type="text/template" id="_atcmp_answer_17">
+<div class="add_opt _item" data-sm="@2@" data-keyword="@1@" data-template_id="@0@" data-acir="@rank@">
+<a href="http://@5@" target="_blank" class="opt_shortcut">
+<span class="opt_url">@5@</span>
+<span class="opt_txt">사이트로 바로 이동</span>
+</a>
+</div>
+</script>
+<script type="text/template" id="_atcmp_answer_18">
+<div class="add_opt _item" data-sm="@2@" data-keyword="@5@" data-template_id="@0@" data-acir="@rank@">
+<a href="#" class="opt_happysearch">
+<span class="opt_happy_tit"><span class="spat"></span>행복검색</span>
+<span class="opt_happy_word">@5@</span>
+</a>
+</div>
+</script>
+<script type="text/template" id="_atcmp_answer_20"></script>
+<script type="text/template" id="_atcmp_result_item_tpl">
+<li class="_item @url_class@" data-acr="@rank@">
+<a href="#" class="atcmp_keyword" onclick="return false;" title=""><span class="atcmp_keyword_txt">@txt@<span class="spat ic_expand"></span></span></a>
+<a href="@url@" target="_blank" class="mquick">바로이동</a>
+<span style="display:none">@in_txt@</span>
+</li>
+</script>
+<script type="text/template" id="_atcmp_keyword_highlight_tpl">
+@mismatch_before@<strong>@match@</strong>@mismatch_after@
+</script>
+<script type="text/template" id="_atcmp_keyword_partial_match_highlight_tpl">
+@mismatch_before@<strong>@match@</strong>@mismatch_after@
+</script>
+<div id="search_link" class="search_link">
+<h3 class="sl_ico"><span class="blind">질문형 검색어</span></h3>
+
+
+<div id="qu_txt" class="qu_txt">
+<script type="text/javascript">var qst_idx=1; var qst_size=2;</script>
+<span><a href="https://search.naver.com/search.naver?sm=top_txt&amp;where=nexearch&amp;ie=utf8&amp;query=%EC%A0%8A%EC%96%B4%EB%B3%B4%EC%9D%B4%EB%8A%94%20%ED%97%A4%EC%96%B4%EC%8A%A4%ED%83%80%EC%9D%BC" onclick="clickcr(this, 'txt.search','78002101_0000000E1A22', '', event, 1);" title="젊어보이는 헤어스타일">젊어보이는 헤어스타일</a></span>
+<span class="e"><a href="https://search.naver.com/search.naver?sm=top_txt&amp;where=nexearch&amp;ie=utf8&amp;query=3%EC%9B%94%20%EA%B3%B5%EC%97%B0%20%EC%A0%95%EB%B3%B4" onclick="clickcr(this, 'txt.search','78002101_0000000E1A23', '', event, 1);" title="3월 공연 정보">3월 공연 정보</a></span>
+<span class="e"><a href="https://search.naver.com/search.naver?sm=top_txt&amp;where=nexearch&amp;ie=utf8&amp;query=%EC%95%88%EA%B5%AC%EA%B1%B4%EC%A1%B0%EC%A6%9D%20%EC%98%88%EB%B0%A9%EB%B2%95" onclick="clickcr(this, 'txt.search','78002101_0000000E1A24', '', event, 1);" title="안구건조증 예방법">안구건조증 예방법</a></span>
+</div>
+<div class="page">
+<span class="slkpage_num"><strong>2</strong>/2</span>
+<a id="qst_prev" href="#" title="이전 검색어" class="pre"><span class="blind">이전 검색어</span></a>
+<a id="qst_next" href="#" title="다음 검색어" class="next"><span class="blind">다음 검색어</span></a>
+</div>
+
+</div>
+<div id="promotion11">
+<a href="https://search.naver.com/search.naver?where=nexearch&amp;query=%EC%83%81%EA%B3%B5%EC%9D%98+%EB%82%A0&amp;sm=top_ros&amp;fbm=1&amp;ie=utf8" onclick="clickcr(this, 'sch.timespot','7806D801_0000000E0E35', '', event)">
+<img src="http://img.naver.net/static/www/u/2016/0223/nmms_183950318.png" width="145" height="40" alt="상공의 날">
+</a>
+</div>
+</div>
+</body>
+</html>

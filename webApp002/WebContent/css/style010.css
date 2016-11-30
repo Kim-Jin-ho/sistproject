@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+p
+{
+	border: solid 1px gray;
+	padding : 10;
+	color : green;
+	font-size: 20pt;	
+}

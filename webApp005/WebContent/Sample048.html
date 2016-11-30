@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>라디오, 체크박스 다루기</title>
+<script type="text/javascript">
+	
+	function myChoice()
+	{
+		//var name = document.getElementById("userName").value;
+		var radioObjs = document.getElementsByName("radioGroup");
+		var msg = "선택된 항목이 존재하지 않습니다.";
+		
+		//alert(radioObjs.length);		-->> 5
+		
+		for (var i = 0; i < radioObjs.length; i++)
+		{
+			if (radioObjs[i].checked)
+			{
+				msg = "당신이 선택한 사이즈는 "+ radioObjs[i].value+"인용입니다.";
+				break;
+			}
+		}
+		alert(msg)
+	}
+</script>
+</head>
+<body>
+
+<div>
+	<h2>사이즈 선택</h2>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<input type="radio" name="radioGroup" value="1" id="one"><label for="one">싱글컵</label><br>
+		<input type="radio" name="radioGroup" value="2" id="two">파인트<br>
+		<input type="radio" name="radioGroup" value="3" id="four">쿼터<br>
+		<input type="radio" name="radioGroup" value="4" id="five">패밀리<br>
+		<input type="radio" name="radioGroup" value="5" id="eight">하프갤런<br>
+		<br><br>
+		
+		<button type="button" onclick="myChoice();">확인</button>
+		
+	</form>
+</div>
+</body>
+</html>

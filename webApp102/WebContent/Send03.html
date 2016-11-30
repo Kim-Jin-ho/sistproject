@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Send03.html</title>
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<!-- 
+	○ 문제(데이터 송수신 실습)
+	   임의의 두 정수를 서버로 전송해서
+	   합, 차, 곱, 몫 (나눗셈 연산)을 수행하여
+	   결과를받을 수  있는 JSP 페이지를 작성한다.
+	   
+	   
+	   정수1 [     ]  더하기 ▼ 정수 2 [     ]
+	   				   빼기
+	   				  곱하기
+	   				  나누기 
+	   				  
+	   <결과 확인>
+	   
+	   최초 요청 주소는 『http://localhost:8090/webApp102/Send03.html』 로한다.
+	   처리 내용을 보여주는 결과 페이지 주소는
+	   『http://localhost:8090/webApp102/Receive03.jsp』로 한다.
+ -->
+</body>
+	<div>
+		<h2>연산결과 시스템</h2>
+		<hr>
+	</div>
+	<form action="Receive03.jsp" method="get">
+		<table>
+			<tr>
+				<td> 정수1 : <input type="text" name="num1"></td>
+				<td>연산자 선택</td>
+				<td><select name="kk">
+				    <option value="+">더하기</option>
+				    <option value="-">빼기</option>
+				    <option value="*">곱하기</option>
+				    <option value="/">나누기</option>
+				    </select>
+			 	</td>
+			 	<td> 정수2 : <input type="text" name="num2"></td>
+			</tr>
+			<tr><td>　</td></tr>
+			<tr><td colspan="4" align="center"><button type="submit" style="width: 200px">결과 확인</button></td></tr>
+		</table>	
+	</form>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
+<title>자바스크립트 실습</title>
+<script type="text/javascript">
+	function myAddr()
+	{	
+		var child = window.open("Sample052_1.html", "test", "width=200", "heigh=200");
+	}
+</script>
+</head>
+<body>
+<div>
+	<h2>주소 검색 및 결과 확인</h2>
+	<hr>
+</div>
+
+<div>
+	<form>
+		기본주소
+		<input type="text" id="addr1" readonly="readonly">
+		<button type="button" onclick="myAddr();">주소 검색</button>
+		<br>	
+		
+		상세주소
+		<input type="text" id="addr2" placeholder="ex) 동 호수 기재">
+		<br><br>
+		
+		내용 : <span id="txt01" style="color: red;"></span>
+		
+		
+	</form>
+</div>
+
+</body>
+</html>

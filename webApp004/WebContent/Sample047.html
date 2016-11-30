@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습</title>
+<!-- 
+	 ○ 자바스크립트에서 난수 발생 및 처리하는 방법을 적용하려 로또번호 생성기를 만든다.
+	 	로또번호 ( 1 ~ 45 ) 를 중복되지 않은 번호의 구조로 6개를 발생 시켜서
+	 	출력하는 웹 페이지를 구성한다.
+	 	주문한 게임의 장 수 만큼 출력할 수 있도록 한다.
+	 	(html, javascript, Math.random() 을 활용한다.) 
+ -->
+ <style type="text/css">
+ 
+ 	button
+	{
+		font-family: 맑은 고딕;
+		font-weight: bold;
+		-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		box-shadow:inset 0px 1px 0px 0px #ffffff;
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+		background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+		background-color:#ededed;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
+		border:1px solid #dcdcdc;
+		display:inline-block;
+		cursor:pointer;
+		color:#777777;
+		font-family:Arial;
+		font-size:15px;
+		font-weight:bold;
+		padding:6px 24px;
+		text-decoration:none;
+		text-shadow:0px 1px 0px #ffffff;
+	}
+	button:HOVER
+	{
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+		background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);	
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+		background-color:#dfdfdf;
+	}
+	button:ACTIVE
+	{
+		position:relative;
+		top:1px;
+	}	
+</style>
+<script type="text/javascript">
+	
+	var myWindow;
+	function myLotto()
+	{
+		// 입력받은 값 담아내는 변수
+		var count = parseInt(document.getElementById("txtCount").value);
+		
+		// textArea 값 초기화
+		document.getElementById("areaResult").value = "";
+		
+		for (var i = 0; i < count; i++)
+		{
+			document.getElementById("areaResult").value += randomNumeric() +"\n";
+		}
+	}
+	
+	function randomNumeric()
+	{
+		//로또 번호를 담을 배열 변수 선언
+		// 로또 번호를 생성해서 areaResult 에 출력(누적)
+		var lottoArray = new Array(6);		// 배열의 방을 6개짜리로 만들겠다.
+		
+		// 1부터 45까지의 숫자들을 담아낼 변수 선언
+		var arr = new Array(45);
+		
+		// 숫자 구성 (카드에 번호 기입하기)
+		for (var i = 1; i <= arr.length; i++)
+			arr[i-1] = i;
+		//-- arr[0] = 1, arr[1] = 2; ... arr[44]=45
+		//   arr = [1, 2, 3, ... 45];
+		
+		// 구성된 숫자 카드를 랜덤하게 셔플(믹스, 섞는다)
+		for (var i = 0; i < arr.length; i++)
+		{
+			var j = parseInt(Math.random()*45)+1		
+			// 0 ~ 44 에서 -> 1 ~ 45 중 하나 생성
+			// -> 10 일경우 j = 10;
+			var temp = arr[i];			// arr[i](arr[0] 요소를 temp 에 대입
+			arr[i] = arr[j] 			// arr[j] = arr[10] 요소가 (11) 을 arr[i](arr[0])에 대입 
+			arr[j] = temp;				// temp 의 1을 arr[j](arr[10])번째에 대입 
+		}
+		
+		// 랜던하게 섞인 카드를 배열에 담아내기
+		for (var i = 0; i < lottoArray.length; i++)		//lottoArray.length 말고 6으로 써도 된다.
+			lottoArray[i] = arr[i];
+		
+		//lottoArray.sort();
+		lottoArray.sort(function(a.b){return a-b});
+		
+		/*
+			※ Array 의 sort() 함수
+			   기본적으로 문자열 요소로 구성된 배열을 기준하여 작성된 함수이므로
+			   알파벳 순으로 오름차순 정렬을 구현해주는 함수이다
+			   (문자) 알파벳 순 정렬이기 때문에 숫자로 구성된 자바스크립트 배열 객체를
+			   정렬하는 것은 제대로 된 정렬 결과를 반환하지 못한다.
+			   숫자 형식으로 구성된 데이터를 정렬하기 위해서는
+			   별도로 기준 함수를 추가해 주어야한다.
+
+			   ex)
+			   배열명.sort(function(a,b){return a-b});		-->> 오름차순
+			   배열명.sort(function(a,b){return a>b});		-->> 오름차순
+			   배열명.sort(function(a,b){return b-a});		-->> 내림차순
+			   배열명.sort(function(a,b){return a<b});		-->> 내림차순
+		*/
+		
+		return lottoArray;
+	}
+	
+//------------------------------------------------------------------------------ 내가 한거 밑에 
+	
+	function Lotto()
+	{
+		document.getElementById("areaResult").value = "";
+		var input = parseInt(document.getElementById("txtCount").value);
+		var cnt = 1;
+		// 5장 이상 구매하지 못하게 막기
+		if (input > 5 )
+		{
+			alert("5장 이상 구매 불가");
+			document.getElementById("txtCount").value = 0;
+			windowOnload();
+			return;
+		}
+		
+		// 입력 받은 숫자만큼 로또 생성
+		for (var i = 0; i < input; i++)
+		{
+			createLotto();	
+		}
+	}
+	
+	function createLotto()
+	{
+		var str = new Array(6);		//로또 번호 담을 배열 생성
+		var i = 0;					// 6번까지 돌리기 위해 변수 생성
+		
+		while (i < 6)				// 반복문을 통해 6개의 로또 번호 생성
+		{
+			// 로또 번호를 담아낼 변수 생성
+			var lotto = parseInt(Math.random()*45)+1;
+			var j = 0;		// 중복된 str 방 값을 알아내기 위한 변수 생성
+			
+			// 통해 로또 번호 중복제거를 위한 반복문 생성
+			// 현재 i값까지 반복문 수행
+			for (j = 0; j < i; j++)
+			{
+				// 배열 j번째 의 값과 생성된 로또의 번호가 같으면 break; 
+				if (str[j] == lotto)
+					break;
+			}
+			// 배열 j번째의 값이 생성된 로또번호와 다르면 i번째에 값 추가
+			if (str[j] != lotto)
+			{
+				str[i] = lotto;
+				i++;			//i값 증가
+			}
+		}
+		// str 정렬
+		str.sort(function(a, b){return a-b});
+		
+		// 출력
+		for (var j = 0; j < str.length; j++)
+		{
+			document.getElementById("areaResult").value += str[j] + " ";
+		}document.getElementById("areaResult").value += "\n";
+	}
+	
+	function windowOnload()
+	{
+		var txtcnt = document.getElementById("txtCount");
+		txtcnt.focus();
+	}
+	
+
+</script>
+</head>
+<body onload="windowOnload()">
+<div>
+	<h2>로또번호 발생기</h2>
+	<hr>
+</div>
+
+<div>
+	<form>
+		로또 몇 장을 주문하시겠습니까? : 
+		<input type="text" id="txtCount" style="width: 20px; text-align: right;"><br><br>
+		
+		<button type="button" onclick="myLotto();">주문 실행</button><br><br>
+		<textarea id="areaResult" readonly="readonly" style="width: 150px; height: 300px; text-align: right;"></textarea>
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습</title>
+<style type="text/css">
+	input
+	{
+		border : solid 1px gray;
+		font-weight: bold;
+	}
+	input.btn
+	{
+		-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		box-shadow:inset 0px 1px 0px 0px #ffffff;
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+		background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+		background-color:#ededed;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
+		border:1px solid #dcdcdc;
+		display:inline-block;
+		cursor:pointer;
+		color:#777777;
+		font-family:Arial;
+		font-size:15px;
+		font-weight:bold;
+		padding:6px 24px;
+		text-decoration:none;
+		text-shadow:0px 1px 0px #ffffff;
+	}
+	input.btn:HOVER
+	{
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+		background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);	
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+		background-color:#dfdfdf;
+	}
+	input.btn:ACTIVE
+	{
+		position:relative;
+		top:1px;
+	}
+	input.box
+	{
+		border: 1px solid #c4c4c4; 
+	    font-size: 13px; 
+	    padding: 4px 4px 4px 4px; 
+	    border-radius: 4px; 
+	    -moz-border-radius: 4px; 
+	    -webkit-border-radius: 4px; 
+	    box-shadow: 0px 0px 8px #d9d9d9; 
+	    -moz-box-shadow: 0px 0px 8px #d9d9d9; 
+	    -webkit-box-shadow: 0px 0px 8px #d9d9d9; 
+	}
+</style>
+<script type="text/javascript">
+	var msg = "안녕하세요. \"김현태\"입니다.";
+	
+	msg += "<br/>";
+	msg += "이름 소개 다음 구문 입니다."
+	msg += "<br/> br 태그 적용됨"
+	document.write(msg);
+	
+	function btnEscapeOnclick()
+	{
+		/* 
+		var leftValue = document.getElementById("textLeft").value;
+		var leftObject = document.getElementById("textLeft");
+		
+		alert(leftObject);
+		 */
+		
+		var txt01 = document.getElementById("textLeft");
+		var txt02 = document.getElementById("textRight");
+		var leftValue = txt01.value;
+		//alert(leftValue);
+		//alert(txt02);
+		
+		txt02.value = leftValue;
+		txt02.focus();
+	}
+	
+	function windowOnload()
+	{
+		var txtobj = document.getElementById("textRight");
+		txtobj.focus();
+	}
+	function btnUnescapeOnclick()
+	{
+		var txt01 = document.getElementById("textLeft");
+		var txt02 = document.getElementById("textRight");
+		var rightValue = txt02.value;
+		
+		txt01.value = rightValue;
+		txt01.focus();
+	}
+</script>
+</head>
+<body onload="windowOnload();">
+	
+	<div>
+		<hr/>
+		<div>
+			<input type = "text" id ="textLeft" class ="box" tabindex = "1"/>
+			<input type = "button" value = "Escape" class = "btn" onclick ="btnEscapeOnclick()"/>
+			<input type = "button" value = "Unescape" class = "btn" onclick = "btnUnescapeOnclick()"/>
+			<input type = "text" id = "textRight" class ="box"/>
+		</div>
+	</div>
+</body>
+</html>

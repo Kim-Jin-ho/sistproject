@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>라디오, 체크박스 다루기</title>
+<link rel="stylesheet" href="cs/main.css">
+<script type="text/javascript">
+
+	var count = 0, userCount=0;
+	function countSet(num)
+	{
+		count = parseInt(num);
+		//alert(count);
+	}
+	
+	function countChoice(obj)
+	{
+		//alert(obj.checked);
+		if (obj.checked)
+		{
+			if (count <= userCount)
+			{
+				alert("선택 갯수를 초과하였습니다.");
+				obj.checked=false;
+				return;
+			}
+			userCount++;
+		}else
+		{
+			userCount--;	
+		}
+		//alert(userCount);
+	}
+	
+	function myChoice()
+	{
+		
+	}
+	
+
+</script>
+
+</head>
+<body>
+<div>
+	<h2>아이스크림 구매 및 선택 제한</h2>
+</div>
+
+<div>
+	<form>
+		<h3>--사이즈 선택--</h3>
+		<input type="radio" name="radioGroup" onclick="countSet(1);" value="1">싱글컵(1)<br>
+		<input type="radio" name="radioGroup" onclick="countSet(2);" value="2">파인트(2)<br>
+		<input type="radio" name="radioGroup" onclick="countSet(4);" value="4">쿼터(4)<br>
+		<input type="radio" name="radioGroup" onclick="countSet(6);" value="6">패밀리(6)<br>
+		<input type="radio" name="radioGroup" onclick="countSet(8);" value="8">하프갤런(8)<br>
+		<br><br>
+		
+		
+		<h3>--종류 선택--</h3>
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="슈팅스타">슈팅스타
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="엄마는외계인">엄마는외계인
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="민트초코">민트초코
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="바닐라">바닐라
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="바닐라초코">바닐라초코
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="아몬드봉봉">아몬드봉봉
+		<br>
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="녹차">녹차
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="체리쥬빌레">체리쥬빌레
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="쿠키앤크림">쿠키앤크림
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="31요거트">31요거트
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="바밤바">바밤바
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="월드콘">월드콘
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="사랑에빠진딸기">사랑에빠진딸기
+		<br>
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="뉴욕치즈케이크">뉴욕치즈케이크
+		<input type="checkbox" name="checkGroup" onclick="countChoice(this);" value="슈팅스타">슈팅스타
+		<br><br>
+		<button type="button" onclick="myChoice();">주문하기</button>
+	</form>
+		
+</div>
+
+
+</body>
+</html>

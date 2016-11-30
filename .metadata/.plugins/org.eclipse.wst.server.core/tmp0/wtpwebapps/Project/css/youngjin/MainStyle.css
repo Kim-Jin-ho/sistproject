@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+button
+{
+	font-family: 맑은 고딕;
+	font-weight: bold;
+}
+
+button:HOVER
+{
+	color: red;
+}

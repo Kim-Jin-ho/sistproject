@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습</title>
+<!-- 자바스크립트 배열 -->
+<!-- 
+	임의의 정수를 임의의 갯수만큼 입력받아
+	그 수 중에서 가장 큰 수를 출력하는 페이지를 구성한다.
+	(html, javascript, 배열 활용)
+	
+	
+	페이지 구성
+	-----------------------------------------------------
+	
+	입력 데이터(공백 구분) 	______
+	
+	[ 결과 ]
+	
+	전체 출력 : ____________
+	가장 큰 수 : ___________
+ -->
+ 
+ 
+ 
+<style type="text/css">
+	button.btn
+	{
+		-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		box-shadow:inset 0px 1px 0px 0px #ffffff;
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+		background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+		background-color:#ededed;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
+		border:1px solid #dcdcdc;
+		display:inline-block;
+		cursor:pointer;
+		color:#777777;
+		font-family:Arial;
+		font-size:15px;
+		font-weight:bold;
+		padding:6px 24px;
+		text-decoration:none;
+		text-shadow:0px 1px 0px #ffffff;
+	}
+	button.btn:HOVER
+	{
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+		background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);	
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+		background-color:#dfdfdf;
+	}
+	button.btn:ACTIVE
+	{
+		position:relative;
+		top:1px;
+	}
+	div 
+	{
+		width:220px;
+	}
+	body
+	{
+		font-weight:  bold;
+	}
+	
+	input
+	{
+		border: 1px solid #c4c4c4; 
+	    font-size: 13px; 
+	    padding: 4px 4px 4px 4px; 
+	    text-align : center;
+	    border-radius: 4px; 
+	    -moz-border-radius: 4px; 
+	    -webkit-border-radius: 4px; 
+	    box-shadow: 0px 0px 8px #d9d9d9; 
+	    -moz-box-shadow: 0px 0px 8px #d9d9d9; 
+	    -webkit-box-shadow: 0px 0px 8px #d9d9d9; 
+	}
+	
+</style>
+
+<script type="text/javascript">
+
+	function maxnumber()
+	{
+		// 초기화
+		document.getElementById("allNum").value = " ";
+		// 포커스
+		windowOnload();
+		
+		
+		// 입력받은 수 담아내기
+		var str = document.getElementById("inNum").value;
+		
+		// 담아낸 수 공백 구분으로 배열로 만들기
+		var arr = str.split(" ");
+		
+		// 숫자를 비교하기 위한 변수 선언
+		var result = 0 ;
+		
+		// 배열에 담긴 전체 값 출력
+		for (var n = 0; n < arr.length; n++)
+		{
+			document.getElementById("allNum").value += arr[n] +" "; 
+		}
+		
+		// 배열의 0번째 값 담기
+		result = parseInt(arr[0]);
+		
+		// 0번째 값부터 차례대로 비교하기 위한 반복문
+		for (var q = 1; q < arr.length; q++)
+		{
+			if (result < parseInt(arr[q]))
+			{
+				result = parseInt(arr[q]);
+			}
+		}
+		document.getElementById("maxNum").value = result;
+	}
+
+	function windowOnload()
+	{
+		var num = document.getElementById("inNum");
+		num.focus();
+	}
+</script>
+</head>
+<body onload = "windowOnload();">
+	<div>
+		<form>
+			입력 데이터(공백 구분) <input type ="text" id="inNum"/><br><br>
+			<button type="button" class="btn" onclick ="maxnumber()">  결과 </button>
+			<button type="reset" class ="btn" >취소 </button><br>
+			전체 출력 : <input type="text" id="allNum"/><br>
+			가장 큰 수 : <input type="text" id="maxNum" style="width: 50px;"/>
+			
+			
+		</form>
+	</div>
+</body>
+</html>

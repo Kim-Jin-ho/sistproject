@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Send02.html</title>
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<!-- 
+	○ 데이터 송수신 실습
+	- 이름과 국어점수, 영어점수, 수학점수를 서버로 전송해서
+	  총점, 평균에 대한 결과를 받을 수 있는 jsp 페이지를 작성한다.
+	- 최초 요청 주소는 『http://localhost:8090/wepApp102/Send02.html』로 한다.
+	- 처리내용을 보여주는 결과페이지 주소는
+	  『http://localhost:8090/wepApp102/Receive02.jsp』로 한다.
+	  
+	  
+	  // Send02.html
+	  // Receive02.jsp
+
+ -->
+</body>
+	<div>
+		<form action="Receive02.jsp" method="post">
+			<table>
+				<tr></tr>
+					<tr><td align="right">이름 : <input type="text" name = "userName" style="width: 100px"></td></tr>
+					<tr><td align="right">국어점수 : <input type="text" name ="userKor" style="width: 100px"></td></tr>
+					<tr><td align="right">영어점수 : <input type="text" name ="userEng" style="width: 100px"></td></tr>
+					<tr><td align="right">수학점수 : <input type="text" name ="userMat" style="width: 100px"></td></tr>
+					<tr><td align="right"><button type="submit">결과확인</button></td></tr>
+			</table>
+			
+		</form>
+	
+	</div>
+</html>

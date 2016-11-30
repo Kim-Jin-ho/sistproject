@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript 활용 실습</title>
+<!--  사용자로부터 임의의 두 정수를 입력받아
+      합, 차, 곱, 몫(나눗셈연산) 을 계싼하여
+      연산 결과를 출력하는 웹 페이지를 구성한다. -->
+<style type="text/css">
+	input
+	{
+		border:2px solid black;
+		width : 80pt;
+	}
+	
+	.btn
+	{
+		border-color : black;
+		border-radius:6px;
+		font-weight: bold;
+		width:60px;
+		background: #ffa0ff;
+	
+	}
+	.btn:HOVER
+	{
+		color: fuchsia;
+	}
+	
+	.btn:ACTIVE
+	{
+		color: red;
+	}
+</style>
+<script type="text/javascript">
+	// 사용자 정의 자바스크립트 함수
+	function myCalc(obj)
+	{
+		var vnum1 = document.getElementById("num1").value;
+		var vnum2 = document.getElementById("num2").value;
+		var vresult = 0;
+		
+		if(obj.value =="더하기")
+		{
+			vresult = parseInt(vnum1) + parseInt(vnum2);
+		}
+		else if(obj.value == "빼기")
+		{
+			vresult = parseInt(vnum1) - parseInt(vnum2);
+		}
+		else if(obj.value == "곱하기")
+		{
+			vresult = parseInt(vnum1) * parseInt(vnum2);
+		}
+		else if(obj.value == "나누기")
+		{
+			vresult = parseInt(vnum1) / parseInt(vnum2);
+		}
+		
+		document.getElementById("result").value = vresult;
+	}	
+</script>
+</head>
+<body>
+	<form>
+		정수1 <input type="text" id ="num1"/>
+		정수2 <input type="text" id ="num2"/>
+		<br/><br/><br/>
+		<input type = "button" class="btn" value="더하기"  onclick="myCalc(this)"/>
+		<input type = "button" class="btn" value="빼기"  onclick="myCalc(this)"/>
+		<input type = "button" class="btn" value="곱하기"  onclick="myCalc(this)"/>
+		<input type = "button" class="btn" value="나누기"  onclick="myCalc(this)"/>
+		<br/><br/><br/>
+		
+		<hr/>
+		결과 <input type="text" id="result"/>
+		<input type="reset" class = "btn" value="취소"/>
+	</form>
+	
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>라디오, 체크박스 다루기</title>
+<script type="text/javascript">
+	function myChoice()
+	{
+		var checkObjs = document.getElementsByName("checkGroup");
+		var msg = "아무것도 선택되지 않았습니다.";
+		
+		//alert(checkObjs);
+		
+		for (var i = 0; i < checkObjs.length; i++)
+		{
+			if (checkObjs[i].checked)
+			{
+				msg = checkObjs[i].value + "\n";
+			}
+		}
+		alert(msg)
+	}
+</script>
+</head>
+<body>
+<div>
+	<h2>교과명 선택</h2>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<input type="checkbox" name="checkGroup" id="JAVA" value="JAVA"><label for="JAVA">JAVA 기초</label><br>
+		<input type="checkbox" name="checkGroup" id="ORACLE" value="ORACLE"><label for ="ORACLE">ORCLE 중급</label><br>
+		<input type="checkbox" name="checkGroup" id="WEB" value="WEB"><label for="WEB">WEB 기초</label><br>
+		<input type="checkbox" name="checkGroup" id="SERVLET" value="SERVLET"><label for="SERVLET">SERVLET 중급</label><br>
+		<input type="checkbox" name="checkGroup" id="JSP" value="JSP"><label for="JSP">JSP 심화</label><br>
+		<input type="checkbox" name="checkGroup" id="FRAMEWORK" value="FRAMEWORK"><label for="FRAMEWORK">Framework 활용</label><br>
+		<br><br>
+		
+		<button type="button" onclick="myChoice()">확인</button>
+	</form>
+</div>
+</body>
+</html>

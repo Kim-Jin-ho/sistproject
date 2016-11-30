@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+	
+<h2>■■■ 목록 ■■■</h2>
+<h3>순서없는 목록</h3>
+<!-- 
+	순서가 명확치 않은 항목들의 목록
+ -->
+
+<!-- ul>li*10>lorem -->
+<ul>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </li>
+	<li>Numquam aperiam nam quod expedita praesentium maxime inventore</li>
+	<li>Maiores doloremque nemo minima a enim quisquam impedit deleniti fuga </li>
+	<li>Id delectus qui pariatur natus beatae sequi possimus ipsam</li>
+	<li>In nam earum ipsam tempore consequuntur officiis corporis commodi </li>
+	<li>Cum rem non modi error id magnam provident repellendus asperiores </li>
+	<li>A totam dicta error veniam vero doloribus dolor commodi accusantium </li>
+	<li>Recusandae eligendi et maxime minima modi fugiat quo dolores autem. </li>
+	<li>Molestiae eveniet consequuntur culpa ipsam minima quaerat rerum dignissimos </li>
+	<li>Architecto vero repellendus ratione est soluta. Magnam aperiam adipisci vero </li>
+</ul>	
+
+<br>
+<hr>
+<br>
+<br>
+<h3>순서있는 목록</h3>
+<!--
+	순서가 명확히 지켜져야하는 항목들의 목록 
+-->
+
+<!--  ol>li*10>lorem -->
+<ol>
+	<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </li>
+	<li>Numquam aperiam nam quod expedita praesentium maxime inventore</li>
+	<li>Maiores doloremque nemo minima a enim quisquam impedit deleniti fuga </li>
+	<li>Id delectus qui pariatur natus beatae sequi possimus ipsam</li>
+	<li>In nam earum ipsam tempore consequuntur officiis corporis commodi </li>
+	<li>Cum rem non modi error id magnam provident repellendus asperiores </li>
+	<li>A totam dicta error veniam vero doloribus dolor commodi accusantium </li>
+	<li>Recusandae eligendi et maxime minima modi fugiat quo dolores autem. </li>
+	<li>Molestiae eveniet consequuntur culpa ipsam minima quaerat rerum dignissimos </li>
+	<li>Architecto vero repellendus ratione est soluta. Magnam aperiam adipisci vero </li>
+</ol>
+
+
+<br>
+<hr>
+<br>
+<br>
+<h3>스타일 없는 목록</h3>
+<!-- 
+	기본 항목에서 list-style 과 좌측마진을 제거하게 된다. 
+	.list-unstyled 클래스는 바로 아래 항목들에게만 적용된다.
+	그렇기 때문에 리스트에 리스트가 중첩되어 있는 형태를 구성할 때
+	적용할 목록에 따로 클래스를 추가해 주어야 한다.
+-->
+<ul class="list-unstyled">
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </li>
+	<li>Numquam aperiam nam quod expedita praesentium maxime inventore</li>
+	<li>Maiores doloremque nemo minima a enim quisquam impedit deleniti fuga </li>
+	<li>Id delectus qui pariatur natus beatae sequi possimus ipsam</li>
+	<li>In nam earum ipsam tempore consequuntur officiis corporis commodi </li>
+	<li>Cum rem non modi error id magnam provident repellendus asperiores </li>
+	<li>A totam dicta error veniam vero doloribus dolor commodi accusantium </li>
+	<li>Recusandae eligendi et maxime minima modi fugiat quo dolores autem. </li>
+	<li>Molestiae eveniet consequuntur culpa ipsam minima quaerat rerum dignissimos </li>
+	<li>Architecto vero repellendus ratione est soluta. Magnam aperiam adipisci vero </li>
+</ul>
+
+<br>
+<br>
+
+<ol class="list-unstyled">
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </li>
+	<li>Numquam aperiam nam quod expedita praesentium maxime inventore</li>
+	<li>Maiores doloremque nemo minima a enim quisquam impedit deleniti fuga </li>
+	<li>Id delectus qui pariatur natus beatae sequi possimus ipsam</li>
+	<li>In nam earum ipsam tempore consequuntur officiis corporis commodi </li>
+	<li>Cum rem non modi error id magnam provident repellendus asperiores </li>
+	<li>A totam dicta error veniam vero doloribus dolor commodi accusantium </li>
+	<li>Recusandae eligendi et maxime minima modi fugiat quo dolores autem. </li>
+	<li>Molestiae eveniet consequuntur culpa ipsam minima quaerat rerum dignissimos </li>
+	<li>Architecto vero repellendus ratione est soluta. Magnam aperiam adipisci vero </li>
+</ol>
+
+<br>
+<hr>
+<br>
+<br>
+<h3>인라인 목록</h3>
+<!--
+	display: inline-block; 으로 함목들을 한 줄에 보여준고 약간의 패딩이 부여된 형태 
+-->
+<ul class="list-inline">
+		<li>Lorem</li>
+	<li>Numquam</li>
+	<li>Maiores</li>
+	<li>Id delectus </li>
+	<li>In nam earum </li>
+	<li>Cum rem non </li>
+	<li>A totam </li>
+	<li>Recusandae </li>
+	<li>Molestiae </li>
+	<li>Architecto </li>
+</ul>
+
+
+<ol class="list-inline">
+		<li>Lorem</li>
+	<li>Numquam</li>
+	<li>Maiores</li>
+	<li>Id delectus </li>
+	<li>In nam earum </li>
+	<li>Cum rem non </li>
+	<li>A totam </li>
+	<li>Recusandae </li>
+	<li>Molestiae </li>
+	<li>Architecto </li>
+</ol>
+
+<br>
+<hr>
+<br>
+<br>
+<h3>설명 목록</h3>
+<!-- 
+	연관된 설명들의 목록
+ -->
+ <!-- dl>((dt>lorem)+(dd>lorem))*5 -->
+<dl>
+	<dt>lorlajlfdfjlej</dt>
+	<dd>Lorem ipsum dolor </dd>
+	<dt>Rerum pariatur magnam</dt>
+	<dd>Velit beatae eius sed ut unde molestiae harum </dd>
+	<dt>Quaerat molestiae </dt>
+	<dd>Atque quaerat quasi repudiandae praesentium</dd>
+	<dt>Maxime fugit </dt>
+	<dd>Optio odio sapiente voluptates </dd>
+	<dt>Eum laudantium </dt>
+	<dd>Adipisci nulla aliquid</dd>
+</dl>
+
+
+<br>
+<hr>
+<br>
+<br>
+<h3>수평 설명 목록</h3>
+<!-- 
+	<dl> 내부에 용어들과 설명들을 나란히 놓을 수 있다.
+ -->
+ 
+<!-- 위의 소스 복사/붙여넣기 -->
+<dl class="dl-horizontal">
+	<dt>lorlajlfdfjlej</dt>
+	<dd>Lorem ipsum dolor </dd>
+	<dt>Rerum pariatur magnam</dt>
+	<dd>Velit beatae eius sed ut unde molestiae harum </dd>
+	<dt>Quaerat molestiae </dt>
+	<dd>Atque quaerat quasi repudiandae praesentium</dd>
+	<dt>Maxime fugit </dt>
+	<dd>Optio odio sapiente voluptates </dd>
+	<dt>Eum laudantium </dt>
+	<dd>Adipisci nulla aliquid</dd>
+</dl>
+<!-- 
+	※ 수평 설명 목록은 열 길이보다 너무 긴 용어를 text-overflow 로 줄이게 된다.
+	   좁은 너비의 디바이스에서는 개행되는 모양으로 바뀌게 된다.
+ -->
+
+
+
+
+<br>
+<hr>
+<br>
+<br>
+	
+	
+</body>
+</html>

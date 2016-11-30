@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습</title>
+<script type="text/javascript">
+	/* 자바 스크립트 내장 객체 기본 */
+	message = "<h3>Hello~!!</h3>"			//-- 전역 변수와 똑같은 효과를 발휘하여
+											//   아래에서 다시 스크립트를 작성하여
+											//   외뷰의 스크립트에서 변수명을 작성한 후
+											//   외부스크립트를 참조하더라도 변수를 불러 올 수 있다.
+	document.write(message)
+	
+	//-- 경고창 안에서는 message 에서 선언된 HTML 태그가 적용되지 않고
+	//   문자로 출력된다.
+	alert(message);
+</script>
+
+<!-- 외부 자바스크립트 파일(.js) 참조 -->
+<script type="text/javascript" src = "js/alert.js"></script>
+<!-- 새로운 팝업창 생성됨 -->
+
+<script type="text/javascript">
+document.write(message);
+window.alert(message);
+</script>
+<!-- message 변수를 호출 하여 결과값 출력함 -->
+
+
+<script type="text/javascript">
+	//Date 내장 객체
+	//dt = Date().toString();
+	dt = String(Date());
+	document.write(dt);
+</script>
+<!--  날짜 객체를 호출하여 날짜를 출력 -->
+</head>
+<body>
+
+</body>
+</html>

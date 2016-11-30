@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>잔돈 계산기</title>
+<!--  사용자로부터 화폐 금액을 입력받아
+      입력받은 금액에 대한 화폐 단위별 출력이 이루어지는
+      페이지를 구성한다.
+      페이지 구성)
+      금액 : _____________ <- 사용자 입력
+      
+      [결과] [취소]
+      입력 총액:
+      500원 : 
+      100원 :
+       50원 :
+       10원 : 
+       
+       
+-->
+<style type="text/css">
+	.btn
+	{
+		font-weight: bold;
+		width:100px;
+		height: 30px;
+	}
+	.form
+	{
+	  text-align: right;
+	}
+	
+	.jandon
+	{
+		text-align : right;
+		border-color : black;
+		border-radius:0px;
+		font-weight: bold;
+		width:100px;
+		background-color: mint;
+		vertical-align: middle;  
+		 
+	}
+	
+
+	
+	
+</style>
+
+<script type="text/javascript">
+function myjandon()
+{
+	var don  = document.getElementById("don").value;
+	
+	// 연산
+	var v500 = parseInt(don/500);
+	document.getElementById("m500").value = v500; 
+	var v100 = parseInt((don%500)/100);
+	document.getElementById("m100").value = v100;
+	var v50  = parseInt(((don%500)%100)/50);
+	document.getElementById("m50").value = v50;
+	var v10  = parseInt((((don%500)%100)%50)/10);
+	document.getElementById("m10").value = v10;
+	
+	// 입력받은 금액
+	document.getElementById("ibdon").value = don;
+}
+</script>
+       
+</head>
+<body>
+<div align="right">
+	<form>
+		금액 <input type="text" id="don" class="jandon"> 원<br/><hr width="30%"align ="right"/>
+			 <input type="button" value="결과" class="btn" onclick="myjandon()">
+			 <input type="reset" value="취소" class="btn">
+			 <br/><hr width="30%"align ="right">
+			 
+		입력총액 : <input type="text" id="ibdon" class = "jandon"> 원<br/>	
+		500원 : <input type="text" id="m500"  class="jandon"> 원<br/>
+		100원 : <input type="text" id="m100"  class="jandon"> 원<br/>
+		50원 : <input type="text" id="m50"   class="jandon"> 원<br/>
+		10원 : <input type="text" id="m10"   class="jandon"> 원
+	</form>
+</div>
+</body>
+</html>

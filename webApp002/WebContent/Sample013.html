@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 적용 실습</title>
+<style type="text/css">
+
+	div:first-of-type
+	{
+		color: lime;
+	}
+	
+	div:last-of-type
+	{
+		color:blue;
+	}
+	.lastdiv
+	{
+		color:green;
+		background: yellow;
+	}
+	
+	.borderdiv
+	{
+		border: solid 2px red;
+	}
+	
+	/* 선택자가 아이디명일 경우(아이디선택자) 『#아이디명』으로 표현*/
+	/* 클래스 선택자보다 아이디 선택자의 우선순위가 높다. */
+	#box4
+	{
+		color:orange;
+		background-color: black;
+		border:solid 1px blue; 
+	}
+	
+</style>
+
+</head>
+<body>
+	<div>box0</div>
+	<p>p_box1</p>
+	<hr/>
+	<div>box1</div>
+	<div>box2</div>
+	<div>box3</div>
+	<!-- 스타일의 우선순위 -->
+	<!-- 태그명 < .클래스명< #아이디명 < style속성 -->
+	<div id="box4" class="lastdiv borderdiv" style ="color: white">box4</div>
+	<div class ="borderdiv">box5</div>
+	<div>box6</div>
+	<div>box7</div>
+	
+	
+</body>
+</html>

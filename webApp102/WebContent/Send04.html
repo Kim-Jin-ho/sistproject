@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Send04.html</title>
+<link rel="stylesheet" href="css/main.css">
+<style type="text/css">
+   .msg { color: red; font-size: small; display: none;}   
+</style>
+
+<script type="text/javascript">
+
+   function formCheck()
+   {
+      var userId = document.getElementById("userId");
+      var userPwd = document.getElementById("userPwd");
+      var userName = document.getElementById("userName");
+      var userTel = document.getElementById("userTel");
+      
+      var idMsg = document.getElementById("idMsg");      
+      idMsg.style.display = "none";
+      var pswMsg = document.getElementById("pswMsg");      
+      pswMsg.style.display = "none";
+      var nameMsg = document.getElementById("nameMsg");      
+      nameMsg.style.display = "none";
+      var telMsg = document.getElementById("telMsg");      
+      telMsg.style.display = "none";
+      
+      
+      var count = 0;
+      
+      for (var i=1; i<=4; i++)
+      {
+         if (userId.value=="")
+         {
+            idMsg.style.display = "inline";
+            userId.focus();      
+            count++;
+         }
+         
+         if (userPwd.value=="")
+         {
+            pswMsg.style.display = "inline";
+            userPwd.focus();
+            count++;
+         }   
+         
+         if (userName.value=="")
+         {
+            nameMsg.style.display = "inline";
+            userName.focus();   
+            count++;
+         }   
+         
+         if (userTel.value=="")
+         {
+            telMsg.style.display = "inline";
+            userTel.focus();   
+            count++;
+         }
+      
+      }      
+      if(count >0)
+         return false;   
+      return true;
+   }
+</script>
+
+</head>
+<body>
+<!-- 
+   ○ 문제 (데이터 송수신 실습)
+   - 회원 가입 요청 및 처리에 대한과정을 JSP 페이지로 구성한다.
+   - 전송 전에(클라이언트 측에서 작성한 내용을 서버 측에 제출하기 전에)
+     입력 데이터에 대한 검사 과정을 추가한다.
+     
+     아이디(*)      [          ] 아이디를 입력해야 합니다.
+     패스워드(*)   [          ]    :
+     이름(*)       [          ] 
+     전화번호(*)   [          ]
+     
+     성별          ●여자   ○남자
+     지역          서울▼ ← 경기, 인천
+     수강과목      □자바기초  □오라클중급  □JDBC고급   □JSP심화
+     
+     <회원 가입>
+     
+     - 최초 요청 주소는 『http://localhost:8090/WebApp102/Send04.html』로 한다.
+     - 처리 내용을 보여주는 결과 페이지의 주소는
+       『http://localhost:8090/WebApp102/Receive04.jsp』로 한다.
+
+ -->
+ 
+ 
+ <div>
+    <h2>회원 가입</h2>
+    <hr>
+ </div>
+ 
+ <div>
+    <!-- 『onsubmit』 submit 이 발생할 경우 처리 -->
+    <form action="Receive04.jsp" method="post" onsubmit="return formCheck();">
+       <table style="width: 500px%">
+          <tr align="left">
+             <th>아이디(*)</th>
+             <th>
+                <input type="text" id="userId" placeholder="아이디 입력">
+                <span class="msg" id="idMsg">아이디를 입력해야 합니다.</span>
+             </th>
+          </tr>
+          <tr align="left">
+             <th>패스워드</th>
+             <td>
+                <input type="password" id="userPwd" name="userPwd" placeholder="패스워드 입력">
+                <span class="msg" id="pswMsg">패스워드를 입력해야 합니다.</span>
+             </td>
+          </tr>
+          <tr align="left">
+             <th>이름(*)</th>
+             <td>
+                <input type="text" id="userName" name="userName" placeholder="이름 입력">
+                <span class="msg" id="nameMsg">이름를 입력해야 합니다.</span>            
+            </td>
+          </tr>
+          <tr align="left">
+            <th>전화번호(*)</th>
+            <td>
+               <input type="tel" id="userTel" name="userTel" placeholder="010-1111-1111">
+               <span class="msg" id="telMsg">전화번호를 입력해야 합니다.</span>
+            </td>
+         </tr>
+          <tr align="left">
+             <th>성별</th>
+             <td>
+                <input type="radio" id="Fgender" name="userGender" value="F"><label for="Fgender">여자</label>
+                <input type="radio" id="Mgender" name="userGender" value="M"><label for="Mgender">남자</label>
+             </td>
+          </tr>
+          <tr align="left">
+             <th>지역</th>
+             <td>
+                <select id="userCity" name="userCity">
+                   <option value="seoul">서울</option>
+                   <option value="kyunggi">경기</option>
+                   <option value="inchun">인천</option>
+                </select>
+             </td>
+          </tr>
+          <tr>
+             <th>수강과목</th>
+             <td>
+                <input type="checkbox" name="userSubject" id="check1" value="java">
+                <label for="check1">자바기초</label>
+                <input type="checkbox" name="userSubject" id="check2" value="oracle">
+                <label for="check2">오라클중급</label>
+                <input type="checkbox" name="userSubject" id="check3" value="jdbc">
+                <label for="check3">JDBC고급</label>
+                <input type="checkbox" name="userSubject" id="check4" value="jsp">
+                <label for="check4">JSP심화</label>
+             </td>
+          </tr>
+        </table>
+        <br>
+        
+        <button type="submit" style="width: 500px; height: 30px;">회원 가입</button>
+        
+    </form>
+ </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 적용실습</title>
+<style type="text/css">
+	div:not(#box3)
+	{
+		width:100px;
+		height: 100px;
+		margin-bottom: 10px;
+		/* border-radius: 100px 0;*/
+		/* border-radius : 50 px 30px -> 수평50px , 수직 30px */
+		border-radius: 50px 10px 20px 30px;
+		/* 좌측 상단 모서리부터 시계방향으로 값 지정*/
+		border : solid 1px gray;
+	}
+</style>
+</head>
+<body>
+	<div id ="box1">box1</div>
+	<div id ="box2">box2</div>
+	<div id ="box3">box3</div>
+	<div id ="box4">box4</div>
+	<div id ="box5">box5</div>
+	
+</body>
+</html>

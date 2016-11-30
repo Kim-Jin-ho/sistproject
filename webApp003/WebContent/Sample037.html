@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습</title>
+<!-- 정수 입력 및 처리 (반복문 구성) -->
+
+<script type="text/javascript">
+
+	function numHap()
+	{
+		document.getElementById("result").value = null;
+		var num = parseInt(document.getElementById("txtNum").value);
+		
+		if (num <100)
+		{
+			alert("똑바로");
+			document.getElementById("txtNum").value = "";
+			windowOnload();	
+			return;
+		}
+		var sum = 0;
+		
+		for (var i= 1 ; i <= num; i++)
+		{
+			sum += i;
+			if (i % 10 == 0)
+			{
+				 document.getElementById("result").value+="1 ~ "+ i + " = " + sum + "\n";
+			}
+		}
+		
+		if (num%10 !=0)
+		{
+			document.getElementById("result").value+="1 ~ "+ num + " = " + sum + "\n";
+		}
+		
+	}
+	
+	
+	function windowOnload()
+	{
+	 var num = document.getElementById("txtNum");
+	 num.focus();
+	}
+</script>
+
+
+<style type="text/css">
+	#txtNum
+	{
+		border: 1px solid #c4c4c4;
+		width : 80px;
+		height : 20px; 
+	    font-size: 13px; 
+	    padding: 4px 4px 4px 4px; 
+	    border-radius: 4px; 
+	    -moz-border-radius: 4px; 
+	    -webkit-border-radius: 4px; 
+	    box-shadow: 0px 0px 8px #d9d9d9; 
+	    -moz-box-shadow: 0px 0px 8px #d9d9d9; 
+	    -webkit-box-shadow: 0px 0px 8px #d9d9d9; 
+	}
+	
+	form
+	{
+		width : 300px;
+	}
+	textarea
+	{
+		width : 64%;
+		height : 60%;
+		border: 1px solid #c4c4c4;
+	    font-size: 13px; 
+	    padding: 4px 4px 4px 4px; 
+	    border-radius: 4px; 
+	    -moz-border-radius: 4px; 
+	    -webkit-border-radius: 4px; 
+	    box-shadow: 0px 0px 8px #d9d9d9; 
+	    -moz-box-shadow: 0px 0px 8px #d9d9d9; 
+	    -webkit-box-shadow: 0px 0px 8px #d9d9d9; 
+	}
+	
+	
+	button.btn
+	{
+		-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		box-shadow:inset 0px 1px 0px 0px #ffffff;
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+		background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+		background-color:#ededed;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
+		border:1px solid #dcdcdc;
+		display:inline-block;
+		cursor:pointer;
+		color:#777777;
+		font-family:Arial;
+		font-size:15px;
+		font-weight:bold;
+		padding:6px 24px;
+		text-decoration:none;
+		text-shadow:0px 1px 0px #ffffff;
+	}
+	button.btn:HOVER
+	{
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+		background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);	
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+		background-color:#dfdfdf;
+	}
+	button.btn:ACTIVE
+	{
+		position:relative;
+		top:1px;
+	}
+</style>
+</head>
+<body onload = "windowOnload()">
+
+	<div>
+		<form>
+			임의의 정수 입력 (100 이상)
+			<input type = "text" id = "txtNum" style="width:25%"/><br/>
+			<button type = "button" class = "btn" onclick = "numHap()">결과</button>
+			<button type = "reset" class = "btn">취소</button><br/><br/>
+			<textarea rows="20" cols="10" id = "result"></textarea>
+		</form>
+	</div>
+</body>
+</html>

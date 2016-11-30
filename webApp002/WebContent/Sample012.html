@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 적용 실습</title>
+<style>
+	/* 우선순위 체크 */
+	/* 선색자의 유형과 적용 범위 */
+	div.odd		/* 『.odd』와 비교 */
+	{
+		color:lime;
+		font-weight: bold;
+		font-size: 20pt;
+		
+	}
+	
+	div,p
+	{
+		border: solid 1px gray;
+		width:100px;
+		height:100px;
+	}
+	
+	/* body 의 자식 중에 첫 번째 div */
+	div:FIRST-CHILD			/* 동적 선택자 가상 선택자 */
+	{
+		width:200px;
+	}
+	
+	div:LAST-CHILD
+	{
+		width:400px;
+	}
+</style>
+</head>
+<body>
+	<div id="box1" class="odd">box1</div>
+	<div id="box2">box2</div>
+	<div id="box3" class="odd">box3</div>
+	<div id="box4">box4</div>
+	
+	<hr>
+	<p class="odd">p_box1</p>
+	<p>p_box2</p>
+	<p class="odd">p_box3</p>
+	<p>p_box4</p>
+	
+	<div id="box5">box5</div>
+	
+</body>
+</html>

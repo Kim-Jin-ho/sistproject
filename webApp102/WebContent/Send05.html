@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Send05.html</title>
+<link rel="stylesheet" href="css/main.css">
+<script type="text/javascript">
+		
+/* 	function ff()
+	{
+		var f = document.forms[0];
+		f.submit();
+	} */
+	
+	function formChange(obj)
+	{
+		
+		//alert("test");
+		//alert(obj);
+		
+		
+		// obj 변수에는 form 객체가 저장되어 있다.
+		// 필요에 따라 전송(submit()) 하기 전에 검증 절차를 추가하는 것이
+		// 가능하다.
+		
+		obj.submit();
+		//-- 『submit()』 함수를 통해 form 객체를 데이터를
+		//   서버로 전송하는 것이 가능하다.
+			
+	}
+	
+</script>
+
+</head>
+<body>
+<!-- 
+	○ 문제 (데이터 송수신 실습)
+	 - 구구단 결과를 출력하는 JSP 페이지를 구성한다.
+	 - 원하는 단ㅅ구를 일력받아 화면에 출력해주는 형태의 페이지로 구성한다.
+	 - 단, submit 버튼없이 이벤트 처리를 한다.
+	 
+	 단 수 선택 [ 1단 ▼]
+	 
+	 - 최초 요청 주소는 『http:localhost:8090/wepApp102/Send05.html』
+	 - 결과페이지는 『http:localhost:8090/wepApp102/Receive05.jsp』
+
+ -->
+</body>
+	<div>
+		<h2>구구단 입력</h2>
+		<hr>
+	</div>
+	<div>
+		<form action="Receive05.jsp" method="post">
+			<table>
+				<tr></tr>
+				<tr>
+					<th> 단 수 선택
+					<!-- 내가한것
+					<select name="dan" id="dan" onchange="ff();"> 
+					<select name ="dan" id ="dan" onchange="formChange(this.form);">
+						<option value ="1" selected="selected"> 1단 </option>
+						<option value ="2"> 2단</option>
+						<option value ="3"> 3단 </option>
+						<option value ="4"> 4단 </option>
+						<option value ="5"> 5단 </option>
+						<option value ="6"> 6단 </option>
+						<option value ="7"> 7단 </option>
+						<option value ="8"> 8단 </option>
+						<option value ="9"> 9단 </option>
+					-->
+					<select name ="dan" id ="dan" onchange="formChange(this.form);">
+						<option value ="1" selected="selected"> 1단 </option>
+						<option value ="2"> 2단</option>
+						<option value ="3"> 3단 </option>
+						<option value ="4"> 4단 </option>
+						<option value ="5"> 5단 </option>
+						<option value ="6"> 6단 </option>
+						<option value ="7"> 7단 </option>
+						<option value ="8"> 8단 </option>
+						<option value ="9"> 9단 </option>	
+					</select>
+					</th>
+				</tr>
+			</table>
+		</form>
+	</div>
+</html>

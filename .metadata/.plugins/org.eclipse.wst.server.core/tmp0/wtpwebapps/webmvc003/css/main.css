@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+
+.txt
+{
+	width: 50px;
+	
+}
+
+*
+{
+	font-size: 18px;
+	color: #343;
+	font-family: 맑은 고딕;
+	font-weight: bold;
+	
+}
+
+input
+{
+	border-radius: 4px;
+}
+
+input:FOCUS
+{
+	background-color: lightcyan;
+}
+
+button
+{
+	background-color: paleturquoise;
+}
+
+button:HOVER
+{
+	color: red;
+}
+
+table,td
+{
+	border : 1 solid gray;
+	border-cardius: 4px;
+}
+
+body
+{
+	font-size: 18px;
+	color: #343;
+	font-family: 맑은 고딕;
+	font-weight: bold;
+}
+
+p, div, input, table, th, td, select, button, textarea
+{
+	font-size: 18px;
+	color: #343;
+	font-family: 맑은 고딕;
+	font-weight: bold;
+	
+}
+
+h2
+{
+	font-size: 25px;
+}
+
+.inputTxt
+{
+	text-align: center;
+}
+
+.control
+{
+	border: 1px solid gray;
+	
+}
+
+
+
+
+
+
+

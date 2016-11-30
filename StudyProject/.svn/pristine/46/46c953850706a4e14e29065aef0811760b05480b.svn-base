@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
+
+	<context:component-scan base-package="org.springframework.samples.petclinic.web" />
+
+
+	<!-- Data Source -->
+	<!-- 각각의 사용자 정의 컨트롤러 객체 등록 및 URL 매핑 -->
+	<bean class="org.springframework.jdbc.datasource.SimpleDriverDataSource" id="localDataSource">
+		<property value="oracle.jdbc.driver.OracleDriver" name="driverClass" />
+		<property value="jdbc:oracle:thin:scott/tiger@localhost:1521:xe" name="url" />
+	</bean>
+
+	<bean id="remoteDataSource"
+		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url"
+			value="jdbc:oracle:thin:Study_Project/java003$@211.63.89.121:1521:xe"></property>
+	</bean>
+	
+	<bean id="roomDataSource"
+		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url"
+			value="jdbc:oracle:thin:studyproject/java003$@SProject.iptime.org:1521:xe"></property>
+	</bean>
+
+
+	<!-- 의존성 주입 -->
+<!-- 	<bean class="dao.AdminMenuDAO" id="idao">
+		<property name="dataSource" ref="remoteDataSource" />
+	</bean>  -->
+	
+	<bean class="dao.SreBoardDAO" id="sbdao">
+		<property name="dataSource" ref="roomDataSource" />
+	</bean>
+	
+	<bean class="dao.MemberDAO" id="memberdao">
+		<property name="dataSource" ref="roomDataSource"/>	
+	</bean>
+	
+	<bean class="dao.NoticeDAO" id="noticedao">
+		<property name="dataSource" ref="roomDataSource"/>	
+	</bean>
+	
+	<bean class="dao.ShopDAO" id="shopdao">
+		<property name="dataSource" ref="roomDataSource"/>	
+	</bean>
+
+	<!-- Controller 객체 등록 -->
+<!-- 	<bean  name="/AdminMenuList.room" class="AdminMenuController.AdminMenuController">
+		<property name="dao" ref="idao"></property>
+	</bean> -->
+	
+	<bean  name="/StudyRoomMain.room" class="MemberRoomMainController.StudySearchList">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	
+	<bean  name="/StudyRoomSearch.room" class="MemberRoomMainController.StudySearchController">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	
+	<bean name="/searchForm.room" class="MemberRoomMainController.StudySearchList">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	
+	<bean name="/StudyMain.room" class="StudyMainController.StudyMainController">
+	</bean>
+	
+	<bean name="/StudyMain_member.room" class="StudyMainController.StudyMainController_member">
+	</bean>
+	
+	<bean name="/StudyRoomViewMap.room" class="StudyRoomViewMap.StudyViewMapController">
+	</bean>
+	
+	<bean name="/StudyRoomCreateMap.room" class="StudyRoomViewMap.StudyRoomCreateMap">
+	</bean>
+	
+	<bean name="/StudyRoomView.room" class="MemberRoomMainController.StudyRoomViewController">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	<bean name="/StudyRoomViewRecommendAjax.room" class="MemberRoomMainController.StudyRoomViewRecommendAjax">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	<bean name="/StudyRoomViewReportAjax.room" class="MemberRoomMainController.StudyRoomViewReportAjax">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	<bean name="/StudyRoomViewInsert.room" class="MemberRoomMainController.StudyRoomViewInsertController">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	<bean name="/StudyRoomViewDelete.room" class="MemberRoomMainController.StudyRoomViewDeleteController">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	<bean name="/StudyRoomViewUpdateAjax.room" class="MemberRoomMainController.StudyRoomViewUpdateAjax">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	<bean name="/StudyRoomViewUpdate.room" class="MemberRoomMainController.StudyRoomViewUpdateController">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	<bean name="/StudyRoomViewRepleRecommendAjax.room" class="MemberRoomMainController.StudyRoomViewRepleRecommendAjax">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	
+	
+	<bean name="/StudyRoomCreate.room" class="StudyRoomCreateController.StudyRoomCreateController">
+		<property name="dao" ref="shopdao"></property>
+	</bean>
+	
+	<bean name="/StudyRoomInsert.room" class="StudyRoomCreateController.StudyRoomInsertController">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	
+	<bean name="/StudyRoomDelete.room" class="StudyRoomCreateController.StudyRoomDeleteController">
+		<property name="dao" ref="sbdao"></property>
+	</bean>	
+	
+	<bean name="/StudyRoomModifyForm.room" class="StudyRoomCreateController.StudyRoomModifyFormController">
+		<property name="dao" ref="sbdao"></property>
+		<property name="dao2" ref="shopdao"></property>
+	</bean>	
+	
+	<bean name="/StudyRoomModify.room" class="StudyRoomCreateController.StudyRoomModifyController">
+		<property name="dao" ref="sbdao"></property>
+	</bean>
+	
+	<bean name="/ShopSelect.room" class="StudyRoomCreateController.ShopSelectController">
+		<property name="dao" ref="shopdao"></property>
+	</bean>
+	
+	<bean name="/ShopAddForm.room" class="StudyRoomCreateController.ShopAddFormController">
+	</bean>
+	
+	
+	
+	
+	
+	<!-- 회원가입  -->
+	<bean name="/join_agree.room" class="join.Join_agreeController">
+	</bean>
+	
+	<bean name="/JoinForm.room" class="join.JoinFormController">
+	</bean>
+	
+	<bean name="/GotoJoinForm.room" class="join.GotoJoinFormContorller">
+	</bean>
+	
+	<bean name="/JoinIdChk.room" class="join.JoinIdChkController">
+		<property name="dao" ref="memberdao"></property>
+	</bean>
+	
+	<bean name="/JoinNicknameChk.room" class="join.JoinNicknameChkController">
+		<property name="dao" ref="memberdao"></property>
+	</bean>	
+	
+	<bean name="/JoinEmailChk.room" class="join.JoinEmailChkController">
+		<property name="dao" ref="memberdao"></property>
+	</bean>
+	
+	<bean name="/JoinTelChk.room" class="join.JoinTelChkController">
+		<property name="dao" ref="memberdao"></property>
+	</bean>
+	
+	<bean name="/MemberInsert.room" class="join.MemberInsertController">
+		<property name="dao" ref="memberdao"></property>
+	</bean>
+	
+	<!-- 로그인 / 로그아웃 -->
+	<bean name="/login_form.room" class="login.LoginFormController">
+	</bean>
+	
+	<bean name="/login.room" class="login.LoginController">
+		<property name="dao" ref="memberdao"></property>
+	</bean>	
+	
+	<bean name="/Admin_login_form.room" class="login.Admin_login_formController">
+	</bean>
+	
+	<bean name="/Admin_login.room" class="login.Admin_LoginController">
+		<property name="dao" ref="memberdao"></property>
+	</bean>
+	
+	<bean name="/Admin_logout.room" class="login.Admin_LogoutController"></bean>
+	
+	<bean name="/Logout.room" class="login.LogoutController">
+	</bean>
+	
+	
+	<!-- 
+	 ID 찾기
+	<bean name="/ScControllerIdSearch.room" class="class3.com.test.ScControllerIdSearch">
+	</bean>
+	
+	PW 찾기
+	<bean name="/ScControllerPwSearch.room" class="class3.com.test.ScControllerPwSearch">
+	</bean>
+	 -->
+	 
+	 
+	 <!-- 공지사항 -->
+	
+	 <bean name="/Notice.room" class="Notice.NoticeListController">
+		<property name="dao" ref="noticedao"></property>
+	 </bean>
+	 
+	 <bean name="/NoticeDetail.room" class="Notice.NoticeDetailController">
+		<property name="dao" ref="noticedao"></property>
+	 </bean>
+	 
+	 <bean name="/NoticeWriteForm.room" class="Notice.NoticeInsertFormController"/>
+
+	 <bean name="/NoticeWrite.room" class="Notice.NoticeInsertController">
+		<property name="dao" ref="noticedao"></property>
+	 </bean>
+	 
+	 <bean name="/NoticeDelete.room" class="Notice.NoticeDeleteController">
+		<property name="dao" ref="noticedao"></property>
+	 </bean>
+	 
+	  <bean name="/NoticeModifyForm.room" class="Notice.NoticeModifyFormController">
+		<property name="dao" ref="noticedao"></property>
+	  </bean>
+	 
+	  <bean name="/NoticeModify.room" class="Notice.NoticeModifyController">
+		<property name="dao" ref="noticedao"></property>
+	  </bean>
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	<!-- FAQ -->
+	 <!-- DAO -->
+	<bean id="FAQDAO" class="dao.FAQDAO">
+		<property name="dataSource" ref="roomDataSource"></property>
+	</bean>
+
+	<!-- Controller -->
+	<bean name="/FAQ.room" class="faq.FAQController">
+     	<property name="dao" ref="FAQDAO"></property>
+    </bean>
+    
+    <bean name="/FAQInputForm.room" class="faq.FAQInputFormController">
+     	<property name="dao" ref="FAQDAO"></property>
+    </bean>
+    
+    <bean name="/FAQInsert.room" class="faq.FAQInsertController">
+     	<property name="dao" ref="FAQDAO"></property>
+    </bean>
+    
+    <bean name="/FAQUpdate.room" class="faq.FAQUpdateController">
+     	<property name="dao" ref="FAQDAO"></property>
+    </bean>
+    <!-- FAQ -->
+	 
+	 
+	 
+	 
+</beans>
+
+
+
+
+
+
+
+
+

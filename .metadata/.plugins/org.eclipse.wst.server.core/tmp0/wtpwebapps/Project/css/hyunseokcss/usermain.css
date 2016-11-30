@@ -1,0 +1,50 @@
+/* reset css */       
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0;padding:0}
+body{ font-family: '나눔고딕',NanumGothic,Arial,sans-serif; font-size: 12px; color: #6f6f6f; line-height: 19px;}
+li{list-style: none;}
+a{text-decoration: none; color: #585858;}
+img{border: 0; /*vertical-align: middle;*/} 
+address{font-style: normal;}
+em{font-weight: bold; font-style: normal;}
+
+/* layout */
+#contents_wr{width: 940px; margin: 0 auto;}
+
+
+/* contents_wr */
+#contents_wr{padding: 46px 0 150px 0;}
+/* lnb_wr */
+.lnb_wr{float: left; width: 240px;}
+.lnb_wr .lnb{margin-bottom: 50px; width: 200px;}
+.lnb_wr .lnb>li{margin-bottom: 6px; padding: 10px 0 10px 0; border-bottom: 1px dotted #d9d9d9;}
+.lnb>li:first-child{padding-top: 0;}
+
+.lnb_wr .lnb_bannner01{width: 200px; height: 190px; /* border-top: 1px dotted #d9d9d9; border-bottom: 1px dotted #d9d9d9;*/ background: url(images/hal/Notice/lnb_banner_img.jpg)0 97px no-repeat;
+padding: 30px 0 10px;}
+.lnb_wr .lnb_bannner01>a{height: 190px;}
+.lnb_wr .lnb_bannner01>a>span{margin-bottom: 5px;}
+/* contents */
+.contents{float: left; width: 700px;}
+.contents>h3{margin: 16px 0 60px 0;}
+
+.selected-headline{width: 120px; margin: 20px 0;}
+
+.contents #notice{border-top: 1px solid #292929; border-bottom: 1px solid #292929;}
+.contents #notice table{width: 100%; margin-bottom: 14px;}
+.contents #notice thead th{border-bottom: 1px solid #1f5194; padding: 10px 0 12px 0;}
+.contents #notice tbody tr td{padding: 10px 0 10px 0; text-align: center;}
+
+.paging{text-align: center; margin-top: 40px;}
+.paging img{vertical-align: middle; margin-right: 5px;}
+.paging>a,strong{margin-right: 5px;}
+.search_box{text-align: center; margin-top: 20px; margin-bottom: 10px;}
+
+.formSelect{width: 130px; padding: 4px 0 5px 0; }
+.searcIn{height: 25px;  border: 1px solid #afafaf; border-right: none; margin-left: 7px; padding: 0 0 0 5px; line-height: 25px;}
+.btnType01{display: inline-block; height: 23px; border: 1px solid #aeaeae; background: url(images/hal/bg_btn01.gif)left 1px repeat-x;
+padding: 2px 6px 0 6px;}
+
+/*cmpny section 추가*/
+#contents_wr.cmpnysesction{ padding-top:80px; padding-bottom:30px;}
+.magincontainer {margin-left: 230px;}
+.containersection {padding-top:50px; }

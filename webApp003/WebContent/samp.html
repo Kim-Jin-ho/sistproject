@@ -1,0 +1,137 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- 1년 1월 1일 ~ 2012월 12월 31일 → 100일 -->
+<!-- 100 -->
+<!-- 2013년 1월 1일 ~ 2013년 5월 31일 → 50일 -->
+<!-- 6월 1일 → 151 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+ function calendar()
+ {
+  // 월 별 마지막 날짜 배열 처리
+  var months = new Array(31,0,31,30,31,30,31,31,30,31,30,31);
+  //      1 2  3  4  5 
+  //        [0][1][2][3][4]
+  
+  // 사용자의 입력 값을 변수에 담아내기
+  var year = document.getElementById("year").value;
+  var month = document.getElementById("month").value;
+  
+  year = parseInt(year);
+  month = parseInt(month);
+  
+  // 윤년에 따른 2월의 날수 계산
+  if(year%4==0 && year%100!=0 || year%400==0) // 윤년
+   months[1]=29;
+  else          // 평년
+   months[1]=28;
+  
+  // 확인
+  // alert(months[1]);
+  
+  // 1년 1월 1일부터 현재년 전월 말일까지의 날수
+  var nalsu = ((year-1)*365) + ((year-1)/4) - ((year-1)/100) + ((year-1)/400);
+  
+  // 확인
+  // alert(nalsu);
+  
+  // 올림(날짜개념)
+  // 10.2일 → 11일
+  nalsu = Math.ceil(nalsu);
+  
+  // 확인
+  // alert(nalsu);
+  
+  for(var i=0; i<month-1; i++)
+   nalsu += months[i];
+  
+  // 확인
+  // alert(nalsu);
+  
+  // 현재일의 날수 1일 추가
+  nalsu += 1;
+  
+  // 만년 달력 출력 부분,
+  var tableNode = document.getElementById("table01");
+  var trNode = document.createElement("tr");
+  
+  // 사전에 공백 칸 추가를 추가하는 부분이 필요하다
+  // 공백은 최대 6개까지만 올 수 있다.
+  var days = nalsu%7;
+  // alert(days);
+  for(var i=1; i<=days; i++)
+   trNode.appendChild(createNode(" "));
+  
+  // 날짜 칸 추가하는 부분.
+  for(var i=1; i<=months[month-1]; i++){
+   // alert(i);
+   // <td>가 31개 생기는 for 문
+   // 31로 끝나지 않는 부분을 따로 연산을 해주어야
+   // 정상적인 달력 처리를 할 수 있다.
+   trNode.appendChild(createNode(i));
+   
+   // <tr><td></td><td></td> 등등등을...</tr>
+   if((i+days)%7==0){
+    // 특정 테이블에 접근. tbody에 접근. 거기에 붙여라!!
+    //tbodyNode.appendChild(trNode);
+    trNode = document.createElement("tr");
+    // (i+days)
+    // 적절한 오차 범위를 설정해주어
+    // 공백으로 인해 칸이 밀려나도
+    // 그 다음줄에 출력이 되게끔 해줄 수 있다.
+    
+   }
+  }
+  
+  if((days+months[month-1])%7 != 0){
+  // tbodyNode.appendChild(trNode);
+   
+   var temp = 7 - ((days+months[month-1])%7);
+   for(var i=1; i<=temp; i++)
+    trNode.appendChild(createNode(" "));
+  }
+ }
+ 
+ function createNode(val){
+  // td 태그 만들어지는 부분.
+  var textNode = document.createTextNode(val);
+  var tdNode = document.createElement("td");
+  
+  tdNode.appendChild(textNode);
+  return tdNode;
+ }
+</script>
+</head>
+<body>
+ <div>
+  <h1>만년 달력</h1>
+  <form>
+   <input type="text" size="5" id="year">년
+   <input type="text" size="5" id="month">월
+   <input type="button" value="달력 출력" onclick="calendar()">
+  </form>
+  
+  <h2>
+   <span id="y"></span>년<span id="m"></span>월
+  </h2>
+  
+  <table border="1" cellpadding="5" id="table01">
+   <tbody>
+    <!-- 자바스크립트와 연결되려면 id가 필요. -->
+    <tr>
+     <th>일</th>
+     <th>월</th>
+     <th>화</th>
+     <th>수</th>
+     <th>목</th>
+     <th>금</th>
+     <th>토</th>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</body>
+</html>

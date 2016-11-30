@@ -1,0 +1,25 @@
+<script language="JavaScript">
+
+	var myJsonTest05 =
+	{
+			"test" : "function(arg) {alert('메소드 테스트 : '+arg)}"
+	};
+	/*
+		var a = myJsonTest05.test;
+	
+		a("hello");
+		
+		line
+		(myJsonTest05.test)(hello);
+	*/
+
+</script>
+
+<form>
+	<input type="button" value="click"
+	 onclick="eval('var a = '+myJsonTest05.test+''); a('hello');">
+	 <input type="button" value="click"
+	 onclick="eval('('+myJsonTest05.test+')(\'hello\')');">
+	 <!-- ('myJsonTest05.test')(hello) -->
+</form>
+

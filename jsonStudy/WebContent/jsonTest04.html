@@ -1,0 +1,21 @@
+<script language="JavaScript">
+
+	var myJsonObject4 =
+	{
+			"test": function()
+			{
+				alert("메소드 테스트입니다.");
+			}
+	} 
+	
+	// var myJsonObject4 = { "text:function(){alert("메소드 테스트입니다.";)}};
+</script>
+
+<form>
+	<input type="button" value="click" onclick="alert(myJsonObject4)">
+	<input type="button" value="click" onclick="alert(myJsonObject4.test)">
+	<input type="button" value="click" onclick="alert(myJsonObject4.test())">
+
+	<!-- eval(): 변수를 자바스크립트 함수처럼 쓰게 해 주는 함수 -->
+	<input type="button" value="click" onclick="eval('a='+myJsonObject4.test); a();">
+</form>

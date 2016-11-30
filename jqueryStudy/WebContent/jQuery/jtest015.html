@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jtest015.html</title>
+<script type="text/javascript"
+   src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="jquery-ui.min.js"></script>
+<link rel="stylesheet" href="jquery-ui.min.css">
+<script type="text/javascript">
+   $(function() {
+      $("#datepicker").datepicker(
+      {
+    	  changeMonth: true, 
+          changeYear: true,
+          nextText: '다음 달',
+          prevText: '이전 달' ,
+          dayNames: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'],
+          dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'], 
+          monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+          monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+          dateFormat: "yy-mm-dd",
+          yearRange: 'c-99:',
+    });
+   });
+</script>
+</head>
+<body>
+
+   <p>
+      Date: <input type="text" id="datepicker">
+   </p>
+
+</body>
+</html>

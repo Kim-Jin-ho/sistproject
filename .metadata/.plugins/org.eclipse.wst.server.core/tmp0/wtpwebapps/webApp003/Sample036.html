@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습</title>
+<!-- 합격 불합격 여부 확인 -->
+<style type="text/css">
+	body
+	{
+		font-weight:  bold;
+	}
+	input
+	{
+		border : solid 1px gray;
+		text-align: center;
+		font-weight: bold;
+	}
+	div
+	{
+	 width : 220px;
+	}
+	.score
+	{
+		width : 50px;
+		text-align: right;
+		padding-right: 10px;
+	}
+	#txtName
+	{
+		width: 150px;
+	}
+	input.name
+	{
+		border: 1px solid #c4c4c4; 
+	    font-size: 13px; 
+	    padding: 4px 4px 4px 4px; 
+	    text-align : center;
+	    border-radius: 4px; 
+	    -moz-border-radius: 4px; 
+	    -webkit-border-radius: 4px; 
+	    box-shadow: 0px 0px 8px #d9d9d9; 
+	    -moz-box-shadow: 0px 0px 8px #d9d9d9; 
+	    -webkit-box-shadow: 0px 0px 8px #d9d9d9; 
+	}
+	input.score
+	{
+		border: 1px solid #c4c4c4;
+		width : 80px;
+		height : 20px; 
+	    font-size: 13px; 
+	    padding: 4px 4px 4px 4px; 
+	    border-radius: 4px; 
+	    -moz-border-radius: 4px; 
+	    -webkit-border-radius: 4px; 
+	    box-shadow: 0px 0px 8px #d9d9d9; 
+	    -moz-box-shadow: 0px 0px 8px #d9d9d9; 
+	    -webkit-box-shadow: 0px 0px 8px #d9d9d9; 
+	}
+	button.btn
+	{
+		-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+		box-shadow:inset 0px 1px 0px 0px #ffffff;
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+		background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+		background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+		background-color:#ededed;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
+		border:1px solid #dcdcdc;
+		display:inline-block;
+		cursor:pointer;
+		color:#777777;
+		font-family:Arial;
+		font-size:15px;
+		font-weight:bold;
+		padding:6px 24px;
+		text-decoration:none;
+		text-shadow:0px 1px 0px #ffffff;
+	}
+	button.btn:HOVER
+	{
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+		background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+		background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);	
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+		background-color:#dfdfdf;
+	}
+	button.btn:ACTIVE
+	{
+		position:relative;
+		top:1px;
+	}
+	#nResult
+	{
+		border: 0;
+		background:0;
+	}
+</style>
+
+<script type="text/javascript">
+	function testHap()
+	{
+		// 입력 받은 값을 담을 변수들 선언 및 값 담기
+		var kor	 = parseInt(document.getElementById("txtKor").value);
+		var eng  = parseInt(document.getElementById("txtEng").value);
+		var mat  = parseInt(document.getElementById("txtMat").value);
+		
+		var tot =  (kor + eng + mat);
+		var avg = Math.round(tot/3);
+		var result = "판정불가";
+		
+		// 입력 받은 점수에 대한 조건문
+		if (kor>=40 && eng>=40 && mat>=40 && avg>=60)
+			result = "합격";
+ 		else if (avg < 60)
+			result = "불합격";
+		else
+			result = "과락";
+		
+		
+		// 조건문을 거쳐 나온 값들 출력
+		document.getElementById("txtTot").value = tot;
+		document.getElementById("txtAvg").value = avg;
+		document.getElementById("txtReslut").value = result;
+	}
+	function windowOnload()
+	{
+	 var name = document.getElementById("txtName");
+	 name.focus();
+	}
+
+</script>
+</head>
+<body onload = "windowOnload();">
+	<div>
+		<form>
+			이름 : <input type = "text" id = "txtName" class= "name" placeholder="ex) 홍길동"/><br/><br/>
+			국어 : <input type = "text" id = "txtKor" class = "score" placeholder="ex) 80"/><br/><br/>
+			영어 : <input type = "text" id = "txtEng" class = "score" placeholder="ex) 80"/><br/><br/>
+			수학 : <input type = "text" id = "txtMat" class = "score" placeholder="ex) 80"/><br/><br/>
+			
+			<button type = "button" class = "btn" onclick = "testHap();">결과</button>
+			<button type = "reset" class = "btn" >취소</button>
+			
+			<hr/>
+
+			총점 : <input type = "text" id = "txtTot" class="result" disabled ="disabled" />
+			평균 : <input type = "text" id = "txtAvg" class="result" disabled ="disabled" />
+			판정 : <input type = "text" id = "txtReslut" class="result" disabled ="disabled" />
+			<!-- 평균 60점 이상... 합격 -->
+       	  	<!-- 평균 60점 이상이지만... 한 과목이라도 40점 미만... 과락 -->
+       	  	<!-- 평균 60점 미만... 불합격 -->
+		</form>
+	</div>
+</body>
+</html>

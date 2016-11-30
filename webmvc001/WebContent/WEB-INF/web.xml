@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>webmvc001</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<!-- webmvc001 -->
+	<servlet>
+		<servlet-name>helloServlet</servlet-name>
+		<servlet-class>class3.com.test.ServletTest</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>helloServlet</servlet-name>
+		<url-pattern>/helloservlet</url-pattern>
+	</servlet-mapping>
+	
+
+	<!-- webmvc001 -->
+	<servlet>
+		<servlet-name>hellomvc</servlet-name>
+		<servlet-class>class3.com.test.HelloServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>hellomvc</servlet-name>
+		<url-pattern>/hellomvc</url-pattern>
+	</servlet-mapping>
+	
+	<!-- webmvc001 -->
+	<servlet>
+		<servlet-name>sample001</servlet-name>
+		<servlet-class>class3.com.test.Sample001</servlet-class>
+	</servlet>	
+	
+	<servlet-mapping>
+		<servlet-name>sample001</servlet-name>
+		<url-pattern>/sample001</url-pattern>
+	</servlet-mapping>
+	
+	
+</web-app>

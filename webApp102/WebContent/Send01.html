@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Send01.html</title>
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<!-- 
+	○ 문제(데이터 송수신 테스트)
+		- 이름과 전화번호를 입력받는 html 페이지를 작성한다.
+		
+		  이름 		: [ 김진호 ]
+		  전화번호  : [ 010-1111-1111 ]
+		  
+		  <회원가입> <- 버튼
+		  
+		  - 회원가입 버튼 클릭 시
+		  『홍길동님, 회원가입이 완료되었습니다.
+		    회원님께서 등록하신 전화번호는 010-1111-1111 입니다.』
+		    라는 내요을 출력하는 JSP 페이지를 출력해 줄 수 있도록 한다.
+		    
+		  - 최초 요청 주소는 『httml://localhost:8090/wepApp102/Send01.html』
+		  - 처리 내용을 보여주는 결과 페이지 주소는
+		  	『http://localhost:8090/wepApp102/Receive01.jsp』로 한다.
+ -->
+</body>
+<div>
+	<!-- 1. 클라이언트 측에서 서버측에 데이터 전송을 위해 form 태그 필요 -->
+	<!-- 2. form 태그 영역 안에 들어가야 하는 대상은 이름과 전화번호 submit -->
+	<!-- 3. action 속성은 데이터를 전송하며 요청하는 JSP 페이지 주소 지정 -->
+	<!-- 4. method 속성은 데이터를 전송 및 페이지 요청 방식 지정(get, post) -->
+	<form action="Receive01.jsp" method="post">
+		<!-- jsp 에서 전송받아서 사용하려면 id 가 아닌 name 으로 이름을 지정 해야한다. -->
+		<!-- 6. id, name 속성은 어떤 영역에서 어떤 선택자로 활용할지에 따라
+		        적절히 생각해서 부여해야 한다. -->
+		<!-- 7. name 속성은 JSP 에서 사용할 식별자 -->
+		이름 : <input type="text" name="userName"><br><br>
+		전화번호 : <input type = "text" name="userTel">
+		<br><br>
+		<!-- submit 을 통해 전송 기능을 수행할 수 있다 -->
+		<button type="submit" >회원가입</button>
+	</form>
+		
+</div>
+
+	
+</html>

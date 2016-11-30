@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>g2</title>
+<!-- 추가 -->
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+<script type="text/javascript"  src="js/jquery-1.12.3.js"></script>
+<script type="text/javascript"  src="js/bootstrap.js"></script>
+</head>
+
+<body>
+기본 페이지를 살펴봅시다.
+
+<h1>제목입니다.</h1>
+
+<h1>h1. Bootstrap Heading <small>Secondary text</small></h1>
+<h2>h2. Bootstrap Heading <small>Secondary text</small></h2>
+<h3>h3. Bootstrap Heading <small>Secondary text</small></h3>
+<h4>h4. Bootstrap Heading <small>Secondary text</small></h4>
+<h5>h5. Bootstrap Heading <small>Secondary text</small></h5>
+<h6>h6. Bootstrap Heading <small>Secondary text</small></h6>
+
+<!--  
+	  ※ 요쇼의 여백 정책 → 브라우저마다 다름 → 브라우저별 페이지 디자인이 힘들다
+	  
+	  body, p, input, textarea, dd, dt, dl, ul, ol, ...
+	  {
+	  	margin : 0px;
+	  	padding : 0px;
+	  }
+ -->
+
+<br>
+<hr>
+<br>
+<br>
+
+<!-- 
+	일반 적인 <small> 태그나 .small 클래스를 이용하여
+	제목 안에 가벼운 부제 택스트를 만들 수 있다.
+ -->
+<h1>h1. Bootstrap Heading <small>Secondary text</small></h1>
+<h1>h1. Bootstrap Heading <span class="small">Secondary text</span></h1>
+
+<h2>h2. Bootstrap Heading <small>Secondary text</small></h2>
+<h2>h2. Bootstrap Heading <span class="small">Secondary text</span></h2>
+
+<h3>h3. Bootstrap Heading <small>Secondary text</small></h3>
+<h3>h3. Bootstrap Heading <span class="small">Secondary text</span></h3>
+
+
+<br>
+<hr>
+<br>
+<br>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est excepturi doloribus illum commodi quos a sunt mollitia. Quidem quas ex voluptatibus nemo eligendi? Eveniet dolorem laboriosam vitae provident placeat quas?</p>
+<p>Aliquam dolorem fugit ducimus accusamus architecto temporibus minima quaerat. Neque ea aliquam sed quod vero atque sint porro rem error asperiores harum nulla tempore eos pariatur incidunt perspiciatis perferendis laborum!</p>
+<p>Ipsa sed consectetur necessitatibus commodi temporibus quam aspernatur doloremque repellat laudantium veniam inventore dolore dicta atque non omnis! Saepe obcaecati doloribus voluptatem fugiat nostrum totam repellendus voluptatum fuga expedita dignissimos.</p>
+
+<!-- 창 크기를 조절해가며 확인 -->
+<!--
+	※ 부스트스랩의 font-size 기본값은 14px 이고,
+	   line-height 는 1,428 이다.
+	   이것은 <body>와 모든 단락에 적용된다.
+	   추가로 <p> (단락) 은 행 높이의 절반의 하단 마진을 가진다.
+	   (기본값에 의하면 10px 로 계산된다.)
+ -->
+
+
+<br>
+<hr>
+<br>
+<br>
+
+<h3>■■■ 리드 문단 ■■■</h3>
+<!-- 
+	『.lead』 클래스를 추가하여 문장을 눈에 띄도록 만들 수 있다.
+ -->
+
+<!-- (p>lorem)*3 --> 
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim tenetur quisquam dolores iure rerum numquam cum minima a amet animi non libero nihil officiis omnis autem est dolorem! Assumenda a.</p>
+<p class="lead">Aliquid accusamus quae aperiam soluta pariatur odio corporis rerum eligendi eum id tempora sint omnis? Quam alias deleniti laboriosam atque nobis nisi sequi recusandae explicabo vero saepe. Amet voluptas nesciunt!</p>
+<p>Tempora provident velit totam doloribus enim maiores voluptas veritatis id nesciunt odio non distinctio eligendi perferendis perspiciatis reiciendis eaque quas sit optio molestias et recusandae dolorum est rerum eos vero!</p>
+
+<br>
+<hr>
+<br>
+<br>
+
+<h4>■■■ 표시된 텍스트 ■■■</h4>
+<!-- 
+	또 다른 맥락에서 관련있는 텍스트를 찾아내어 강조하기 위해,
+	<mark> 태그를 활용할 수 있다.
+ -->
+
+우리틑 <mark>강조할</mark> 텍스트에 mark 태그를 사용할 수 있다.
+
+<br>
+<hr>
+<br>
+<br>
+
+<h3>○ 취소선 텍스트</h3>
+<!-- 
+	텍스트 블럭이 더 이상 연관이 없음을 나타내기 위해
+	<s> 태그를 사용할 수 있다.
+ -->
+ 
+<s>이 문장은 더 이상 정확하지 않다는 의미를 전달하기 위해 사용한다.</s><br>
+<strike>이 문장은 더 이상 정확하지 않다는 의미를 전달하기 위해 사용한다.</strike>
+
+<br>
+<hr>
+<br>
+<br>
+
+<h3>○ 삭제된 텍스트</h3>
+<!-- 
+	텍스트 블럭이 삭제되었음을 나타내기 위해 <del> 태그를 사용할 수 있다.
+ -->
+<del>이 문장은 삭제된 텍스트로 다루어진다는 의미를 전달하기 위해 사용한다.</del>
+
+
+<br>
+<hr>
+<br>
+<br>
+
+<h3>○ 삽입된 텍스트</h3>
+<!-- 
+	문서에 추가되었음을 나타내기 위하여 <ins> 태그를 사용할 수 있다.
+ -->
+<ins>이 택스트줄은 문서에 추가분으로 다루어짐을 의미한다.</ins>
+
+
+<br>
+<hr>
+<br>
+<br>
+
+<h3>○ 밑줄친 텍스트</h3>
+<!-- 
+	텍스트에 밑줄을 긋기 위해서 <u> 태그를 사용할 수 있따.
+ -->
+ 
+<u>이 택스트는 밑줄을 긋기 위한 텍스트이다.</u>
+
+<br>
+<hr>
+<br>
+<br>
+
+<h3>○ 작은 텍스트</h3>
+<!-- 
+	텍스트 라인이나 블럭을 덜 강조하기 위해
+	부모 태그보다 85%의 크기로 보여지게하는 <small> 태그를 사용할 수 있다.
+	제목 요소는 내포된 <small> 요소를 위한 그 태그만의 font-size 를 가지고 있다.
+	<small> 대신 인라인 요소에 .small 클래스를 사용할 수 있다.
+ -->
+ 
+ <small>이 텍스트는 작게 보이도록 되어 있다.</small> 이 텍스트는 기본으로 보이도록 되어있다.
+
+<br>
+<hr>
+<br>
+<br>
+
+<h3>○ 굵게</h3>
+<!-- 
+	폰트 구께를 굵게 하여 텍스트를 강조할 수 있다.
+ -->
+
+<strong>굵은 텍스트로 랜더링 된다.</strong> 기본으로 랜더링 된다.
+
+<br>
+<hr>
+<br>
+<br>
+
+<h3>○ 이탤릭</h3>
+<!-- 
+	이탤릭으로 구문을 강조할 수 있다.
+ -->
+<em>이탤릭체로 랜더링된다.</em> 기본으로 랜더링 된다.
+
+
+<br>
+<hr>
+<br>
+<br>
+
+</body>
+</html>

@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<context:component-scan base-package="org.springframework.samples.petclinic.web" />
+
+
+<!-- == 오라클 연결  ==================================================================================== -->
+	<!-- 각각의 사용자 정의 컨트롤러 객체 등록 및 URL 매핑 -->
+	<bean id="remoteDataSource"
+		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="TRY" />
+		<property name="password" value="CATCH" />
+	</bean>
+	
+
+	<!-- 기업DAO  -->
+    <bean id="CmpnyDAO" class="class3.com.test.CmpnyDAO">
+		<property name="dataSource">
+			<ref bean="remoteDataSource" />
+		</property>
+	</bean> 
+
+	<!-- 일반회원DAO  -->
+	<bean id="UserDAO" class="class3.com.test.UserDAO">
+		<property name="dataSource">
+			<ref bean="remoteDataSource" />
+		</property>
+	</bean>
+	
+	
+	
+
+	
+<!-- ====메인화면================================================================================ -->
+
+	<!-- 1.메인 로그인액션을통해 관리자0 일반1 기업2 임의의번호를 생성해주고 love?num=0 or 1 or 2
+	로그인이 성공했을경우에 num값과 아이디값으로 세션을 생성한다.-->
+	<bean name="/main.love" class="class3.com.test.Main"/>
+
+
+<!-- ===회원가입 액션=================================================================================== -->
+	
+	<!-- 2.회원가입 페이지 액션
+	       회원가입시 회원탭/기업탭인지 여부에 따라서 회원가입 창 라디오박스 변경해준다.  -->
+	<bean name="/signupcmpnycontroller.love" class="class3.com.test.SignupController"/>
+	
+	<!--2-1. 일반회원 회원가입정보입력 -->
+	<bean name="/userinsert.love" class="class3.com.test.UserInsertController">
+		<property name="dao">
+			<ref bean="UserDAO" />
+		</property>
+	</bean>
+		
+	<!--2-2. 기업회원 회원가입정보입력 -->
+	<bean name="/cmpnyinsert.love" class="class3.com.test.CmpnyInsertController">
+		<property name="dao">
+			<ref bean="CmpnyDAO" />
+		</property>
+	</bean>
+	
+<!-- ===로그인 액션=================================================================================== -->
+	
+	<!-- 3. 관리자 로그인 -->
+	<!-- 아직 미구현 나중에 하기 -->
+	
+	<!-- 3-1.일반회원 로그인 -->
+	<bean name="/userlogin.love" class="class3.com.test.UserLoginController">
+	<property name="dao">
+			<ref bean="UserDAO" />
+		</property>
+	</bean>
+	
+	<!-- 3-2 기업회원 로그인 -->
+	<bean name="/cmpnylogin.love" class="class3.com.test.CmpnyLoginController">
+	<property name="dao">
+			<ref bean="CmpnyDAO" />
+		</property>
+	</bean>
+	
+	<!-- 3-3 관리자 로그인 -->
+	<bean name="/adminlogin.love" class="class3.com.test.AdminLoginController">
+	<property name="dao">
+			<ref bean="CmpnyDAO" />
+		</property>
+	</bean>
+	
+<!-- ==== 아이디 중복체크================================================================================= -->
+	<!--4. 일반회원 ID중복체크 -->
+	<bean name="/userinsertcheck.love" class="class3.com.test.UserInsertCheckController">
+		<property name="dao">
+			<ref bean="UserDAO" />
+		</property>
+	</bean>
+	<!--4-1. 기업회원 ID중복체크 -->
+	<bean name="/cmpnyinsertcheck.love" class="class3.com.test.CmpnyInsertCheckController">
+		<property name="dao">
+			<ref bean="CmpnyDAO" />
+		</property>
+	</bean>
+	
+<!-- === 아이디및 패스워드 찾기=========================================================================== -->	
+		
+ 	<!--  5. 일반회원 ID찾기 --> 
+	<bean name="/usersearchid.love" class="class3.com.test.UsersearchIdController">
+		<property name="dao">
+			<ref bean="UserDAO" />
+		</property>
+	</bean>
+	
+	<!-- 5-1. 일반회원ID찾기 값이 성공하면 가져갈값 -->
+	<bean name="/usersearchidok.love" class="class3.com.test.UsersearchIdOKController">
+	</bean>		
+	
+	<!-- 5-2.회원 PW찾기 -->
+	<bean name="/usersearchpw.love" class="class3.com.test.UsersearchPwController">
+	<property name="dao">
+			<ref bean="UserDAO" />
+		</property>
+	</bean>
+	
+	<!-- 5-3기업 PW찾기 -->
+	<bean name="/cmpnysearchpw.love" class="class3.com.test.CmpnysearchPwController">
+	<property name="dao">
+			<ref bean="CmpnyDAO" />
+		</property>
+	</bean>
+	
+	<!-- 5-4. PW찾기 값이 성공하면 가져갈값 -->
+	<bean name="/searchpwok.love" class="class3.com.test.searchPwOKController"/>
+
+
+<!-- ====로그아웃 액션=================================================================== -->
+	
+	<!-- 6.로그아웃 세션을이용해서 일반회원/기업/관리자로그아웃 -->
+	<bean name="/logoutcontroller.love" class="class3.com.test.LogoutController"/>
+
+
+<!-- ====정보 수정액션 ================================================================== -->
+	
+	<!-- 7.기업정보수정 비밀번호를 입력해서 맞을 경우 기업정보 페이지로 넘어가는액션 -->
+	<bean name="/cmpnypwcheck.love" class="class3.com.test.CmpnyPwCheckController">
+	<property name="dao">
+			<ref bean="CmpnyDAO" />
+		</property>
+	</bean>
+	
+	<!-- 7-1. 기업정보수정버튼을 누르면 수행될작업 -->
+	<bean name="/cmpnyupdate.love" class="class3.com.test.CmpnyUpdateController">
+	<property name="dao">
+			<ref bean="CmpnyDAO" />
+		</property>
+	</bean>
+	
+	
+	<!-- 7-2.일반회원 정보수정 비밀번호를 입력해서 맞을 경우 회원정보 페이지로 넘어가는액션 -->
+	<bean name="/userpwcheck.love" class="class3.com.test.UserPwCheckController">
+	<property name="dao">
+			<ref bean="UserDAO" />
+		</property>
+	</bean>
+	
+	<!-- 7-3. 일반회원 정보수정버튼을 누르면 수행될작업 -->
+	<bean name="/userupdate.love" class="class3.com.test.UserUpdateController">
+	<property name="dao">
+			<ref bean="UserDAO" />
+		</property>
+	</bean>
+	
+<!-- ====회원 탈퇴액션=================================================================== -->
+	
+	<!-- 8.기업회원 탈퇴 -->	
+	<bean name="/cmpnymemberleave.love" class="class3.com.test.CmpnyMemberleaveController">
+	<property name="dao">
+			<ref bean="CmpnyDAO" />
+		</property>
+	</bean>
+	
+	<!-- 8-1.일반회원 탈퇴 -->
+    <bean name="/usermemberleave.love" class="class3.com.test.UserMemberleaveController">
+	<property name="dao">
+			<ref bean="UserDAO" />
+		</property>
+	</bean>
+	
+<!-- === 기업 페이지=========================================================================== -->
+
+	<!-- DAO -->
+	<bean id="CompanyMainDAO" class="class3.com.company.CompanyMainDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	<bean id="MembershipReservationsDAO" class="class3.com.company.MembershipReservationsDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	<bean id="MembershipConsultingDAO" class="class3.com.company.MembershipConsultingDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	<bean id="MembershipReviewsDAO" class="class3.com.company.MembershipReviewsDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	<bean id="ProductManagementDAO" class="class3.com.company.ProductManagementDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	<bean id="ProductInsertDAO" class="class3.com.company.ProductInsertDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	
+	
+	<!-- Controller -->
+	<bean name="/company/CompanyMain.love" class="class3.com.company.CompanyMainController">
+     	<property name="dao" ref="CompanyMainDAO"></property>
+    </bean>
+    <bean name="/company/CompanyMembershipReservations.love" class="class3.com.company.MembershipReservationsController">
+     	<property name="dao" ref="MembershipReservationsDAO"></property>
+    </bean>
+    <bean name="/company/CompanyMembershipReservationsPopup.love" class="class3.com.company.MembershipReservationsPopupController">
+    	<property name="dao" ref="MembershipReservationsDAO"></property>
+    </bean>
+    <bean name="/company/CompanyMembershipReservationsAjax.love" class="class3.com.company.MembershipReservationsAjaxController">
+    	<property name="dao" ref="MembershipReservationsDAO"></property>
+    </bean>
+    <bean name="/company/CompanyMembershipConsulting.love" class="class3.com.company.MembershipConsultingController">
+    	<property name="dao" ref="MembershipConsultingDAO"></property>
+    </bean>
+    <bean name="/company/CompanyMembershipConsultingAjax.love" class="class3.com.company.MembershipConsultingAjaxController">
+    	<property name="dao" ref="MembershipConsultingDAO"></property>
+    </bean>
+    <bean name="/company/CompanyMembershipReviews.love" class="class3.com.company.MembershipReviewsController">
+    	<property name="dao" ref="MembershipReviewsDAO"></property>
+    </bean>
+    <bean name="/company/CompanyMembershipReviewsAjax.love" class="class3.com.company.MembershipReviewsAjaxController">
+    	<property name="dao" ref="MembershipReviewsDAO"></property>
+    </bean>
+    <bean name="/company/CompanyProductManagement.love" class="class3.com.company.ProductManagementController">
+    	<property name="dao" ref="ProductManagementDAO"></property>
+    </bean>
+    <bean name="/company/CompanyProductInsert.love" class="class3.com.company.ProductInsertController">
+    	<property name="dao" ref="ProductInsertDAO"></property>
+    </bean>
+    <bean name="/company/CompanyProductInsertOk.love" class="class3.com.company.ProductInsertOkController">
+    	<property name="dao" ref="ProductInsertDAO"></property>
+    </bean>
+    
+    
+    
+    
+    <bean name="/company/CompanyFileUpload.love" class="class3.com.company.CompanyFileUploadController">
+    </bean>
+<!-- ===관리자 페이지=========================================================================== -->    
+
+   <!-- DAO -->
+   	<bean id="usrDAO" class="class3.com.admin.UserDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+   
+	<bean id="cmpnyDAO" class="class3.com.admin.CmpnyDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	
+	<bean id="productDAO" class="class3.com.admin.ProductDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	
+	<bean id="paymentDAO" class="class3.com.admin.PaymentDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	
+	<bean id="warningDAO" class="class3.com.admin.WarningDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	
+	<bean id="noticeDAO" class="class3.com.admin.NoticeDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	
+	<bean id="qnaDAO" class="class3.com.admin.QnaDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	
+	
+	<!-- controller 객체 등록 -->
+
+	<bean name="/AdminPriMemberList.love" class="class3.com.admin.UserListController">
+		<property name="dao" ref="usrDAO"></property>
+	</bean>
+
+	<bean name="/AdminCoMemberList.love" class="class3.com.admin.CmpnyListController">
+		<property name="dao" ref="cmpnyDAO"></property>
+	</bean>
+	
+	<bean name="/AdminProductManagement.love" class="class3.com.admin.AdminProductManagementController">
+		<property name="dao" ref="productDAO"></property>
+	</bean>
+	
+	<bean name="/AdminPaymentManagement.love" class="class3.com.admin.AdminPaymentManagementController">
+		<property name="dao" ref="paymentDAO"></property>
+	</bean>
+
+ 	<bean name="/AddWarningInsertForm.love" class="class3.com.admin.AddWarningInsertFormController">
+		<property name="dao" ref="warningDAO"></property>
+	</bean>
+		 
+	 <bean name="/AddWarningInsert.love" class="class3.com.admin.AddWarningInsertController">
+		<property name="dao" ref="warningDAO"></property>
+	</bean>
+		 
+	 <bean name="/MinWarning.love" class="class3.com.admin.MinWarningController">
+		<property name="dao" ref="warningDAO"></property>
+	</bean>
+	
+	<bean name="/CheckWarning.love" class="class3.com.admin.CheckWarningController">
+		<property name="dao" ref="cmpnyDAO"></property>
+	</bean>
+	
+
+
+	<bean name="/CheckWarning2.love" class="class3.com.admin.CheckWarningController2">
+		<property name="dao" ref="usrDAO"></property>
+	</bean>
+	
+	
+	<bean name="/AddWarningInsertForm2.love" class="class3.com.admin.AddWarningInsertFormController">
+		<property name="dao" ref="warningDAO"></property>
+	</bean>
+
+		 
+	<bean name="/AddWarningInsert2.love" class="class3.com.admin.AddWarningInsertController">
+		<property name="dao" ref="warningDAO"></property>
+	</bean>
+	
+	<bean name="/DelProduct.love" class="class3.com.admin.DelProductController">
+		<property name="dao" ref="productDAO"></property>
+	</bean>
+	
+	
+	
+	
+
+	<bean name="/NoticeList.love" class="class3.com.admin.NoticeListController">
+		<property name="dao" ref="noticeDAO"></property>
+	</bean>
+	
+	<bean name="/NoticeArticle.love" class="class3.com.admin.NoticeArticleController">
+		<property name="dao" ref="noticeDAO"></property>
+	</bean>
+	
+	<bean name="/NoticeCreate.love" class="class3.com.admin.NoticeCreateController">
+		<property name="dao" ref="noticeDAO"></property>
+	</bean>
+	
+	<bean name="/NoticeDelete.love" class="class3.com.admin.NoticeDeleteController">
+		<property name="dao" ref="noticeDAO"></property>
+	</bean>
+	
+	<bean name="/NoticeUpdateSend.love" class="class3.com.admin.NoticeUpdateSendController">
+		<property name="dao" ref="noticeDAO"></property>
+	</bean>
+	
+	<bean name="/NoticeUpdate.love" class="class3.com.admin.NoticeUpdateController">
+		<property name="dao" ref="noticeDAO"></property>
+	</bean>
+
+	
+	
+
+	<bean name="/AdminPriQnaList.love" class="class3.com.admin.AdminPriQnaListController">
+		<property name="dao" ref="qnaDAO"></property>
+	</bean>
+	
+	<bean name="/AdminPriQnaArticle.love" class="class3.com.admin.AdminPriQnaArticleController">
+		<property name="dao" ref="qnaDAO"></property>
+	</bean>
+	
+	<bean name="/AddCmt.love" class="class3.com.admin.AddCmtController">
+		<property name="dao" ref="qnaDAO"></property>
+	</bean>
+
+	<bean name="/DelCmt.love" class="class3.com.admin.DelCmtController">
+		<property name="dao" ref="qnaDAO"></property>
+	</bean>
+
+
+
+
+	<bean name="/CmpnyQnaList2.love" class="class3.com.admin.CmpnyQnaListController">
+		<property name="dao" ref="qnaDAO"></property>
+	</bean>
+	
+	<bean name="/CmpnyQnaArticle2.love" class="class3.com.admin.CmpnyQnaArticleController">
+		<property name="dao" ref="qnaDAO"></property>
+	</bean>
+	
+	<bean name="/AddCmt2.love" class="class3.com.admin.AddCmtController2">
+		<property name="dao" ref="qnaDAO"></property>
+	</bean>
+
+	<bean name="/DelCmt2.love" class="class3.com.admin.DelCmtController2">
+		<property name="dao" ref="qnaDAO"></property>
+	</bean>
+
+
+
+
+
+    
+<!-- ===회원 페이지=========================================================================== -->
+    
+    <!-- 각각의 사용자 정의 컨트롤러 객체 등록 및 URL 매핑 -->
+	
+	<bean id="localDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+		<property name="username" value="TRY" />
+		<property name="password" value="CATCH" />
+	</bean>
+	
+	<bean id="userDAO" class="class3.com.user.UserDAO">
+		<property name="dataSource" ref="localDataSource"></property>
+	</bean>
+	
+	<!-- controller 객체 등록 -->
+	<bean name="/UserReservationList.love" class="class3.com.user.UserReservationListController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	<bean name="/UserReservationDelete.love" class="class3.com.user.UserReservationDeleteController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	<bean name="/UserAdviceList.love" class="class3.com.user.UserAdviceListController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	<bean name="/UserSelectList.love" class="class3.com.user.UserSelectListController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	<bean name="/UserSelectDelete.love" class="class3.com.user.UserSelectDeleteController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	<bean name="/UserCommentList.love" class="class3.com.user.UserCommentListController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	<bean name="/UserQnaList.love" class="class3.com.user.UserQnaListController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	<bean name="/UserQnaArticle.love" class="class3.com.user.UserQnaArticleController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	<bean name="/UserQnaCreate.love" class="class3.com.user.UserQnaCreateController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	<bean name="/UserQnaDelete.love" class="class3.com.user.UserQnaDeleteController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	<bean name="/UserQnaUpdate.love" class="class3.com.user.UserQnaUpdateController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	<bean name="/UserQnaUpdateSend.love" class="class3.com.user.UserQnaUpdateSendController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	<bean name="/UserWarning.love" class="class3.com.user.UserWarController">
+		<property name="dao" ref="userDAO"></property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	<!-- 기업 QNA controller 객체 등록 -->
+	<bean id="CmpnyDAOO" class="class3.com.company.CmpnyDAO">
+		<property name="dataSource" ref="localDataSource"></property>
+	</bean>
+	
+	
+	<bean name="/CmpnyQnaList.love" class="class3.com.company.CmpnyQnaListController">
+		<property name="dao" ref="CmpnyDAOO"></property>
+	</bean>
+	
+	<bean name="/CmpnyQnaArticle.love" class="class3.com.company.CmpnyQnaArticleController">
+		<property name="dao" ref="CmpnyDAOO"></property>
+	</bean>
+	
+	<bean name="/CmpnyQnaCreate.love" class="class3.com.company.CmpnyQnaCreateController">
+		<property name="dao" ref="CmpnyDAOO"></property>
+	</bean>
+	
+	<bean name="/CmpnyQnaDelete.love" class="class3.com.company.CmpnyQnaDeleteController">
+		<property name="dao" ref="CmpnyDAOO"></property>
+	</bean>
+	
+	<bean name="/CmpnyQnaUpdate.love" class="class3.com.company.CmpnyQnaUpdateController">
+		<property name="dao" ref="CmpnyDAOO"></property>
+	</bean>
+	
+	<bean name="/CmpnyQnaUpdateSend.love" class="class3.com.company.CmpnyQnaUpdateSendController">
+		<property name="dao" ref="CmpnyDAOO"></property>
+	</bean>
+	
+    
+    
+    
+    
+    
+    
+	<!-- 영진이 영역 -->    
+    <bean id="wedding_main_DAO" class="class3.com.test.wedding_main_DAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	
+	<bean id="wedding_select_DAO" class="class3.com.test.wedding_select_DAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	
+	<bean id="wedding_reserve_DAO" class="class3.com.test.wedding_reserve_DAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	
+	
+	
+	<!-- 각각의 사용자 정의 컨트롤로 객체 등록 및 URL 매핑 -->
+	
+	<!-- controller 객체 등록 -->
+	
+	<!-- wedding_main 테스트 -->
+	<bean name="/youngjin/wedding_main.love" class="class3.com.test.wedding_main_Controller">
+		<property name="dao" ref="wedding_main_DAO"></property>
+	</bean>
+	<bean name="/youngjin/wedding_main_ok.love" class="class3.com.test.wedding_main_ok_Controller">
+		<property name="dao" ref="wedding_main_DAO"></property>
+	</bean>
+	<bean name="/youngjin/wedding_main_Ajax.love" class="class3.com.test.wedding_main_AjaxController">
+		<property name="dao" ref="wedding_main_DAO"></property>
+	</bean>
+	
+
+	<!-- wedding_select 객체등록 -->
+	<bean name="/youngjin/wedding_select.love" class="class3.com.test.wedding_select_Controller">
+		<property name="dao" ref="wedding_select_DAO"></property>
+	</bean>
+	
+	<bean name="/youngjin/wedding_select_ok.love" class="class3.com.test.wedding_select_ok_Controller"></bean>
+	
+	
+	<!-- wedding_reserve 객체등록 -->
+	<bean name="/youngjin/wedding_reserve.love" class="class3.com.test.wedding_reserve_Controller">
+		<property name="dao" ref="wedding_reserve_DAO"></property>
+	</bean>
+	
+
+	<!-- 상품평 등록 Ajax -->
+	<bean name="/youngjin/Prod_cmt_Ajax.love" class="class3.com.test.Prod_cmt_AjaxController">
+		<property name="dao" ref="wedding_select_DAO"></property>
+	</bean>
+	<!-- 상담하기 Ajax -->
+	<bean name="/youngjin/Adv_Ajax.love" class="class3.com.test.Adv_AjaxController">
+		<property name="dao" ref="wedding_select_DAO"></property>
+	</bean>
+    
+    
+    
+    
+    
+    
+    
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

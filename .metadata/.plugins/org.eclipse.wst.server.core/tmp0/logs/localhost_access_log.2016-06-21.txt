@@ -1,0 +1,5 @@
+127.0.0.1 - - [21/Jun/2016:22:51:16 +0900] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [21/Jun/2016:22:51:17 +0900] "GET /StudyProject/WEB-INF/jsp/StudyRoom/StudyRoomMain.jsp HTTP/1.1" 404 992
+0:0:0:0:0:0:0:1 - - [21/Jun/2016:22:51:17 +0900] "GET /favicon.ico HTTP/1.1" 404 1016
+0:0:0:0:0:0:0:1 - - [21/Jun/2016:22:51:26 +0900] "GET /StudyProject/StudyRoomMain.room HTTP/1.1" 500 4786
+0:0:0:0:0:0:0:1 - - [21/Jun/2016:22:52:23 +0900] "GET /StudyProject/StudyRoomMain.room HTTP/1.1" 500 4786

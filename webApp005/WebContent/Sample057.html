@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 객체(사용자 정의객체 와 내장 객체)</title>
+<link rel="stylesheet" href="css/main.css">
+<script type="text/javascript">
+	
+	// 자바스크립트 배열 객체 생성
+	var boardArray = new Array();
+	
+	// 사용자 정의 객체 구성(생성자 함수 정의)
+	function Board(userName, content)
+	{
+		this.userName = userName;
+		this.content = content;
+		
+		this.writeDay = new Date();
+	}
+	
+	// 프로토타입 구성을 통한 함수 정의
+	Board.prototype.userLocaleString = function()
+	{
+		return this.writeDay.getFullYear() + "-"
+					+ (this.writeDay.getMonth()+1) + "-"
+					+ this.writeDay.getDate() +" "
+					+ this.writeDay.getHours() +":"
+					+ this.writeDay.getMinutes()+ ":"
+					+ this.writeDay.getSeconds();
+					// getHours() 시, getMinutes() 분, getSeconds() 초
+	}
+
+	function main()
+	{
+		var uName = document.getElementById("uName").value;
+		var uContent = document.getElementById("uContent").value;
+		var len = boardArray.length;
+		boardArray[len] = new Board(uName, uContent);
+		
+		print(len);
+		clear();
+	}
+	
+	function print(idx)
+	{
+		//var strTemp = boardArray[idx].content;
+		//var strTemp2 = boardArray[idx].userName;
+		//alert(strTemp2);
+		//alert(strTemp);
+		
+		var tableNode = document.getElementById("bbsTable");
+		var trNode = document.createElement("tr");
+		
+		trNode.appendChild(createTdNode((idx+1).toString()));
+		trNode.appendChild(createTdNode(boardArray[idx].userName));
+		trNode.appendChild(createTdNode(boardArray[idx].content));
+		trNode.appendChild(createTdNode(boardArray[idx].userLocaleString()));
+		
+		tableNode.appendChild(trNode);
+	
+	}
+	
+	function clear()
+	{
+		document.getElementById("uName").value = "";
+		document.getElementById("uContent").value = "";
+		document.getElementById("uName").focus();
+	}
+	
+	function createTdNode(val)
+	{
+		// 입력될 값 변수에 담기
+		var txtNode= document.createTextNode(val);
+		
+		// td를 넣기 위한 변수 선언
+		var tdNode = document.createElement("td");
+		
+		// 입력받은 값 <td>값</td> 안에 넣기
+		tdNode.appendChild(txtNode);
+		
+		// (<td>값</td>) 리턴
+		return tdNode;
+	}
+
+</script>
+</head>
+<body>
+<div>
+	<h2>자바스크립트 객체(사용자 정의객체 와 내장 객체)</h2>
+	<hr>
+</div>
+<div>
+	<form>
+		<table>
+			<tr>
+				<th>작성자</th>
+				<td align="left">
+					<input type="text" id="uName" style="width: 150px;">
+				</td>
+			</tr>
+			<tr>
+				<th>방명록</th>
+				<td align="left">
+					<input type="text" id="uContent" style="width:420px;">
+				</td>
+			</tr>
+		</table>
+		<br>
+		
+		<button type="button" style="width:500px; height: 50px;" onclick="main();">글쓰기</button>
+		<br><br>
+		
+		<table border="1" id="bbsTable">
+			<tr>
+				<th style="width: 40px;">번호</th>
+				<th style="width: 90px;">작성자</th>
+				<th style="width: 250px">내용</th>
+				<th style="width: 120px">작성일</th>
+			</tr>
+		</table>
+	</form>
+</div>
+</body>
+</html>

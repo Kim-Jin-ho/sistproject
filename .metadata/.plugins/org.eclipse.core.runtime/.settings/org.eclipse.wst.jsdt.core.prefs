@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+org.eclipse.wst.jsdt.core.codeComplete.visibilityCheck=enabled
+org.eclipse.wst.jsdt.core.formatter.brace_position_for_block=next_line
+org.eclipse.wst.jsdt.core.formatter.brace_position_for_block_in_case=next_line
+org.eclipse.wst.jsdt.core.formatter.brace_position_for_method_declaration=next_line
+org.eclipse.wst.jsdt.core.formatter.brace_position_for_objlit_initializer=next_line
+org.eclipse.wst.jsdt.core.formatter.brace_position_for_switch=next_line

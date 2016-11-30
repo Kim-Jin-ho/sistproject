@@ -1,0 +1,31 @@
+<script language="JavaScript">
+
+	var obj7 = 
+	{
+		"test":
+		[
+			"ccc","ddd"
+		],
+		"exam":
+		[
+			"kkk","ppp" 
+		]
+	}
+</script>
+<form>
+	<input type="button" value="click1" onclick="alert(typeof obj7.test)">
+	<input type="button" value="click2" onclick="alert(obj7.test)">
+	<input type="button" value="click3" onclick="alert(obj7.test[0])">
+	<input type="button" value="click4" onclick="alert(obj7.test[1])">
+	<input type="button" value="click5" onclick="alert(obj7.test[2])">
+	<br><br>
+	
+	<input type="button" value="click6" onclick="alert(obj7.exam[0])">
+	<input type="button" value="click7" onclick="alert(obj7.exam[1])">
+	<input type="button" value="click8" onclick="alert(obj7.exam[2])">
+	<br><br>
+	
+	<!-- 안된다. -->
+	<input type="button" value="click10" onclick="alert(obj7.[0][0])">
+	<input type="button" value="click11" onclick="alert(obj7.[0][1])">
+</form>

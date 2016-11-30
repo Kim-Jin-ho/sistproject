@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+/* 버튼의 위치를 가운데 정렬함 */
+#centerButton
+{
+	text-align: center;
+}
+
+textarea
+{
+	width: 100%;
+	resize: none;
+}
+
+.updateBtn
+{
+	height: 100px;
+}
+
+#write
+{
+	background-color: #ffffff;
+}
+
+#rightBtn
+{
+	text-align: right;
+}

@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css" >
+<link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.css" >
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h2>■■■ 폼(Form) ■■■</h2>
+<h3>기본 폼</h3>
+<form>
+	<div class="form-group">
+		<label for="exampleInputEmail">이메일 주소</label>
+		<input type="email"  id="exampleInputEmail" placeholder="이메일을 입력하세요.">
+	</div>
+	<div class="form-group">
+		<label for="exampleInputPassword1">암호</label>
+		<input type="password" id="exampleInputPassword" placeholder="암호">
+	</div>
+	
+	<div>
+		<label for="exampleInputFile">파일 업로드</label>
+		<input type="file" id="exampleInputFile">
+		<p> 5MB 이하의 jpg, gif, png 파일을 첨부해주세요</p>
+	</div>
+	
+	<div class="form-group">
+		<label>
+			<input type="checkbox" >입력 기억하기
+		</label>
+	</div>
+	
+	<button type="submit" class="btn btn-default">완료(제출)</button>
+	
+</form>
+<!-- 
+	각각의 폼 컨트롤은 자동으로 어느정도의 전역 스타일링을 받아들인다.
+	『.fomr-control』 클래스가 있는 모든 텍스트 기반의
+	<input>, <textarea>, <select> 요소는
+	기본적으로 『width: 100%;』가 도 ㅣㄴ다.
+	최적의 여백을 위해 『.form-group』 클래스로 라벨과 컨트롤을
+	감싸서 사용하는 것을 권장한다.
+ -->
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<form>
+	<div>
+		<label for="exampleInputEmail">이메일 주소</label>
+		<input type="email" class="form-control" id="exampleInputEmail" placeholder="이메일을 입력하세요.">
+	</div>
+	<div>
+		<label for="exampleInputPassword1">암호</label>
+		<input type="password" class="form-control" id="exampleInputPassword" placeholder="암호">
+	</div>
+	
+	<div>
+		<label for="exampleInputFile">파일 업로드</label>
+		<input type="file" id="exampleInputFile">
+		<p class="help-block"> 5MB 이하의 jpg, gif, png 파일을 첨부해주세요</p>
+	</div>
+	
+	<div>
+		<label>
+			<input type="checkbox">입력 기억하기
+		</label>
+	</div>
+	
+	<button type="submit" class="btn btn-default">완료(제출)</button>
+</form>
+<!-- 
+	※ Form group 과 Input group 을 같이 사용하지 않는다.
+	   Form group 과 Input group 을 직접 같이 사용해야 할 상황이라면
+	   Input group 을 Form group 내에 넣어서 사용할 수 있도록 한다.
+ -->
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h3>인라인 폼</h3>
+<!-- 
+	좌측 정렬된 인라인-블럭 컨트롤을 위해 사용할 (<form> 태그가 아니어도 무방)에
+	『.form-inline』 클래스를 추가할 수 있다.
+	이는 최소 768px 의 뷰포트 내의 폼에만 적용된다.
+ -->
+ 
+<a href="ex007ps001.html">ex007ps001 그리드 개념 추가</a>
+
+<!-- 
+	※ 맞춤 너비가 필요할 수 있다.
+	   입력 컨트롤이나 셀렉트 컨트롤은
+	   부트스트랩에서 기본적으로 width: 100%; 가 적용되어 있다.
+	   인라인 폼 내에서 이 컨트롤들을 width:auto; 로 초기화하여
+	   몇 개의 컨트롤들이 같은 줄에 있게 만들 수 있다.
+	   그렇기 때문에 구성된 레이아웃에 따라 추가적인 맞춤 너비가 필요할 수 있다.
+	
+	※ 항상 라벨을 추가하는 것을 권장한다.
+	   브라우저에 따라 모든 input 에 라벨이 포함되지 않았을 때
+	   작성함 폼에 문제가 발생할 수 있다.
+	   인라인 폼을 구성하기 위해 『.sr-only』 클래스를 사용하여 라벨을 숨길 수 있다.
+	   보조 공학으로 서 좀 더 향상된 라벨을 제공하기 위해
+	   『aria-label』, 『aria-labeledby』, 『title』 등을 사용할 수도 있는데
+	   이와 같은 것들을 사용하지 않으면 브라우저는 placeholder 속성만을
+	   의지할 수 밖에 없다.
+	   하지만 placeholder 속성으로 다른 라벨링을 대체하는 것은
+	   권장하지 않는다.
+	    
+ -->
+
+<form>
+	<div>
+		<label for="exampleInputName2">Name</label>
+		<input type="text" id="exampleInputName2" placeholder="홍길동">
+	</div> 
+	<div>
+		<label for="exampleInputEmail2">Email</label>
+		<input type="text" id="exampleInputEmail2" placeholder="hong@test.com">
+	</div>
+	<button type="submit">완료(제출)</button>
+</form>
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<form class="form-inline">
+	<div>
+		<label for="exampleInputName2">Name</label>
+		<input class="form-control" type="text" id="exampleInputName2" placeholder="홍길동">
+	</div> 
+	<div>
+		<label for="exampleInputEmail2">Email</label>
+		<input class="form-control" type="text" id="exampleInputEmail2" placeholder="hong@test.com">
+	</div>
+	<button type="submit" class="btn btn-default">완료(제출)</button>
+</form>
+
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<form class="form-inline">
+	<div class="form-group">
+		<label for="exampleInputName2">Name</label>
+		<input class="form-control" type="text" id="exampleInputName2" placeholder="홍길동">
+	</div> 
+	<div class="form-group">
+		<label for="exampleInputEmail2">Email</label>
+		<input class="form-control" type="text" id="exampleInputEmail2" placeholder="hong@test.com">
+	</div>
+	<button type="submit" class="btn btn-default">완료(제출)</button>
+</form>
+
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+
+<!-- form>(div>label+input)*2 -->
+<form action="">
+	<div>
+		<label for="exampleInputEmail3">Email address</label>
+		<input type="text" id="exampleInputEmail3" placeholder="Enter Email" />
+	</div>
+	
+	<div>
+		<label for="exampleInputPassword">Password</label>
+		<input type="text" id="exampleInputPassword" placeholder="Password"/>
+	</div>
+	
+	<button type="submit">완료(제출)</button>
+</form>
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<!-- form>(div>label+input)*2 -->
+<form action="" class="form-inline">
+	<div class="form-group">
+		<label  class="sr-only" for="exampleInputEmail3">Email address</label>
+		<input class="form-controll" type="text" id="exampleInputEmail3" placeholder="Enter Email" />
+	</div>
+	
+	<div class="form-group">
+		<label class="sr-only" for="exampleInputPassword">Password</label>
+		<input class="form-controll" type="text" id="exampleInputPassword" placeholder="Password"/>
+	</div>
+	
+	<div class="checkbox">
+		<label>
+			<input type="checkbox">기억하기
+		</label>
+	</div>
+	
+	<button type="submit" class="btn btn-default">완료(제출)</button>
+</form>
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<form>
+	<div>
+		<label>총액 (단위:달러)</label>
+		<div>
+			<div>$</div>
+			<input type="text" id="exampleInputAmount" placeholder="총액">
+			<div>.00</div>
+		</div>
+	</div>
+	<button type="submit">Transfer cash</button>
+</form>
+
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<form class="form-inline">
+	<div class="form-group">
+		<label class="sr-only" for="exampleInputAmount">총액 (단위:달러)</label>
+		<div class="input-group">
+			<div class="input-group-addon">$</div>
+			<input  class="form-control" type="text" id="exampleInputAmount" placeholder="총액">
+			<div class="input-group-addon">.00</div>
+		</div>
+	</div>
+	<button type="submit" class="btn btn-primary">Transfer cash</button>
+</form>
+
+
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h3>수평 폼</h3>
+<!-- 
+	폼에 『.form-horizontal』 클래스를 추가하여
+	라벨들과 폼 컨트롤들의 그룹들을ㅈ 정렬하기 위해
+	부트스트랩의 미리 정의된 그리드 클래스들을 사용할 수 있다.
+	그리드 행 역할은 『.form-group』클래스가 처리해주기 때문에
+	『.row』 클레스는 사용할 필요가 없다.
+ -->
+ 
+<form>
+	<div>
+		<label class="inputEmail3">Email</label>
+		<div>
+			<input type="email" id="inputEmail3" pattern="Email">
+		</div>
+	</div>
+	<div>
+		<label for="inputPassword">Password</label>
+		<div>
+			<input type="email" id="inputPassword" pattern="Password">
+		</div>
+	</div>
+	
+	<div>
+		<div>
+			<div>
+				<input type="checkbox">기억하기
+			</div>		
+		</div>
+	</div>
+	
+	<div>
+		<div>
+			<button type="submit">완료(제출)</button>
+		</div>
+	</div>
+</form> 
+ 
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+		<div class="col-sm-10 ">
+			<input type="email" class="form-control" id="inputEmail3" pattern="Email">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputPassword" class="col-sm-2 control-label">Password</label>
+		<div class="col-sm-10">
+			<input type="email" class="form-control" id="inputPassword" pattern="Password">
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<div class="checkbox">
+			<label for="">
+				<input type="checkbox">기억하기
+			</label>
+			</div>		
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-primary">완료(제출)</button>
+		</div>
+	</div>
+</form> 
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h3>지원되는 컨트롤들</h3>
+<!-- 
+	폼 레이아웃에서 지원되는 표준 폼 컨트롤
+ -->
+ 
+<h4>Inputs</h4>
+<!-- 
+	가장 흔한 폼 컨트롤인 텍스트 기반 입력 필드.
+	HTML5 의 모든 타입을 지원한다. 	
+	: text, password, datetime, datetime-local, date, month, time, week, number
+	, email, url, search, tel, color.
+ -->
+<!--
+ 	※ 단, 유형에 대한 선언이 필요하다.
+ 	   입력은 자신의 type 이 제대로 선언된 경우 스타일이 적용된다.
+ -->
+ 
+ 
+
+<input type="text" placeholder="Text input">
+
+<br>
+<br>
+
+<input type="text" class="form-control" placeholder="Text input"/>
+<!-- 
+	※ 입력 그룹
+	   텍스트 기반 <input> 전후에 텍스트나 버튼을 통합하려면,
+	   입력 그룹 컴포넌트를 확인할 수 있다.
+	   
+	※ 입력 그룹 컴포넌트
+	   문자 기반의 <input> 의 전, 후 혹은 양쪽에 문자나 버튼을 추가하여
+	   폼 컨트롤을 확장할 수 있다.
+	   『.form-control』 클래스의 앞이나 뒤에 첨부된
+	   『.input-group-addon』 과 함께 『.input-group』을 사용한다.
+ -->
+ 
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h3>Textarea</h3>
+<!-- 
+	여러 줄의 텍스트를 지원하는 폼 컨트롤.
+	필요에 따라 rows 속성을 바꾸어가며 사용할 수 있다.
+-->
+
+<textarea rows="3"></textarea>
+
+<br>
+<br>
+
+<textarea rows="3" class="form-control"></textarea>
+ 
+ 
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h4>체크박스와 라디오</h4>
+<!--
+	체크박스는 목록에서 하나 혹은 몇 개의 옵션을 선택하기 위해 사용하고,
+	라디오는 여러 개 중 하나의 옵션을 선택하기 위해 사용한다.
+	
+	disabled 속성이 있는 체크박스나 라디오는 그에 맞는 적절한 스타일이 적용된다.
+	사용자들이 라벨에 마우스를 올렸을 때 "허락되지 않은" 커서를 표시하려면
+	『.radion,』, 『.raion-inline』, 『.checkbox』, 『.checkbox-inline』,
+	<fieldset> 에 『.disabled』 클래스를 추가하여 사용할 수 있다. 
+-->
+
+<h5>기본</h5>
+<div class="checkbox">
+	<label>
+		<input type="checkbox" value="">체리쥬&mdash;빌레
+	</label>
+</div>
+<div class="checkbox">
+	<label>
+		<input type="checkbox" value="">아몬드&mdash;봉봉
+	</label>
+</div>
+<div class="checkbox disabled">
+	<label>
+		<input type="checkbox" value="" disabled="disabled">엄마는&mdash;외계인
+	</label>
+</div>
+
+
+<div class="radio">
+	<label>
+		<input type="radio" name="optionRadios" id="iptionRadios1" value="option1" checked="checked">1인용
+	</label>
+</div>
+<div class="radio">
+	<label>
+		<input type="radio" name="optionRadios" id="iptionRadios2" value="option1">2~3인용
+	</label>
+</div> 
+<div class="radio">
+	<label>
+		<input type="radio" name="optionRadios" id="iptionRadios3" value="option1" disabled="disabled">4~5인용
+	</label>
+</div> 
+ 
+ 
+ 
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h5>인라인 체크박스와 라디오</h5>
+<!-- 
+	체크박스나 라디오 컨트롤을 같은 라인에 보이게 하기 위해서
+	『.checkbox-inline』이나 『.radio-inline』 클래스를 사용할수 있다.
+-->
+
+<div>
+	<input type="checkbox" id="inlineCheckbox1" value="option1">1
+</div>
+
+<div>
+	<input type="checkbox" id="inlineCheckbox2" value="option2">2
+</div>
+
+<div>
+	<input type="checkbox" id="inlineCheckbox3" value="option3">3
+</div>
+
+<br>
+<br>
+ 
+ 
+<div class="checkbox-inline">
+	<input type="checkbox" id="inlineCheckbox1" value="option1">1
+</div>
+
+<div class="checkbox-inline">
+	<input type="checkbox" id="inlineCheckbox2" value="option2">2
+</div>
+
+<div class="checkbox-inline">
+	<input type="checkbox" id="inlineCheckbox3" value="option3">3
+</div> 
+ 
+<br>
+<br>
+
+<label>
+	<input type="checkbox" id="inlineCheckbox1" value="option1">1
+</label>
+
+<label>
+	<input type="checkbox" id="inlineCheckbox2" value="option2">2
+</label>
+
+<label>
+	<input type="checkbox" id="inlineCheckbox3" value="option3">3
+</label>  
+
+<br>
+<br>
+
+<label class="checkbox-inline">
+	<input type="checkbox" id="inlineCheckbox1" value="option1">1
+</label>
+
+<label class="checkbox-inline">
+	<input type="checkbox" id="inlineCheckbox2" value="option2">2
+</label>
+
+<label class="checkbox-inline">
+	<input type="checkbox" id="inlineCheckbox3" value="option3">3
+</label>  
+
+<br>
+<br>
+
+<div>
+   <input type="radio" name="inlineRadioOptions" value="option1"> 1 
+</div>
+
+<div>
+   <input type="radio" name="inlineRadioOptions" value="option2"> 2 
+</div>
+
+<div>
+   <input type="radio" name="inlineRadioOptions" value="option3"> 3 
+</div>
+
+<br>
+<br>
+
+<div class="radio-inline">
+   <input type="radio" name="inlineRadioOptions" value="option1"> 1 
+</div>
+
+<div class="radio-inline">
+   <input type="radio" name="inlineRadioOptions" value="option2"> 2 
+</div>
+
+<div class="radio-inline">
+   <input type="radio" name="inlineRadioOptions" value="option3"> 3 
+</div>
+
+<Br>
+<Br>
+
+<label>
+   <input type="radio" name="inlineRadioOptions" value="option1"> 1
+</label>
+
+<label>
+   <input type="radio" name="inlineRadioOptions" value="option2"> 2
+</label>
+
+<label>
+   <input type="radio" name="inlineRadioOptions" value="option3"> 3
+</label>
+
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h5>라벨 텍스트 없는 체크박스와 라디오</h5>
+<!-- 
+	입력 컨트롤이 상식적으로 위치한다면 <label> 에 텍스트가 필요하지 않을 수 있다.
+	현재 인라인이 아닌 체크박스와 라디오에서만 작동한다.
+	여전히 라벨 폼에는 보조 공학이 제공되어야 한다.
+	aria-label 속성은 현재 요소 레이블 문자열을 정의하는 데 사용된다.
+	텍스트 라벨이 없는 경우 사용한다.
+	원소 라벨 표시 텍스트가 있는경우,
+	aria-label 대신 aria-labelleldby 를 사용한다.
+-->
+<div class="checkbox">
+	<label>
+		<input type="checkbox" id="blankCheckbox" value="option1" aria-label="품목선택">
+	</label>
+</div>
+
+<div class="radio">
+	<label>
+		<input type="radio" id="blankRadio" name="blackRadio" value="option1" aria-label="등급선택">
+	</label>
+</div>
+
+<!-- 
+	※ <button onclick="myDialog.close()")X</button>
+	  대부분의 사람들은 이 버튼을 눌러 대화 상자를 닫는 것을
+	  시각적으로 추론할 수 있을 것이다.
+	  그러나 그냥 소리내어 읽는 형태의 보 조 기술을 사용하는 시작 장애인은
+	  시각적인 단서 없이 많은 의미를 파악해 낼 수 없다.
+	  아리아 라벨이 명시적으로 버튼이 수행할 작업을 알려주는 것이다.
+ -->
+ 
+ 
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h4>셀렉트</h4>
+
+<select style="border-radius: 10px;">
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+</select>
+ 
+<br>
+<br>
+
+<select class="form-control">
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+</select> 
+ 
+<!-- 일반적인 <select> 와 마찬가지로 다중 선택을 위해 multiple 속성을 사용할 수 있다. -->
+<select multiple="multiple">
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+</select> 
+
+<br>
+<br>
+
+<select class="form-control"  multiple="multiple">
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+</select>
+
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h4>정적 컨트롤</h4>
+<!-- 
+	폼에서 텍스트를 삽입하고 싶을 때에는 <p>에
+	『.form-control-static』 클래스를 사용할 수 있다.
+-->
+
+<form>
+	<div>
+		<label>Email</label>
+		<div>
+			email@example.com
+		</div>
+	</div>
+	
+	<div>
+		<label for="inputPassword1">Password</label>
+		<div>
+			<input type="password" id="inputPassword1" placeholder="Password">
+		</div>
+	</div>
+</form>
+
+<!-- 아래 내용이 제대로 보여지게끔 하기 위한 처리 -->
+<div class="col-sm-12"></div>
+
+<br>
+<br>
+
+<form>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Email</label>
+		<div class="col-sm-10">
+			<p class="form-control-static"> email@example.com</p>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="inputPassword2" class="col-sm-2 control-label">Password</label>
+		<div class="col-sm-10">
+			<input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+		</div>
+	</div>
+	
+</form>
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h4>포커스 상태(Focus state)</h4>
+<!-- 
+	:focus 를 위해 몇 몇 폼 컨트롤들의 기본 outline 스타일들을 제거하고
+	그 대신에 box-shadow 를 적용한다.
+	
+-->
+
+<input type="text" id="focusInput1" placeholder="포커스 상태를 보여준다.">
+
+<br>
+<br>
+
+<input type="text" id="focusInput1" class="form-control" placeholder="포커스 상태를 보여준다.">
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h4>비활성화 상태(Disabled state)</h4>
+<!-- 
+	Input 에 사용자 상호 작용을 막기 위해 disabled(boolean) 속성을 추가할 수 있다.
+	비활성화된 입력 양식은 좀 더 밝게 보여지고 not-allowed 커서가 추가된다.	
+-->
+
+<!-- 일반 입력창 -->
+<input type="text" id="disabledInput" placeholder="비활성 입력창">
+
+<br>
+<br>
+<!-- 일반 disabled 입력창 -->
+<input type="text" id="disabledInput1" placeholder="비활성 입력창" disabled="disabled">
+
+<br>
+<br>
+<!-- 부트스트랩 적용 후 disabled 입력창 -->
+<input type="text" class="form-control" id="disabledInput2" placeholder="비활성 입력창" disabled="disabled">
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h4>비활성화 상태(Disabled fieldsets)</h4>
+<!-- 
+	한 번에 <fieldset>안에 들어있는 모든 컨트롤을 비활성화 하려면
+	<fieldset> 에 disabled 속성을 추가할 수 있다. 	
+-->
+<!-- 
+	※ 크로스브라우저 호환성
+	   부트스트랩은 이 스타일들을 모든 브라우저에 적용하지만
+	   인터넷 익스플로러 11을 포함한 그 이전 버전(이하)에서는
+	   실제로 <fidldset> 에서 disabled 속성을 지원하지 않는다.
+	   이 브라주어들을 필드셋을 비활성화 하려면
+	   자바스크립트를 활용해야 한다.
+-->
+
+<form>
+	<div class="form_group">
+		<label>Disabled input</label>
+		<input type="text" id="disalbedTextInput" class="form-control" placeholder="비활성" > 
+	</div>
+	
+	<div class="form-group">
+		<label for="disabledSelect">Disabled input</label>
+		<select id="disabledSelect" class="form-control">
+			<option>Disabled Select</option>
+		</select>
+	</div>
+	
+	<div class="checkbox">
+		<label>
+			<input type="checkbox"> 체크 불가
+		</label>
+	</div>
+	
+	<button type="submit" class="btn btn-primary">제출(완료)</button>"
+</form>
+
+<br>
+<br>
+
+<form>
+	<fieldset>
+		<div class="form_group">
+			<label>Disabled input</label>
+			<input type="text" id="disalbedTextInput" class="form-control" placeholder="비활성" > 
+		</div>
+		
+		<div class="form-group">
+			<label for="disabledSelect">Disabled input</label>
+			<select id="disabledSelect" class="form-control">
+				<option>Disabled Select</option>
+			</select>
+		</div>
+		
+		<div class="checkbox">
+			<label>
+				<input type="checkbox"> 체크 불가
+			</label>
+		</div>
+		
+		<button type="submit" class="btn btn-primary">제출(완료)</button>
+	</fieldset>
+</form>
+
+<br>
+<br>
+
+<form>
+	<fieldset disabled="disabled">
+		<div class="form_group">
+			<label>Disabled input</label>
+			<input type="text" id="disalbedTextInput" class="form-control" placeholder="비활성" > 
+		</div>
+		
+		<div class="form-group">
+			<label for="disabledSelect">Disabled input</label>
+			<select id="disabledSelect" class="form-control">
+				<option>Disabled Select</option>
+			</select>
+		</div>
+		
+		<div class="checkbox">
+			<label>
+				<input type="checkbox"> 체크 불가
+			</label>
+		</div>
+		
+		<button type="submit" class="btn btn-primary">제출(완료)</button>
+	</fieldset>
+</form>
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h4>읽기 전용 상태</h4>
+<!-- 
+	입력값의 수정을 막기 위해 입력 컨트롤에 readonly(boolean) 속성을 추가할 수 있다.
+	읽기 전용 입력 컨트롤은 좀 더 밝게 보여진다. (비활성화된 입력 컨트롤처럼..)
+	하지만, 커서 모양은 기본 커서로 남아있다.
+-->
+
+<input type="text" placeholder="Readonly Input here">
+
+<br>
+<br>
+
+<input type="text" placeholder="Readonly Input here" readonly="readonly">
+
+<br>
+<br>
+
+<input type="text" class="form-control" placeholder="Readonly Input here" >
+
+<br>
+<br>
+
+<input type="text" class="form-control" placeholder="Readonly Input here" readonly="readonly">
+
+<br>
+<br>
+
+<input type="text" class="form-control" placeholder="Readonly Input here" readonly>
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h4>유효 상태(Validation states)</h4>
+<!-- 
+	부트스트랩은 폼 컨트롤 상의 에러, 경고, 성공, 상태를 위한
+	유효 상태 스타일을 포함하고 있다.
+	사용하려면 부모 요소에 『.has-warning』, 『.has-error』, 『.has-success』
+	를 추가하여 사용할 수 있다.
+	그 요소 안에 들어있는 모든 『.control-label』, 『.form-control』, 『help-block』은
+	그 유효성 스타일을 적용받는다.
+-->
+
+<!-- div>(label+input) -->
+<div class="form-group">
+	<label class="control-label" for="inputSuccess1">Input width success</label>
+	<input type="text"  class="form-control" id="inputSuccess1"/>
+</div>
+
+<br>
+<br>
+
+<div class="form-group has-success">
+	<label class="control-label" for="inputSuccess1">Input width success</label>
+	<input type="text"  class="form-control" id="inputSuccess1"/>
+</div>
+
+<br>
+<br>
+
+<div class="form-group has-warning">
+	<label class="control-label" for="inputWarning1">Input width warning</label>
+	<input type="text"  class="form-control" id="inputWarning1"/>
+</div>
+
+<br>
+<br>
+
+<div class="form-group has-error">
+	<label class="control-label" for="inputError1">Input width error</label>
+	<input type="text"  class="form-control" id="inputError1"/>
+</div>
+
+<br>
+<br>
+
+<div>
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" id="checkboxSuccess1" value="option1">Checkbox with success
+		</label>
+	</div>
+</div>
+
+<br>
+<br>
+
+<div class="has-success">
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" id="checkboxSuccess1" value="option1">Checkbox with success
+		</label>
+	</div>
+</div>
+
+<br>
+<br>
+
+<div class="has-warning">
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" id="checkboxWarning1" value="option1">Checkbox with warning
+		</label>
+	</div>
+</div>
+
+<br>
+<br>
+
+<div class="has-error">
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" id="checkboxError1" value="option1">Checkbox with error
+		</label>
+	</div>
+</div>
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h5>선택적인 아이콘</h5>
+<!-- 
+	『.has-feedback』 클래스와 우측 아이콘의 추가로
+	선택적인 피드백 아이콘을 추가하여 사용할 수 있다.
+	피드백 아이콘은 오직 텍스트를 사용하는 『<input class="form-control">』
+	요소에서만 작동한다.
+-->
+
+<!-- 
+	※ 아이콘, 라벨, 입력 그룹
+	   피드벡 아이콘의 수동 위치는 라벨 없는 입력 컨트롤과
+	   에드온이 오른쪽에 있는 input groups 을 위해 필요하다.
+	   접근성 이유를 위해 모든 입력 컨트롤을 위한 라벨을 사용하는 것을 권장한다.
+	   라벨 없이 사용하게 되면 피드백 아이콘의 옵션 값들을 
+	   따로 설정해서 사용해야만 한다.
+-->
+
+<div>
+	<label for="inputSuccess10">Input with success</label>
+	<input type="text" id="inputSuccess10">
+</div>
+
+<div>
+	<label for="inputWanning10">Input with Wanning</label>
+	<input type="text" id="inputWanning10">
+</div>
+
+<div>
+	<label for="inputError10">Input with Error</label>
+	<input type="text" id="inputError10">
+</div>
+
+<br>
+<br>
+
+<div class="form-group has-success has-feedback">
+	<label class="control-label" for="inputSuccess11">Input with success</label>
+	<input class="form-control" type="text" id="inputSuccess11" aria-describedby="inputSuccess11Status">  
+	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+	<span id="inputSuccess11Status" class="sr-only">(success)</span>
+</div> 
+
+<div class="form-group has-warning has-feedback">
+	<label class="control-label" for="inputWarning11">Input with Warning</label>
+	<input class="form-control" type="text" id="inputWarning11">
+	<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+</div>
+
+<div class="form-group has-error has-feedback">
+	<label class="control-label" for="inputError11">Input with Error</label>
+	<input type="text" class="form-control" id="inputError11">
+	<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+	<!-- <span class="glyphicon glyphicon-align-justify form-control-feedback"></span> -->
+</div>
+
+<div class="form-group has-success has-feedback">
+	<label class="control-label" for="inputGroupSuccess10">Input group with success</label>
+	<div class="input-group">
+		<span class="input-group-addon">@</span>
+		<input type="text" class="form-control" id="inputGroupSuccess10" aria-describedby="inputGroupSuccess10Status">
+	</div>
+	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+	<span id="inputGroupSuccess10Status" class="sr-only"></span>
+</div>
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<h6>수평폼과 인라인폼에서 보조 아이콘</h6>
+
+
+<form class="form-horizontal">
+	<div class="form-group has-success has-feedback">
+		<label class="control-label col-sm-3" for="inputSuccess12">Input with success</label>
+		<div class="col-sm-9">
+			<input type="text" class="form-control" id="inputSuccess12" aria-discribedby="inputSuccess12Status">
+			<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+			<span id="inputSuccess12Status" class="sr-only">(success)</span>
+		</div>
+	</div>
+	<div class="form-group has-success has-feedback">
+		<label class="control-label col-sm-3" for="inputGroupSuccess12">Input group with success</label>
+		<div class="col-sm-9">
+			<div class="input-group">
+				<label class="input-group-addon">@</label>
+				<input type="text" class="form-control" id="inputGroupSuccess12">
+			</div>
+			<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+		</div>
+	</div>
+</form>
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+<form>
+	<div>
+		<label>Input with success</label>
+		<input type="text" id="inputSuccess15">
+	</div>
+</form>
+<form>
+	<div>
+		<label for="inputGroupSuccess">Input group with success</label>
+		<div>
+			<span>@</span>
+			<input type="text" id="inputGroupSuccess15">
+		</div>
+	</div>
+</form>
+
+
+<br>
+<br>
+
+<form class="form-inline">
+	<div class="form-group has-success has-feedback">
+		<label class="control-label" for="inputSuccess15">Input with success</label>
+		<input type="text" class="form-control" id="inputSuccess15">
+		<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+	</div>
+</form>
+<form class="form-inline">
+	<div class="form-group has-success has-feedback">
+		<label class="control-label" for="inputGroupSuccess">Input group with success</label>
+		<div class="input-group">
+			<span class="input-group-addon">@</span>
+			<input type="text" class="form-control" id="inputGroupSuccess15">
+		</div>
+		<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+	</div>
+</form>
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+
+<br>
+<hr>
+<br>
+<hr>
+<br>
+
+
+</body>
+</html>

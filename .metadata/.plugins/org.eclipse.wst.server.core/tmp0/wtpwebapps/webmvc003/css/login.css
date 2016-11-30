@@ -1,0 +1,81 @@
+@CHARSET "UTF-8";
+
+body, div, input, select, button, a, textarea
+{
+	font-family: 맑은 고딕;
+	font-size: 18px;
+	text-decoration: none;
+	color: #343;
+	font-weight: bold;
+	
+}
+
+a:HOVER
+{
+	color: crimson;
+}
+
+table, td
+{
+	border: 1px solid gray;
+	border-radius: 4px;
+}
+
+.activeControl
+{
+	background-color: honeydew;
+	color: darkslategray;
+	font-size: small;
+	font-weight: bold;
+}
+
+.activeControl:HOVER
+{
+	color: deeppink;
+}
+
+.activeControl2
+{
+	color: darkblue;
+	font-size: 12pt;
+	
+}
+.activeControl2:HOVER
+{
+	color: Orange;
+}
+
+.noneControl
+{
+	color: gray;
+	font-size: small;
+}
+
+.errMsg
+{
+	font-size: small;
+	color: red;
+	display: none;
+}
+
+.activeControl3
+{
+	color: blue;
+	font-size: 12pt;
+	font-weight: bold;
+	width: 100px;
+	
+}
+
+.activeControl3:HOVER
+{
+	color: Orange;
+}
+
+
+
+
+
+
+
+

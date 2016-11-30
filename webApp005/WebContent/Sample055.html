@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 객체(사용자 정의 객체)</title>
+<link rel="stylesheet" href="css/main.css">
+<script type="text/javascript">
+
+	function main()
+	{
+		// 사용자 정의 객체(생성자 함수) 구성
+		function Blog(b, d)
+		{
+			// 객체를 구성하는 속성
+			this.body = b;
+			this.date = d;
+		};
+		
+		// 객체 생성
+		var blog = new Blog("블로그 개설", "2016-03-23");
+		
+		// 생성된 객체의 속성(멤버) 접근
+		var str = blog.body + " / " + blog.date;
+		
+		// 테스트
+		//alert(str);
+		
+		// 문서 내용확인
+		//document.getElementById("result").innerHTML = str; 
+		//document.getElementById("result").innerText ="<h2>"+ str +"</h2>";
+		
+		// (사용자 정의) 객체를 여러 개 배열 구조로 저장
+		var arr = [ new Blog("블로그 개설", "2015-12-10")
+				   ,new Blog("자바스크립트를 이용한 객체 실습", "2016-03-23")
+				   ,new Blog("수료 후 취업", "2016-06-08")];
+		
+		str = "<table border='1'>";
+		str += "<tr><th>제목</th><th>날짜</th></tr>";
+		
+		for (var i = 0; i < arr.length; i++)
+		{
+			str += "<tr>";
+			str += "<td>" + arr[i].body + "</td>";
+			str += "<td>" + arr[i].date + "</td>";
+			str += "</tr>";
+		}
+		str += "</table>";
+		
+		var result = document.getElementById("result");
+		result.innerHTML = str;
+	}
+	
+</script>
+</head>
+<body>
+<div>
+	<h2>자바스크립트 객체(사용자 정의 객체)</h2>
+	<hr>
+</div>
+
+<div>
+	<button type="button" onclick="main()">사용자 정의 객체 테스트</button>
+	<br><br>
+	<div id= "result"></div>
+</div>
+</body>
+</html>

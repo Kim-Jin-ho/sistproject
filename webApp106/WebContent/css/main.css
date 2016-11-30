@@ -1,0 +1,212 @@
+@CHARSET "UTF-8";
+*
+{
+	font-size : 18px;
+	color : #008ae6;
+	font-family: 맑은 고딕;
+	font-weight: bold;
+}
+.call
+{
+	width:512px;
+	height:380px;
+	background-image: url("images/z.jpg") ;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-origin:content-box;
+	background-size: 100%;
+	opacity: 0.3!important; filter:alpha(opacity=30);
+}
+.call:AFTER
+{
+	width:512px;
+	height:380px;
+	z-index:-1;
+	position:absolute;
+	top:0;
+	left:0;
+	content:"";
+	background-image: url('images/desert.jpg') ;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-origin:content-box;
+	background-size: 100%;
+	opacity: 0.3!important; filter:alpha(opacity=30);
+}
+input
+{
+	border-radius: 4px;
+}
+
+table, td
+{
+	text-shadow: black;
+	border: 1 solid gray;
+	border-radius: 4px;
+}
+
+table th
+{
+	text-shadow: black;
+	border: 1 solid gray;
+	border-radius: 4px;
+	font-size : 18px;
+	color : black;
+	font-family: 맑은 고딕;
+	font-weight: bold;
+}
+body
+{
+	font-size: 18px;
+	color: #343;
+	font-family: 맑은 고딕;
+	font-weight: bold;
+}
+#nameMsg
+{
+	font-size: small;
+}
+
+
+p, div, input, table, th, td, select, button, textarea
+{
+	font-size : 18px;
+	color : #343;
+	font-family: 맑은 고딕;
+	font-weight: bold;
+}
+
+h2
+{
+	font-size: 25px;
+}
+
+.inputTxt
+{
+	text-align: center;
+}
+.control
+{
+	border: 1px solid gray;
+}
+
+button
+{
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+	background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+	background-color:#ededed;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#777777;
+	font-size:16px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+	text-align:center;
+	font-family: 맑은 고딕;
+	font-weight: bold;
+}
+	
+button:ACTIVE
+{
+	position:relative;
+	top:1px;
+}
+
+
+button:HOVER
+{
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+	background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+	background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+	background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+	background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);	
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);	
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+	background-color:#dfdfdf;
+	color: red;
+}
+
+@CHARSET "UTF-8";
+
+body, div, input, select, a, textarea{
+	
+	font-family: 맑은 고딕;
+	font-size: 19px;
+	text-decoration: none;
+	color: #343;
+	font-weight: bold;
+	
+}
+
+a:HOVER {
+	
+	color: orange;
+	
+}
+
+table, td{
+	
+	border: 1px solid gray;
+	border-radius: 4px;
+	
+}
+
+.activeControl{
+	
+	color: blue;
+	
+}
+
+.activeControl:HOVER{
+	
+	color: red;
+	
+}
+.hi
+{
+	padding: 0px;
+	border-style: solid;
+	border-collapse: collapse;
+}
+
+
+.noneControl{
+	
+	color: gray;
+	
+}
+
+.activeControl2{
+	color: blue;
+	font-size: 12pt;
+}
+
+.activeControl2:HOVER {
+	color: orange;
+}
+
+.errMsg{
+	
+	font-size: small;
+	color: red;
+	display: none;
+	
+}
+
+.txt
+{
+	width: 30px;	
+}

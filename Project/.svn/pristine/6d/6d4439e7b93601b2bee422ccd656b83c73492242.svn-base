@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+#customers
+{
+	font-family: 맑은고딕, Arial;
+	width:100%;
+	border-collapse: collapse;
+}
+
+#customers td, #customers th
+{
+	font-size : 0.9em;
+	border : 1px solid #98bf21;
+	padding : 3px 7px 2px 7px;
+	text-align : center;
+}
+
+#customers th
+{
+	font-size:#FFFFFF;
+	background-color : #98bf21;
+}
