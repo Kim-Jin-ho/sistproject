@@ -43,7 +43,6 @@
 	</section>
 	<section name="PreferencesExportWizard">
 		<item value="C:\Users\jinho\Desktop\환경설정.epf" key=""/>
-		<item value="C:\Users\jinho\Desktop\환경설정.epf" key=""/>
 		<item value="false" key="WizardPreferencesExportPage1.STORE_OVERWRITE_EXISTING_FILES_ID"/>
 		<item value="true" key="WizardPreferencesExportPage1.EXPORT_ALL_PREFERENCES_ID"/>
 		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
