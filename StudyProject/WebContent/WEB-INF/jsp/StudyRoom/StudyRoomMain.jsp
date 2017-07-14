@@ -190,7 +190,7 @@
 					<th style="text-align: center;" >글번호</th>
 					<th style="text-align: center;">지역</th>
 					<th style="text-align: center;">업체명</th>
-					<th style="text-align: center; width: 250px;">방이름</th>
+					<th style="text-align: center; width: 300px;">방이름</th>
 					<th style="text-align: center;">수용인원</th>
 					<th style="text-align: center;">시간/일</th>
 					<th style="text-align: center;">가격</th>
@@ -246,12 +246,12 @@
 	<c:choose>
 	    <c:when test="${nickname eq null}">
 			<div class="col-xs-3">
-				<button type="button" class="btn btn-primary cs-btn"  onclick="javascript:location.href='ShopSelect.room'" disabled="disabled" >글 올리기</button>
+				<button type="button" class="btn btn-primary cs-btn"  onclick="javascript:location.href='StudyRoomCreate.room'" disabled="disabled" >글 올리기</button>
 			</div>
 	    </c:when>
 	    <c:when test="${nickname ne null}">
 			<div class="col-xs-3">
-				<button type="button" class="btn btn-primary cs-btn" onclick="javascript:location.href='ShopSelect.room'" >글 올리기</button>
+				<button type="button" class="btn btn-primary cs-btn" onclick="javascript:location.href='StudyRoomCreate.room'" >글 올리기</button>
 			</div>
 		</c:when>
 	</c:choose>
@@ -286,24 +286,5 @@
 	<div class="form-group col-xs-2" ></div>
 </div>  -->
 <c:import url="/WEB-INF/jsp/import/copyright.jsp"></c:import>
-
-		<!-- =========================
-		     SCRIPTS 
-		============================== -->
-		<!-- Tocplus 15.1 -->
-		<script type="text/javascript">
-		tocplusTop=1150;
-		tocplusLeft=5;
-		tocplusMinimizedImage='http://kr01.tocplus007.com/img/minimized_ko.gif';
-		tocplusHAlign='right';
-		tocplusWidth=180;
-		tocplusHeight=220;
-		tocplusUserName='손님';
-		tocplusFrameColor='#808080';
-		tocplusFloatingWindow=true;
-		var tocplusHost = (("https:" == document.location.protocol) ? "https://" : "http://");
-		document.write(unescape("%"+"3Cscript src='" + tocplusHost + "kr01.tocplus007.com/chatLoader.do?userId=jinho528' type='text/javascript'"+"%"+"3E"+"%"+"3C/script"+"%"+"3E"));
-		</script>
-		<!-- End of Tocplus -->
 </body>
 </html>

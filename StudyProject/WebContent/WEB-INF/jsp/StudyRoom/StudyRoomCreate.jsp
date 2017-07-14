@@ -51,87 +51,40 @@
 <script type="text/javascript" src="<%=cp %>/js/HuskyEZCreator.js" charset="utf-8"></script>
 
 <script type="text/javascript">
-/* 
-	지도 팝업창 불러오기
-	$(document).ready(function()
-	{
-		$("#map").click(function()
-		{
-			winObj = window.open('StudyRoomCreateMap.room','지도','width=400,height=550,left=150,top=150');
-			alert(winObj.document.forms.map1.latlng.value = latlng);
-			winObj.document.forms.map1.latlng.value = latlng;
-		})
-	});
- */
 
-   var oEditors = [];
-   $(function()
+
+   $(document).ready(function()
+   {
+      $("#submitBtn").click(function()
+      {
+         // 데이터 검사(누락된 입력값 검사) 후 submit 액션
+         if($("#subject").val()==""|| $("#main").val()=="")            
          {
+            $("#errMsg").css("display","inline")
+            //alert("입력 누락된 항목이 존재합니다.");
+            return;
+         }
+                  // submit 액션 처리
+         $("#createForm").submit();
+      });
+      $("#map").click(function()
+      {
+         winObj = window.open('StudyRoomCreateMap.room','지도','width=400,height=550,left=150,top=150');
+         alert(winObj.document.forms.map1.latlng.value = latlng);
+         winObj.document.forms.map1.latlng.value = latlng;
+         
+      })
 
-            nhn.husky.EZCreator.createInIFrame({
-             oAppRef: oEditors,
-             elPlaceHolder: "ir1", //textarea에서 지정한 id와 일치해야 합니다. 
-             sSkinURI: "/StudyProject/SE2/SmartEditor2Skin.html",  
-             htParams : {
-                 // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-                 bUseToolbar : true,             
-
-                 // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-                 bUseVerticalResizer : true,     
-
-                 // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-                 bUseModeChanger : true,         
-                 fOnBeforeUnload : function(){
-                 }
-             }, 
-             fOnAppLoad : function()
-             {
-                 //기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-                 //oEditors.getById["ir1"].exec("PASTE_HTML", ["내용을 입력하세요. <br>(내용을 지우고 입력하시기 바랍니다.)"]);
-            	 
-             },
-             fCreator: "createSEditor2"
-         });      
-
-           //저장버튼 클릭시 form 전송
-           $("#save").click(function()
-           {
-               // 데이터 검사(누락된 입력값 검사) 후 submit 액션
-               if($("#title").val()=='')            
-               {
-                  //$("#errMsg").css("display","inline")
-                  alert("방 이름을 입력해주세요.");
-                  $("#title").focus();
-               }
-               else if($('#price').val()=='0')            
-               {
-                  alert("가격을 입력해주세요.");
-                  $("#price").focus();
-               }
-               else if($("#inwon").val()=='0')            
-               {
-                  alert("수용인원을 입력해주세요.");
-                  $("#inwon").focus();
-               }
-                
-               
-/*             else if($("#ir1").val()=="")            
-               {
-                  alert("내용을 입력해 주세요.");
-                  $("#ir1").focus();
-               } */
-             
-               
-               //저장버튼 클릭시 form 전송
-               else 
-               {
-              	 oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-                   $("#frm").submit();
-               }
-               
-           });  
-
+      
+      //저장버튼 클릭시 form 전송
+      $("#save").click(function()
+      {
+          $("#frm").submit();
+      });  
    });
+
+
+
    
 
 </script>
@@ -172,17 +125,16 @@
             
                      <label class="col-sm-2 text-right">방이름</label> 
                      <div class="col-sm-9">
+                        <div class="form-group">
                            <input type="text" id="title" name="title" class="form-control" placeholder="방 제목을 입력하세요"/>
                            <!-- 지도 좌표 찍기
                                 아래 text 박스 안에 지도 클릭 시 좌표가 나옴, hidden 속성 없에야 보임.   
                             -->   
-                    <!--        
-                  		지도 팝업창 불러오기
-						<span class="input-group-btn">
-							<button class="btn btn-success btn-sm" type="button" id="map">주소 검색<i class="fa fa-edit spaceLeft"></i>
-							</button>
-						</span>
-                    -->
+                           <!-- <span class="input-group-btn">
+                              <button class="btn btn-success btn-sm" type="button" id="map">주소 검색<i class="fa fa-edit spaceLeft"></i>
+                              </button>
+                           </span> -->
+                        </div>
                      </div>
                   </div>
             </div>
@@ -211,7 +163,7 @@
                <div class="col-sm-9">   
                   <select name="shopId" class="form-control">
                   <c:forEach var="shop" items="${list }">
-                     <c:if test="${shopId==shop.shopId }"><option value="${shopId}" selected="selected">${shop.shopName}</option></c:if>
+                     <option value="${shop.shopId}">${shop.shopName}</option>
                   </c:forEach>                     
                   </select>                  
                </div>
@@ -226,13 +178,13 @@
                </div>
                <label class="col-sm-3 text-right">가&nbsp;격</label>
                <div class="col-sm-3 text-right">
-                  <input type="text" id="price" name="price" class="form-control" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" maxlength=10 value="0">
+                  <input type="text" name="price" class="form-control"onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" maxlength=10 value="0">
                </div>
             </div>
             <div class="row">
                <label class="col-sm-2 text-right">수용인원</label>
                <div class="col-sm-9">
-                  <input type="text" name="inwon" id="inwon" placeholder="0" value="0" class="form-control"></div>            
+                  <input type="text" name="inwon" placeholder="0" value="0" class="form-control"></div>            
                </div>
             <div class="row">
                <label class="col-sm-2 text-right">최소이용시간</label>
@@ -316,24 +268,24 @@
             
             <div class="row">
                <div class="col-sm-12 text-center">
-               <br><br>
                   <button type="button" class="btn btn-primary" id="save">글쓰기</button>
-                  <button type="button" class="btn btn-default" onclick="window.history.back();">취소</button>
+                  <button type="reset" class="btn btn-default">취소</button>
                </div>
             </div>
             
          </div>
       </form>
    </div>
-</div>
+
    <div class="col-sm-2"></div>
+</div>
 </div>
 
 
 <div class="row">
-   <div class="col-md-8"></div>
-   <div class="form-group col-md-4">
-   		<!-- <button type="button" class="btn btn-default cs-btn"  onclick="location.href='StudyRoomMain.room'">목록으로</button> -->
+   <div class="form-group col-sm-8"></div>
+   <div class="form-group col-sm-4">
+      <button type="button" class="btn btn-default"  onclick="location.href='StudyRoomMain.room'">목록으로</button>
    </div>
    <!-- 좌표 찍는 값 -->
    <input type="hidden" id="p_id" name="bukwi" value="" >

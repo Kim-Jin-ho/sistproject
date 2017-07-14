@@ -25,18 +25,10 @@ public class LoginController implements Controller
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String nickname = null;
-		String mid = "";
-		String save = "";
 		try
 		{
 			nickname = dao.login(id, pw);
-			
-			mid = dao.getMid(nickname);
-			
-			save = dao.getSave(mid);
-			
-			System.out.println(mid);
-			System.out.println(save);
+			System.out.println(nickname);
 			
 		} catch (Exception e)
 		{
@@ -47,16 +39,10 @@ public class LoginController implements Controller
 		{
 			mav.setViewName("redirect:login_form.room");
 		}
-		
-		if (save ==null)
-		{
-			save = "0";
-		}
 		else
 		{
 			HttpSession session = request.getSession();
 			session.setAttribute("nickname", nickname);
-			session.setAttribute("save", save);
 			System.out.println(nickname);
 			mav.setViewName("redirect:StudyMain.room");
 		}

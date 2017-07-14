@@ -110,30 +110,20 @@
 	                    marker.setMap(map);
 	                }
 	            }
-				
-				function inputmap()
-				{
-					window.open("about:blank","_self").close();
-				}
 	        </script>
     </head>
     <body>
-    <div class="container">
-		<div class="row">
-		    <div class="form-group"> 
-		    <span class="input-group-btn">
-		        <input id ="txtAddress" class="form-control" type="text" >
-		        <button type="button" class="btn btn-success btn-sm" onclick="Search();">주소찾기</button><i class="fa fa-edit spaceLeft"></i>
-		    </span>
-	        </div>
-       	</div>
-    </div>
+	    <div>
+	        <label>주소검색 : </label>
+	        <input id ="txtAddress" class="form-control" type="text" style="width : 100%">
+	        <button type="button" class="btn btn-default" onclick="Search();">주소찾기</button>
+        </div>
         <br>
         <div>
         <form id="frm" class="frm">
 	        <label hidden="">좌표 : </label>
-	        <!-- <label id="latlng" ></label>
-	        <label id="latlng1" ></label> -->
+	        <label id="latlng" ></label>
+	        <label id="latlng1" ></label>
 	    </form>
 	    </div>
         	<div id ="map" style="width : 100%; height:350px">

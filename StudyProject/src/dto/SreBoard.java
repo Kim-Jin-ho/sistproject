@@ -2,93 +2,12 @@ package dto;
 
 public class SreBoard
 {
-	private int rNum, srId,  hnCount, hnHit, count;
+	private int rNum, srId,  hnCount, hnHit;
 	private String locaTion, memBer, souNd, shopName, shopNo, shopId, inWon, hnwDate, detailCon, dayHours, pricE2, minTime,
-	        yesNo, wiFi, conSent, mid, scid, srid, srcontent, srwid, srwdate, srscore;
+	        yesNo, wiFi, conSent;
 	private double   dongkyung, bukwi;
 
 	
-	
-	public String getScid()
-	{
-		return scid;
-	}
-
-	public void setScid(String scid)
-	{
-		this.scid = scid;
-	}
-
-	public String getSrid()
-	{
-		return srid;
-	}
-
-	public void setSrid(String srid)
-	{
-		this.srid = srid;
-	}
-
-	public String getSrcontent()
-	{
-		return srcontent;
-	}
-
-	public void setSrcontent(String srcontent)
-	{
-		this.srcontent = srcontent;
-	}
-
-	public String getSrwid()
-	{
-		return srwid;
-	}
-
-	public void setSrwid(String srwid)
-	{
-		this.srwid = srwid;
-	}
-
-	public String getSrwdate()
-	{
-		return srwdate;
-	}
-
-	public void setSrwdate(String srwdate)
-	{
-		this.srwdate = srwdate;
-	}
-
-	public String getSrscore()
-	{
-		return srscore;
-	}
-
-	public void setSrscore(String srscore)
-	{
-		this.srscore = srscore;
-	}
-
-	public String getMid()
-	{
-		return mid;
-	}
-
-	public void setMid(String mid)
-	{
-		this.mid = mid;
-	}
-
-	public int getCount()
-	{
-		return count;
-	}
-
-	public void setCount(int count)
-	{
-		this.count = count;
-	}
-
 	public double getDongkyung()
 	{
 		return dongkyung;

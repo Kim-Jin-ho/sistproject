@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>STUDY PROJECT</title>
+<title>Insert title here</title>
 <!-- <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css" >
 <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.css" > -->
     <!-- Google Font -->
@@ -176,25 +176,10 @@
 
 
 
-		<!-- =========================
-		     SCRIPTS 
-		============================== -->
-		<!-- Tocplus 15.1 -->
-		<script type="text/javascript">
-		tocplusTop=1150;
-		tocplusLeft=5;
-		tocplusMinimizedImage='http://kr01.tocplus007.com/img/minimized_ko.gif';
-		tocplusHAlign='right';
-		tocplusWidth=180;
-		tocplusHeight=220;
-		tocplusUserName='손님';
-		tocplusFrameColor='#808080';
-		tocplusFloatingWindow=true;
-		var tocplusHost = (("https:" == document.location.protocol) ? "https://" : "http://");
-		document.write(unescape("%"+"3Cscript src='" + tocplusHost + "kr01.tocplus007.com/chatLoader.do?userId=jinho528' type='text/javascript'"+"%"+"3E"+"%"+"3C/script"+"%"+"3E"));
-		</script>
-		<!-- End of Tocplus -->
-	
+<!-- =========================
+     SCRIPTS 
+============================== -->
+
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

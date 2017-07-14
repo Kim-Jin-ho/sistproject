@@ -26,7 +26,6 @@ public class StudyRoomInsertController implements Controller
 	HttpSession session = request.getSession();
 	String nickname = (String)session.getAttribute("nickname");
 	
-	
     String title = request.getParameter("title");
     String location = request.getParameter("location");
     String shopId = request.getParameter("shopId");
@@ -39,36 +38,12 @@ public class StudyRoomInsertController implements Controller
     String wifiCheck = request.getParameter("wifiCheck");
     String inwon = request.getParameter("inwon");
     String yesnoCheck = request.getParameter("yesnoCheck");
-   
     
-    
-    
-    
-    
-    System.out.println("스터디룸 인서트 컨트롤러 값");
-    System.out.println(title);
-    System.out.println(location);
-    System.out.println(shopId);
-    System.out.println(timeCheck);
-    System.out.println(price);
-    System.out.println(content);
-    System.out.println(minTime);
-    System.out.println(consent);
-    System.out.println(noiseCheck);
-    System.out.println(wifiCheck);
-    System.out.println(inwon);
-    System.out.println(yesnoCheck);
-    
-    
-    
-    
-    
-    
-    
+	    System.out.println(title+location+shopId+timeCheck+price);
+	    System.out.println(content);
 
     SreBoard sreboard = null;
     
-    String mid = "";
     
     try {
 		
@@ -93,8 +68,7 @@ public class StudyRoomInsertController implements Controller
 
     	dao.sreCreate(sreboard);
     	
-    	mid = dao.getMid(nickname);
-    	dao.insertSave(mid);
+    	
     	
     	
 	} catch (Exception e) {

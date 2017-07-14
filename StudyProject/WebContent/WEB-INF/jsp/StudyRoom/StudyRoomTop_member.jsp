@@ -1,8 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-	String save = (String)session.getAttribute("save");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,8 +71,8 @@
 	                    <li><a href="StudyMain.room">Home</a></li>
 	                    <li><a href="Notice.room">공지사항</a></li>
 	                    <li><a href="StudyRoomMain.room">스터디룸정보</a></li>
+	                    <li><a href="join_agree.room">회원가입</a></li>
 	                    <li><a href="FAQ.room">FAQ</a></li>
-	                    <li><a>마일리지&nbsp;&nbsp;:&nbsp;&nbsp;<%=save %>&nbsp;&nbsp;점</a></li>
 	                    <li><a href="Logout.room">로그아웃</a></li>
 	                  </ul>
 	                </div><!-- /.navbar-collapse -->

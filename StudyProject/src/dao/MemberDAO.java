@@ -17,30 +17,33 @@ public class MemberDAO implements IMemberDAO
 	{
 		this.dataSource = dataSource;
 	}
-
+	
 	// 회원 추가 메소드
 	@Override
 	public int memberAdd(Member member) throws SQLException
 	{
 		int result = 0;
-
+		
 		Connection conn = dataSource.getConnection();
-
+		
 		String sql = "INSERT INTO MEMBER(MID, ID, PW, NICKNAME) VALUES (SEQ_MEMBER.NEXTVAL, ?, CRYPTPACK.ENCRYPT(?, ?), ?)";
-
+				
+		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-
+		
+		
 		pstmt.setString(1, member.getId());
 		pstmt.setString(2, member.getPw());
 		pstmt.setString(3, member.getId());
 		pstmt.setString(4, member.getNickname());
-
+		
+		
 		result = pstmt.executeUpdate();
-
+		
 		pstmt.close();
 		conn.close();
-
-		return result;
+		
+		return result;	
 	}
 
 	// 개인 정보 추가 메소드
@@ -48,22 +51,22 @@ public class MemberDAO implements IMemberDAO
 	public int gainfoAdd(Member member) throws SQLException
 	{
 		int result = 0;
-
+		
 		Connection conn = dataSource.getConnection();
-
+		
 		String sql = "INSERT INTO GAINFO(MID, NAME, TEL, EMAIL, JOINDATE) VALUES(SEQ_GAINFO.NEXTVAL, ?, ?, ?, TO_DATE(SYSDATE, 'YYYY-MM-DD'))";
-
+		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-
+		
 		pstmt.setString(1, member.getName());
 		pstmt.setString(2, member.getTel());
 		pstmt.setString(3, member.getEmail());
-
+		
 		result = pstmt.executeUpdate();
-
+		
 		pstmt.close();
 		conn.close();
-
+		
 		return result;
 	}
 
@@ -73,22 +76,22 @@ public class MemberDAO implements IMemberDAO
 	{
 		int result = 0;
 		Connection conn = dataSource.getConnection();
-
-		String sql = "SELECT COUNT(ID) AS COUNT FROM MEMBER WHERE ID=?";
-
+		
+		String sql = "SELECT COUNT(ID) AS COUNT FROM MEMBER WHERE ID=?";	
+		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, memberId);
 		ResultSet rs = pstmt.executeQuery();
-
-		while (rs.next())
+		
+		while(rs.next())
 		{
 			result = rs.getInt("COUNT");
 		}
-
+		
 		pstmt.close();
 		conn.close();
 		rs.close();
-
+		
 		return result;
 	}
 
@@ -97,20 +100,20 @@ public class MemberDAO implements IMemberDAO
 	public int getNickname(String memberNickname) throws SQLException
 	{
 		int result = 0;
-
+		
 		Connection conn = dataSource.getConnection();
-
+		
 		String sql = "SELECT COUNT(NICKNAME) AS COUNT FROM MEMBER WHERE NICKNAME=?";
-
+		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, memberNickname);
 		ResultSet rs = pstmt.executeQuery();
-
-		while (rs.next())
+		
+		while(rs.next())
 		{
 			result = rs.getInt("COUNT");
 		}
-
+		
 		pstmt.close();
 		conn.close();
 		return result;
@@ -121,20 +124,20 @@ public class MemberDAO implements IMemberDAO
 	public int getEmail(String memberEmail) throws SQLException
 	{
 		int result = 0;
-
+		
 		Connection conn = dataSource.getConnection();
-
+		
 		String sql = "SELECT COUNT(EMAIL) AS COUNT FROM GAINFO WHERE EMAIL=?";
-
+		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, memberEmail);
 		ResultSet rs = pstmt.executeQuery();
-
-		while (rs.next())
+		
+		while(rs.next())
 		{
 			result = rs.getInt("COUNT");
 		}
-
+		
 		pstmt.close();
 		conn.close();
 		return result;
@@ -145,79 +148,45 @@ public class MemberDAO implements IMemberDAO
 	public int getTel(String memberTel) throws SQLException
 	{
 		int result = 0;
-
+		
 		Connection conn = dataSource.getConnection();
-
+		
 		String sql = "SELECT COUNT(TEL) AS COUNT FROM GAINFO WHERE TEL=?";
-
+		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, memberTel);
 		ResultSet rs = pstmt.executeQuery();
-
-		while (rs.next())
+		
+		while(rs.next())
 		{
 			result = rs.getInt("COUNT");
 		}
-
+		
 		pstmt.close();
 		conn.close();
 		return result;
-
+		
 	}
-
+	
 	// 일반 회원 로그인 메소드
 	@Override
 	public String login(String id, String pw) throws SQLException
 	{
 		String result = null;
-
+		
 		Connection conn = dataSource.getConnection();
-
+		
 		String sql = "SELECT NICKNAME FROM MEMBER WHERE ID=? AND pw=CRYPTPACK.ENCRYPT(?, ( SELECT id FROM member WHERE id=?))";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-
+		
 		pstmt.setString(1, id);
 		pstmt.setString(2, pw);
 		pstmt.setString(3, id);
-
+		
 		ResultSet rs = pstmt.executeQuery();
-		while (rs.next())
+		while(rs.next())
 		{
 			result = rs.getString("NICKNAME");
-		}
-
-		rs.close();
-		pstmt.close();
-		conn.close();
-
-		return result;
-	}
-	
-	// 마일리지 조회 메소드
-	@Override
-	public String getSave(String nickname) throws SQLException
-	{
-		String result = ""; // 마일리지 담기 위한 변수
-		
-		Connection conn =dataSource.getConnection();
-		
-		String sql = "SELECT SUM(SVMONEY) AS SUM FROM SRSAVE WHERE MID = ?";
-
-		System.out.println(sql);
-		
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
-		pstmt.setString(1, nickname);
-		
-		ResultSet rs = pstmt.executeQuery();
-		
-		while (rs.next())
-		{
-			result = rs.getString("SUM");
-			if (result == null)
-			{
-				result = "0";
-			}
 		}
 		
 		rs.close();
@@ -233,50 +202,28 @@ public class MemberDAO implements IMemberDAO
 	{
 		String result = null;
 		Connection conn = dataSource.getConnection();
-
+		
 		String sql = "SELECT SRAID FROM SRADMIN WHERE SRAID=? AND SRAPW=CRYPTPACK.ENCRYPT(?, ( SELECT SRAID FROM SRADMIN WHERE SRAID=?))";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-
+		
 		pstmt.setString(1, id);
 		pstmt.setString(2, pw);
 		pstmt.setString(3, id);
-
+		
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next())
 		{
 			result = rs.getString("SRAID");
 		}
-
-		rs.close();
-		pstmt.close();
-		conn.close();
-
-		return result;
-
-	}
-
-	@Override
-	public String getMid(String nickname) throws SQLException
-	{
-		String result = null;
-		Connection conn = dataSource.getConnection();
-
-		String sql = "SELECT MID FROM MEMBER WHERE NICKNAME = ? ";
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-
-		pstmt.setString(1, nickname);
 		
-		ResultSet rs = pstmt.executeQuery();
-		while (rs.next())
-		{
-			result = rs.getString("MID");
-		}
-
 		rs.close();
 		pstmt.close();
 		conn.close();
-
+		
 		return result;
+		
 	}
-
+	
+	
+	
 }

@@ -95,7 +95,7 @@ $(function()
 			<table class="table table-hover table-responsive">
 				<tr>
 					<th class="text-center">글번호</th>
-					<th class="text-center">제목</th>
+					<th>제목</th>
 					<th class="text-center">작성자</th>
 					<th class="text-center">작성일</th>
 					<th class="text-center">조회수</th>
@@ -133,25 +133,6 @@ $(function()
 	<br><br>
 
 	<c:import url="/WEB-INF/jsp/import/copyright.jsp"></c:import>
-	
-		<!-- =========================
-		     SCRIPTS 
-		============================== -->
-		<!-- Tocplus 15.1 -->
-		<script type="text/javascript">
-		tocplusTop=1150;
-		tocplusLeft=5;
-		tocplusMinimizedImage='http://kr01.tocplus007.com/img/minimized_ko.gif';
-		tocplusHAlign='right';
-		tocplusWidth=180;
-		tocplusHeight=220;
-		tocplusUserName='손님';
-		tocplusFrameColor='#808080';
-		tocplusFloatingWindow=true;
-		var tocplusHost = (("https:" == document.location.protocol) ? "https://" : "http://");
-		document.write(unescape("%"+"3Cscript src='" + tocplusHost + "kr01.tocplus007.com/chatLoader.do?userId=jinho528' type='text/javascript'"+"%"+"3E"+"%"+"3C/script"+"%"+"3E"));
-		</script>
-		<!-- End of Tocplus -->
 
 </body>
 </html>

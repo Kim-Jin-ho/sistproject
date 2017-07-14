@@ -31,7 +31,6 @@
     <link href="css/style.css" rel="stylesheet">
 
 <script type="text/javascript" src="ajax.js"></script>
-<script type="text/javascript" src="<%=cp %>/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript">
 
 	$(function()
@@ -46,33 +45,7 @@
 	})
 	
 	
-	var oEditors = [];
-	$(function()
-	{
-
-	     	nhn.husky.EZCreator.createInIFrame({
-	         oAppRef: oEditors,
-	         elPlaceHolder: "ir1", //textarea에서 지정한 id와 일치해야 합니다. 
-	         sSkinURI: "/StudyProject/SE2/SmartEditor2Skin.html",  
-	         htParams : {
-	             // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-	             bUseToolbar : true,             
 	
-	             // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-	             bUseVerticalResizer : true,     
-	
-	             // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-	             bUseModeChanger : true,         
-	             fOnBeforeUnload : function(){
-	             }
-	         }, 
-	         fOnAppLoad : function()
-	         {
-	             //기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-	             //oEditors.getById["ir1"].exec("PASTE_HTML", ["내용을 입력하세요. <br>(내용을 지우고 입력하시기 바랍니다.)"]);
-	         },
-	         fCreator: "createSEditor2"
-	     });      
 	
 	     //등록버튼 클릭시 form 전송
 	     $("#submitBtn").click(function()
@@ -93,7 +66,6 @@
 	    	 
 	        
 	     });  
-	});
 	
 
 

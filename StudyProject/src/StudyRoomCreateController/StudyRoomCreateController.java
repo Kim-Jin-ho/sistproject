@@ -27,16 +27,9 @@ public class StudyRoomCreateController implements Controller
 		
 		ArrayList<Shop> list = new ArrayList<Shop>();
 		
-		String shopId = request.getParameter("shopId");
-		System.out.println(shopId);
-		
 		try 
 		{
-			
-			
 			list = dao.list();
-		
-			
 			
 			
 			
@@ -46,8 +39,6 @@ public class StudyRoomCreateController implements Controller
 		}
 		
 		mav.addObject("list", list);
-		mav.addObject("shopId", shopId);
-		
 		mav.setViewName("WEB-INF/jsp/StudyRoom/StudyRoomCreate.jsp");
 		return mav;
 	}
