@@ -156,19 +156,11 @@
             <div class="owl-carousel">
                 <div class="single_testimonial text-center wow fadeInUp animated">
                     <p>Developer</p>
-                    <h4>준환</h4>
-                </div>
-                <div class="single_testimonial text-center">
-                    <p>Developer</p>
                     <h4>진호</h4>
                 </div>
                 <div class="single_testimonial text-center">
                     <p>Developer</p>
-                    <h4>유미</h4>
-                </div>
-                <div class="single_testimonial text-center">
-                    <p>Developer</p>
-                    <h4>아름</h4>
+                    <h4>진호</h4>
                 </div>
             </div>            
         </div>
